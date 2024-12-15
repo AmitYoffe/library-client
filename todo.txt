@@ -1,0 +1,7 @@
+general todos:
+1)
+2) 
+3) 
+4) 
+
++ add a login page by my design
