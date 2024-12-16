@@ -1,6 +1,6 @@
 general todos:
-1)
-2) 
+1) arrow funcs!
+2) login page 
 3) 
 4) 
 
