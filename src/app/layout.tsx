@@ -2,6 +2,7 @@ import { Header, SideBar } from "@/components/layout";
 import { theme } from "@/theme/theme";
 import { ThemeProvider } from "@mui/material";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -21,6 +22,8 @@ export const metadata: Metadata = {
   description: "ראה סרטים מכל הסוגים ;)",
 };
 
+const queryClient = new QueryClient();
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -29,13 +32,15 @@ export default function RootLayout({
   return (
     <html lang="en" dir="rtl">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <AppRouterCacheProvider>
-          <ThemeProvider theme={theme}>
-            <Header />
-            <SideBar />
-            {children}
-          </ThemeProvider>
-        </AppRouterCacheProvider>
+        <QueryClientProvider client={queryClient}>
+          <AppRouterCacheProvider>
+            <ThemeProvider theme={theme}>
+              <Header />
+              <SideBar />
+              {children}
+            </ThemeProvider>
+          </AppRouterCacheProvider>
+        </QueryClientProvider>
       </body>
     </html>
   );

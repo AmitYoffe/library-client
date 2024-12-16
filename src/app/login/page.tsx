@@ -10,6 +10,7 @@ import Typography from "@mui/material/Typography";
 import { useForm } from "react-hook-form";
 import { FormFields, loginSchema } from "./types/FormFields";
 import { LogInContainer, StyledCard } from "./styled";
+import { logUser } from "../api/logUser";
 
 export default function LogInPage() {
   const {
@@ -22,7 +23,7 @@ export default function LogInPage() {
 
   const onSubmit = async (data: FormFields) => {
     try {
-      await new Promise((resolve) => setTimeout(resolve, 800)); // make this the actual login logic
+      await logUser(data);
       console.log("Data: ", data);
     } catch (error) {
       console.log("Error: ", error);
@@ -44,15 +45,15 @@ export default function LogInPage() {
           }}
         >
           <FormControl>
-            <FormLabel htmlFor="email">אימייל</FormLabel>
+            <FormLabel htmlFor="username">שם משתמש</FormLabel>
             <TextField
-              {...register("email")}
-              error={!!errors.email}
-              helperText={errors.email?.message}
-              id="email"
-              type="email"
-              placeholder="your@email.com"
-              autoComplete="email"
+              {...register("username")}
+              error={!!errors.username}
+              helperText={errors.username?.message}
+              id="username"
+              type="username"
+              placeholder="השם המגניב והאישי שלי"
+              autoComplete="username"
               autoFocus
               required
               fullWidth
