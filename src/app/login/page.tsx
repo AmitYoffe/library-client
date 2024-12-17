@@ -1,4 +1,5 @@
 "use client";
+import { queryClient } from "@/components/layout/CustomQueryClientProvider";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CircularProgress } from "@mui/material";
 import Box from "@mui/material/Box";
@@ -9,12 +10,12 @@ import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
-import { useLogUser } from "../api/logUser";
+import { setAuthToken } from "../api/httpClient";
+import { useLogUser } from "../api/users/useLogUser";
 import { StyledCard, StyledLogInContainer } from "./styled";
 import { FormFields, loginSchema } from "./types/FormFields";
-import { setAuthToken } from "../api/httpClient";
 
-export default function LogInPage() {
+const LogInPage = () => {
   const {
     register,
     handleSubmit,
@@ -29,8 +30,14 @@ export default function LogInPage() {
   const onSubmit = async (data: FormFields) => {
     asyncLogUser(data, {
       onSuccess: () => {
-        setAuthToken(response?.data.access_token);
-        router.push("/");
+        const token = response?.data.access_token;
+        if (token) {
+          setAuthToken(token);
+          queryClient.invalidateQueries({ queryKey: ["writers"] });
+          router.push("/");
+        } else {
+          console.error("Token is missing in the response");
+        }
       },
       onError: (error) => {
         console.error("Error logging in: ", error);
@@ -96,6 +103,8 @@ export default function LogInPage() {
       </StyledCard>
     </StyledLogInContainer>
   );
-}
+};
+
+export default LogInPage;
 
 // read more about form groups and form control

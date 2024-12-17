@@ -1,9 +1,7 @@
 import React from "react";
 
-export default function BooksHomePage() {
-  return( 
-<div>
+const BooksHomePage = () => {
+  return <div></div>;
+};
 
-</div>
-);
-}
+export default BooksHomePage;

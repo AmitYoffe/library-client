@@ -1,5 +1,6 @@
 import { Header, SideBar } from "@/components/layout";
 import { CustomQueryClientProvider } from "@/components/layout/CustomQueryClientProvider";
+import { AuthProvider } from "@/contexts/AuthContext";
 import { theme } from "@/theme/theme";
 import { ThemeProvider } from "@mui/material";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
@@ -22,7 +23,6 @@ export const metadata: Metadata = {
   description: "ראה סרטים מכל הסוגים ;)",
 };
 
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -30,15 +30,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" dir="rtl">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable}`}
+        style={{ margin: 0 }}
+      >
         <AppRouterCacheProvider>
-          <ThemeProvider theme={theme}>
-            <CustomQueryClientProvider>
-              <Header />
-              <SideBar />
-              {children}
-            </CustomQueryClientProvider>
-          </ThemeProvider>
+          <AuthProvider>
+            <ThemeProvider theme={theme}>
+              <CustomQueryClientProvider>
+                <Header />
+                <SideBar />
+                {children}
+              </CustomQueryClientProvider>
+            </ThemeProvider>
+          </AuthProvider>
         </AppRouterCacheProvider>
       </body>
     </html>
