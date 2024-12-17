@@ -1,28 +1,16 @@
-import { useQuery } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
+import axios from "axios";
 import { FormFields } from "../login/types/FormFields";
 
 const Server_API = process.env.NEXT_PUBLIC_API_URL;
 
-export const logUser = async (formData: FormFields) => {
-//   try {
-//     const response = await fetch(`${Server_API}/user/login`, {
-//       method: "POST",
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify(formData),
-//     });
+export const useLogUser = () => {
+  const loginRoute = `${Server_API}/user/login`;
 
-//     if (!response.ok) {
-//       throw new Error("Network response was not ok");
-//     }
-
-//     return await response.json();
-//   } catch (error) {
-//     console.error("Error in signing of user:", error);
-//   }
+  return useMutation({
+    mutationFn: (formData: FormFields) => axios.post(loginRoute, formData),
+  });
 };
 
 // Todo:
-// 1) make use of react query
-// 2) catch received jwt and add it to the requests
+// 1) catch received jwt and add it to the requests

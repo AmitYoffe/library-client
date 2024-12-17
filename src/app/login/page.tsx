@@ -7,10 +7,11 @@ import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
+import { useLogUser } from "../api/logUser";
+import { StyledCard, StyledLogInContainer } from "./styled";
 import { FormFields, loginSchema } from "./types/FormFields";
-import { LogInContainer, StyledCard } from "./styled";
-import { logUser } from "../api/logUser";
 
 export default function LogInPage() {
   const {
@@ -21,19 +22,29 @@ export default function LogInPage() {
     resolver: zodResolver(loginSchema),
   });
 
+  const router = useRouter();
+  const {
+    mutateAsync: asyncLogUser,
+    data: response,
+  } = useLogUser();
+
   const onSubmit = async (data: FormFields) => {
-    try {
-      await logUser(data);
-      console.log("Data: ", data);
-    } catch (error) {
-      console.log("Error: ", error);
-    }
+    asyncLogUser(data, {
+      onSuccess: () => {
+        router.push("/");
+        // console.log("resData: ", response?.data.access_token);
+      },
+      onError: (error) => {
+        console.error("Error logging in: ", error);
+      },
+    });
   };
 
   return (
-    <LogInContainer>
+    <StyledLogInContainer>
       <StyledCard>
         <Typography variant="h4">התחברות</Typography>
+        {/* add system logo */}
         <Box
           component="form"
           onSubmit={handleSubmit(onSubmit)}
@@ -85,6 +96,8 @@ export default function LogInPage() {
           </Button>
         </Box>
       </StyledCard>
-    </LogInContainer>
+    </StyledLogInContainer>
   );
 }
+
+// read more about form groups and form control

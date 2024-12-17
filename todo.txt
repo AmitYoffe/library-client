@@ -1,7 +1,5 @@
 general todos:
 1) arrow funcs!
-2) login page 
+2) 
 3) 
 4) 
-
-+ add a login page by my design

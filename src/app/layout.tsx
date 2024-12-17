@@ -1,8 +1,8 @@
 import { Header, SideBar } from "@/components/layout";
+import { CustomQueryClientProvider } from "@/components/layout/CustomQueryClientProvider";
 import { theme } from "@/theme/theme";
 import { ThemeProvider } from "@mui/material";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -22,7 +22,6 @@ export const metadata: Metadata = {
   description: "ראה סרטים מכל הסוגים ;)",
 };
 
-const queryClient = new QueryClient();
 
 export default function RootLayout({
   children,
@@ -32,15 +31,15 @@ export default function RootLayout({
   return (
     <html lang="en" dir="rtl">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <QueryClientProvider client={queryClient}>
-          <AppRouterCacheProvider>
-            <ThemeProvider theme={theme}>
+        <AppRouterCacheProvider>
+          <ThemeProvider theme={theme}>
+            <CustomQueryClientProvider>
               <Header />
               <SideBar />
               {children}
-            </ThemeProvider>
-          </AppRouterCacheProvider>
-        </QueryClientProvider>
+            </CustomQueryClientProvider>
+          </ThemeProvider>
+        </AppRouterCacheProvider>
       </body>
     </html>
   );
