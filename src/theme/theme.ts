@@ -1,6 +1,12 @@
 "use client";
 import { createTheme } from "@mui/material";
+import { Secular_One } from "next/font/google";
 import { color } from "./palette";
+
+const secularOne = Secular_One({
+  weight: "400",
+  subsets: ["latin"],
+});
 
 export const theme = createTheme({
   palette: {
@@ -14,5 +20,8 @@ export const theme = createTheme({
       dark: color.gray[200],
     },
     // white
+  },
+  typography: {
+    fontFamily: secularOne.style.fontFamily,
   },
 });

@@ -11,7 +11,3 @@ export const useLogUser = () => {
     mutationFn: (formData: FormFields) => axios.post(loginRoute, formData),
   });
 };
-
-// Todo:
-// 1) add JWT to all outgoing requests
-// 2) refreshing page resets my JWT....
