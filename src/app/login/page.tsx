@@ -12,6 +12,7 @@ import { useForm } from "react-hook-form";
 import { useLogUser } from "../api/logUser";
 import { StyledCard, StyledLogInContainer } from "./styled";
 import { FormFields, loginSchema } from "./types/FormFields";
+import { setAuthToken } from "../api/httpClient";
 
 export default function LogInPage() {
   const {
@@ -23,16 +24,13 @@ export default function LogInPage() {
   });
 
   const router = useRouter();
-  const {
-    mutateAsync: asyncLogUser,
-    data: response,
-  } = useLogUser();
+  const { mutateAsync: asyncLogUser, data: response } = useLogUser();
 
   const onSubmit = async (data: FormFields) => {
     asyncLogUser(data, {
       onSuccess: () => {
+        setAuthToken(response?.data.access_token);
         router.push("/");
-        // console.log("resData: ", response?.data.access_token);
       },
       onError: (error) => {
         console.error("Error logging in: ", error);

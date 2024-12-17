@@ -14,3 +14,6 @@ export const useLogUser = () => {
 
 // Todo:
 // 1) catch received jwt and add it to the requests
+
+// read about axios instance,
+// to this i can add headers and all requests will use this axios instance
