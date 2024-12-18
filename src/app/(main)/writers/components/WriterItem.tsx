@@ -3,11 +3,11 @@ import Image from "next/image";
 import { Writer } from "../dtos/writer";
 import { StyledWriterItemContainer } from "./styled/StyledWriterItemContainer";
 
-type WriterItem = {
+type WriterItemType = {
   writer: Writer;
 };
 
-export const WriterItem = ({ writer }: WriterItem) => {
+export const WriterItem = ({ writer }: WriterItemType) => {
   return (
     <StyledWriterItemContainer>
       <Image

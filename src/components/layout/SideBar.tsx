@@ -25,3 +25,8 @@ export const SideBar = () => {
     </StyledSideBarBox>
   );
 };
+
+// selection of one of the buttons should show current page.
+// i can do this by either checking route
+// or remembering state of current click in their parent
+// (( first option is better i think ))

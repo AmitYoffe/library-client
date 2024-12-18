@@ -13,7 +13,6 @@ export const httpClient = axios.create({
 export const setAuthToken = (token: string | null) => {
   if (token) {
     httpClient.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-    console.log("Token set: ", token);
 
     Cookies.set("jwtToken", token, {
       expires: 7,
@@ -23,6 +22,5 @@ export const setAuthToken = (token: string | null) => {
     httpClient.defaults.headers.common[
       "Authorization"
     ] = `Bearer ${cookieToken}`;
-    console.log("Token set again: ", cookieToken);
   }
 };

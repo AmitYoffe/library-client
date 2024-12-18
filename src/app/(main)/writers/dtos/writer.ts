@@ -1,4 +1,4 @@
-import { Book } from "@/app/books/dtos/book";
+import { Book } from "../../books/dtos/book";
 
 export type Writer = {
   id: number;

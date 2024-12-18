@@ -1,9 +1,7 @@
 "use client";
 import { getAll } from "@/app/api/writers/writerMethods";
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid2";
 import { useEffect, useState } from "react";
-import { WriterItem } from "./components/WriterItem";
+import DataGrid from "../components/GridContainer";
 import { Writer } from "./dtos/writer";
 
 const WritersPage = () => {
@@ -19,24 +17,8 @@ const WritersPage = () => {
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error fetching writers</div>;
 
-  return (
-    <Box sx={{ flexGrow: 1 }}>
-      <Grid
-        container
-        sx={{
-          paddingTop: "90px",
-          paddingRight: "120px",
-          gap: 3,
-        }}
-      >
-        {writers.map((writer, index) => (
-          <Grid key={index}>
-            <WriterItem writer={writer} />
-          </Grid>
-        ))}
-      </Grid>
-    </Box>
-  );
+  return <DataGrid data={writers} />;
 };
+// todo: copy this page into Books, make sure i get books the same way
 
 export default WritersPage;
