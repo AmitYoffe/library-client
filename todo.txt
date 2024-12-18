@@ -1,6 +1,15 @@
 general todos:
-1) arrow funcs!
-2) fix login bug ( double click bug )
-3) find mutual components   
+1) fix login bug ( double click bug )
+
+2) arrow funcs!
+
+3) make sure that the file locations and structure in general is correct 
+
 4) -- find a way to use all colors in my theme, currently i use only some 
-5)
+
+5) find mutual components:
+    [ books/ writers grid containers ] , [ books/ writers Side Drawer ]
+
+6) Backend change:
+    Change the books count to not be a dynamic numebr that changes with every borrow or return, 
+    make it a static number. When i will need to check the amount of books in stock, then i will calculate it rhough the borrows. 

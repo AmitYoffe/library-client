@@ -6,12 +6,12 @@ import Button from "@mui/material/Button";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { setAuthToken } from "../api/httpClient";
 import { useLogUser } from "../api/users/useLogUser";
-import { StyledCard, StyledLogInContainer } from "./styled";
+import LoginHeader from "./components/LoginHeader";
+import { StyledCard, StyledLogInContainer } from "./components/styled";
 import { FormFields, loginSchema } from "./types/FormFields";
 
 const LogInPage = () => {
@@ -44,8 +44,7 @@ const LogInPage = () => {
   return (
     <StyledLogInContainer>
       <StyledCard>
-        <Typography variant="h4">התחברות</Typography>
-        {/* add system logo */}
+        <LoginHeader />
         <Box
           component="form"
           onSubmit={handleSubmit(onSubmit)}
@@ -87,12 +86,7 @@ const LogInPage = () => {
               variant="outlined"
             />
           </FormControl>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            disabled={isSubmitting}
-          >
+          <Button type="submit" variant="contained" disabled={isSubmitting}>
             {isSubmitting ? <CircularProgress /> : "התחבר"}
           </Button>
         </Box>

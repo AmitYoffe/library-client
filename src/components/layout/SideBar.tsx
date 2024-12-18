@@ -1,14 +1,27 @@
 "use client";
-import { Box } from "@mui/material";
 import { StyledSideBarBox } from "./styled/StyledSideBarBox";
 import Link from "next/link";
+import Image from "next/image";
 
 export const SideBar = () => {
   return (
     <StyledSideBarBox>
-      <Link href={"/"}>home page</Link>
-      <Link href={"/writers"}>writers</Link>
-      <Box>ICON3</Box>
+      <Link href={"/writers"}>
+        <Image
+          src={"/writerIcon.svg"}
+          alt={"cool ass writer icon"}
+          width={44}
+          height={44}
+        />
+      </Link>
+      <Link href={"/books"}>
+        <Image
+          src={"/bookIcon.svg"}
+          alt={"cool ass book icon"}
+          width={44}
+          height={44}
+        />
+      </Link>
     </StyledSideBarBox>
   );
 };

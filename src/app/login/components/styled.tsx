@@ -1,4 +1,4 @@
-import { Stack, styled } from "@mui/material";
+import { Box, Stack, styled } from "@mui/material";
 import MuiCard from "@mui/material/Card";
 
 export const StyledCard = styled(MuiCard)(({ theme }) => ({
@@ -42,4 +42,12 @@ export const StyledLogInContainer = styled(Stack)(({ theme }) => ({
     }),
     dir: "rtl",
   },
+}));
+
+export const StyledHeaderContainer = styled(Box)(({ theme }) => ({
+  display: "flex",
+  justifyContent: "space-between",
+  borderRadius: "8px",
+  padding: 6,
+  backgroundImage: `linear-gradient(to right, ${theme.palette.primary.dark} , white)`,
 }));
