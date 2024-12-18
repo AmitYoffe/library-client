@@ -13,12 +13,13 @@ export const theme = createTheme({
     primary: {
       main: color.pink[500],
       light: color.pink[300],
-      dark: color.pink[800],
+      dark: color.pink[600],
     },
     secondary: {
       main: color.gray[100],
       dark: color.gray[200],
     },
+    // ...color
     // white
   },
   typography: {

@@ -1,5 +1,4 @@
 "use client";
-import { queryClient } from "@/components/layout/CustomQueryClientProvider";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CircularProgress } from "@mui/material";
 import Box from "@mui/material/Box";
@@ -33,10 +32,7 @@ const LogInPage = () => {
         const token = response?.data.access_token;
         if (token) {
           setAuthToken(token);
-          queryClient.invalidateQueries({ queryKey: ["writers"] });
-          router.push("/");
-        } else {
-          console.error("Token is missing in the response");
+          router.push("/books");
         }
       },
       onError: (error) => {

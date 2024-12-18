@@ -6,14 +6,13 @@ import { StyledHeaderBox } from "./styled/StyledHeaderBox";
 export const Header = () => {
   return (
     <StyledHeaderBox>
-      <Typography>הספריה</Typography>
       <Image
-        src={"@public/systemIcon.svg"}
+        src={"/systemIcon.svg"}
         alt={"cool ass sifriya"}
-        width={50}
-        height={50}
+        width={42}
+        height={42}
       />
-      {/* <SystemIcon /> */}
+      <Typography fontSize={35}>הספריה</Typography>
     </StyledHeaderBox>
   );
 };

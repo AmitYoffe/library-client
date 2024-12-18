@@ -1,8 +1,8 @@
 "use client";
+import { getAll } from "@/app/api/writers/writerMethods";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid2";
 import { useEffect, useState } from "react";
-import { getAll } from "../api/writers/writerMethods";
 import { WriterItem } from "./components/WriterItem";
 import { Writer } from "./dtos/writer";
 

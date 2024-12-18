@@ -9,5 +9,5 @@ export const StyledSideBarBox = styled(Box)(({ theme }) => ({
   padding: 10,
   paddingTop: 80,
   gap: 14,
-  backgroundColor: theme.palette.primary.main,
+  backgroundColor: theme.palette.primary.dark,
 }));

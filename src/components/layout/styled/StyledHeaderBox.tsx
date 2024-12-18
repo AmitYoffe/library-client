@@ -6,9 +6,10 @@ export const StyledHeaderBox = styled(Box)(({ theme }) => ({
   width: "100%",
   justifyContent: "flex-start",
   alignItems: "center",
-  padding: 10,
+  padding: 5,
   gap: 18,
-  backgroundColor: theme.palette.primary.main,
+  backgroundColor: theme.palette.primary.dark,
   boxShadow: "1px 1px 3px gray",
   zIndex: 1,
+  color: "white",
 }));

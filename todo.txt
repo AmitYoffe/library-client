@@ -1,5 +1,6 @@
 general todos:
 1) arrow funcs!
-2) 
-3) 
-4) 
+2) fix login bug ( double click bug )
+3) find mutual components   
+4) -- find a way to use all colors in my theme, currently i use only some 
+5)
