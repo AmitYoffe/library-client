@@ -19,8 +19,10 @@ export const setAuthToken = (token: string | null) => {
       expires: 7,
     });
   } else {
-    delete httpClient.defaults.headers.common["Authorization"];
-    Cookies.remove("jwtToken");
-    console.log("Token removed");
+    const cookieToken = Cookies.get("jwtToken");
+    httpClient.defaults.headers.common[
+      "Authorization"
+    ] = `Bearer ${cookieToken}`;
+    console.log("Token set again: ", cookieToken);
   }
 };

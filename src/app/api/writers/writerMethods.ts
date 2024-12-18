@@ -1,4 +1,4 @@
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { httpClient } from "../httpClient";
 
 const Server_API = process.env.NEXT_PUBLIC_API_URL;

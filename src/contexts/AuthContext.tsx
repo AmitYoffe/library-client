@@ -1,38 +1,34 @@
 "use client";
-import React, { createContext, useContext, useEffect, useState } from "react";
+import { setAuthToken } from "@/app/api/httpClient";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
-import { setAuthToken } from "@/app/api/httpClient";
+import React, { createContext, useEffect } from "react";
 
-interface AuthContextType {
-  token: string | null;
+type AuthContextType = {
+  storedToken: string | undefined;
   logout: () => void;
-}
+};
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
-  const [token, setToken] = useState<string | null>(null);
   const router = useRouter();
+  const storedToken = Cookies.get("jwtToken");
+
+  const logout = () => {
+    router.push("/login");
+  };
 
   useEffect(() => {
-    const storedToken = Cookies.get("jwtToken");
     if (storedToken) {
-      setToken(storedToken);
-      setAuthToken(token);
+      setAuthToken(storedToken);
     } else {
       logout();
     }
   }, []);
 
-  const logout = () => {
-    setAuthToken(null);
-    setToken(null);
-    router.push("/login");
-  };
-
   return (
-    <AuthContext.Provider value={{ token, logout }}>
+    <AuthContext.Provider value={{ storedToken, logout }}>
       {children}
     </AuthContext.Provider>
   );
