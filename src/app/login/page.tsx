@@ -24,21 +24,19 @@ const LogInPage = () => {
   });
 
   const router = useRouter();
-  const { mutateAsync: asyncLogUser, data: response } = useLogUser();
+  const { mutateAsync: asyncLogUser } = useLogUser();
 
   const onSubmit = async (data: FormFields) => {
-    asyncLogUser(data, {
-      onSuccess: () => {
-        const token = response?.data.access_token;
-        if (token) {
-          setAuthToken(token);
-          router.push("/books");
-        }
-      },
-      onError: (error) => {
-        console.error("Error logging in: ", error);
-      },
-    });
+    try {
+      const response = await asyncLogUser(data);
+      const token = response?.data.access_token;
+      if (token) {
+        setAuthToken(token);
+        router.push("/books");
+      }
+    } catch (error) {
+      console.error("Error logging in: ", error);
+    }
   };
 
   return (
