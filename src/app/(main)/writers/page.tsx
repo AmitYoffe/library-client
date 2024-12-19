@@ -1,7 +1,7 @@
 "use client";
 import { getAll } from "@/app/api/writers/writerMethods";
 import { useEffect, useState } from "react";
-import DataGrid from "../components/GridContainer";
+import { GridContainer } from "../components/GridContainer";
 import { Writer } from "./dtos/writer";
 
 const WritersPage = () => {
@@ -17,8 +17,7 @@ const WritersPage = () => {
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error fetching writers</div>;
 
-  return <DataGrid data={writers} />;
+  return <GridContainer data={writers} title={"סופרים"} />;
 };
-// todo: copy this page into Books, make sure i get books the same way
 
 export default WritersPage;

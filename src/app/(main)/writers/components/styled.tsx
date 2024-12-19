@@ -4,8 +4,10 @@ export const StyledWriterItemContainer = styled(Box)(({ theme }) => ({
   display: "flex",
   backgroundColor: theme.palette.primary.light,
   alignItems: "center",
-  gap: 55,
-  padding: 16,
-  height: 68,
+  justifyContent: "space-between",
+  padding: 15,
+  margin: 18,
+  height: 60,
+  width: 285,
   borderRadius: "8px",
 }));

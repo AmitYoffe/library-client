@@ -3,7 +3,7 @@ import { Box, styled } from "@mui/material";
 export const StyledSideBarBox = styled(Box)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
-  position: "absolute",
+  position: "fixed",
   alignItems: "center",
   height: "100%",
   padding: 10,

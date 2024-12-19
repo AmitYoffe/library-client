@@ -14,7 +14,7 @@ export default function RootLayout({
   return (
     <AuthProvider>
       <html dir="rtl">
-        <body>{children}</body>
+        <body style={{ margin: 0 }}>{children}</body>
       </html>
     </AuthProvider>
   );

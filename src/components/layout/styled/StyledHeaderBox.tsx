@@ -2,7 +2,7 @@ import { Box, styled } from "@mui/material";
 
 export const StyledHeaderBox = styled(Box)(({ theme }) => ({
   display: "flex",
-  position: "absolute",
+  position: "fixed",
   width: "100%",
   justifyContent: "flex-start",
   alignItems: "center",
