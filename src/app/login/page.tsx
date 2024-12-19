@@ -47,11 +47,9 @@ const LogInPage = () => {
           component="form"
           onSubmit={handleSubmit(onSubmit)}
           noValidate
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            gap: 2,
-          }}
+          display={"flex"}
+          flexDirection={"column"}
+          gap={2}
         >
           <FormControl>
             <FormLabel htmlFor="username">שם משתמש</FormLabel>

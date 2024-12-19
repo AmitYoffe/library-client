@@ -1,5 +1,5 @@
 general todos:
-1) fix login bug ( double click bug )
+1) 
 
 2) arrow funcs!
 

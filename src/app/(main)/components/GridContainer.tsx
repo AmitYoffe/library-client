@@ -1,4 +1,4 @@
-import { Box, Typography, Grid2 } from "@mui/material";
+import { Box, Grid2, Typography } from "@mui/material";
 import { BookItem } from "../books/components/BookItem";
 import { Book } from "../books/dtos/book";
 import { WriterItem } from "../writers/components/WriterItem";
@@ -20,12 +20,7 @@ export function GridContainer({ data, title }: GridContainerProps) {
   }
 
   return (
-    <Box
-      sx={{
-        paddingX: "130px",
-        paddingTop: "80px",
-      }}
-    >
+    <Box paddingX={"130px"} paddingTop={"80px"}>
       <Typography fontSize={50}>{title}</Typography>
       <StyledGridContainer container spacing={2}>
         {data.map((dataItem, index) => (
