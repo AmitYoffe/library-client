@@ -7,9 +7,13 @@ general todos:
 
 4) -- find a way to use all colors in my theme, currently i use only some 
 
-5) find mutual components:
-    [ books/ writers grid containers ] , [ books/ writers Side Drawer ]
-
-6) Backend change:
+5) Backend change:
     Change the books count to not be a dynamic numebr that changes with every borrow or return, 
     make it a static number. When i will need to check the amount of books in stock, then i will calculate it rhough the borrows. 
+
+6) 
+
+7)
+-- make a user page that will let a user see his own borrows without (isAdmin = true) 
+-- the pages /books & /writers will be used only for admins
+-- 

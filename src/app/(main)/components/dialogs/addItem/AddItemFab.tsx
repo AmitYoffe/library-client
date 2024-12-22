@@ -1,22 +1,24 @@
 "use client";
+import { useAddBook, useAddWriter } from "@/app/api";
 import AddIcon from "@mui/icons-material/Add";
-import { TransitionProps } from "@mui/material/transitions";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { StyledFab } from "../../styled";
 import { AddItemFormDialog } from "./AddItemForm";
-
-// need to apply this!
-// const Transition = forwardRef(function Transition(
-//   props: TransitionProps & {
-//     children: ReactElement<any, any>;
-//   },
-//   ref: Ref<unknown>
-// ) {
-//   return <Slide direction="right" ref={ref} {...props} />;
-// });
+import { FormFields as BookFormFields } from "@/app/(main)/books/components/FormFields";
+import { FormFields as WriterFormFields } from "@/app/(main)/writers/components/FormFields";
 
 export function AddItemFab() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const isWritersPage = pathname === "/writers";
+
+  const addWriterMutation = useAddWriter();
+  const addBookMutation = useAddBook();
+
+  const currentMutation = isWritersPage ? addWriterMutation : addBookMutation;
+  const formFields = isWritersPage ? <WriterFormFields /> : <BookFormFields />;
+  const title = isWritersPage ? "סופר" : "ספר";
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -31,7 +33,13 @@ export function AddItemFab() {
       <StyledFab onClick={handleClickOpen}>
         <AddIcon />
       </StyledFab>
-      <AddItemFormDialog handleClose={handleClose} open={open} />
+      <AddItemFormDialog
+        handleClose={handleClose}
+        open={open}
+        currentMutation={currentMutation}
+        fields={formFields}
+        title={title}
+      />
     </>
   );
 }

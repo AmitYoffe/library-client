@@ -1,5 +1,7 @@
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { httpClient } from "../httpClient";
+import { Writer } from "@/app/(main)/writers/dtos/writer";
+import { queryClient } from "@/components/layout/CustomQueryClientProvider";
 
 const Server_API = process.env.NEXT_PUBLIC_API_URL;
 
@@ -30,7 +32,7 @@ const Server_API = process.env.NEXT_PUBLIC_API_URL;
 // };
 
 // export const getAll = () => useWriters("GET");
-export const getAll = () =>
+export const getAllWriters = () =>
   useQuery({
     queryKey: ["writers"],
     queryFn: () => httpClient.get(`${Server_API}/writers`),
@@ -40,3 +42,14 @@ export const getAll = () =>
 // export const create = () => useWriters("POST");
 // export const update = (id: number) => useWriters("PATCH", id);
 // export const removeOne = (id: number) => useWriters("DELETE", id);
+
+export const useAddWriter = () => {
+  return useMutation({
+    mutationFn: (writer: Writer) =>
+      httpClient.post(`${Server_API}/writers`, writer),
+
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["writers"] });
+    },
+  });
+};

@@ -18,9 +18,8 @@ export const theme = createTheme({
     secondary: {
       main: color.gray[100],
       dark: color.gray[200],
+      light: color.white,
     },
-    // ...color
-    // white
   },
   typography: {
     fontFamily: secularOne.style.fontFamily,

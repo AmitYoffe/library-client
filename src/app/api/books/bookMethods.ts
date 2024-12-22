@@ -1,10 +1,22 @@
-import { useQuery } from "@tanstack/react-query";
+import { Book } from "@/app/(main)/books/dtos/book";
+import { queryClient } from "@/components/layout/CustomQueryClientProvider";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { httpClient } from "../httpClient";
 
 const Server_API = process.env.NEXT_PUBLIC_API_URL;
 
-export const getAll = () =>
+export const getAllBooks = () =>
   useQuery({
     queryKey: ["books"],
     queryFn: () => httpClient.get(`${Server_API}/books`),
   });
+
+export const useAddBook = () => {
+  return useMutation({
+    mutationFn: (book: Book) => httpClient.post(`${Server_API}/books`, book),
+
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["books"] });
+    },
+  });
+};

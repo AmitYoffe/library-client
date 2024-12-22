@@ -1,12 +1,12 @@
 "use client";
-import { getAll } from "@/app/api/writers/writerMethods";
+import { getAllWriters } from "@/app/api/writers/writerMethods";
 import { useEffect, useState } from "react";
 import { GridContainer } from "../components/GridContainer";
 import { Writer } from "./dtos/writer";
 
 const WritersPage = () => {
   const [writers, setWriters] = useState<Writer[]>([]);
-  const { data, isLoading, error } = getAll();
+  const { data, isLoading, error } = getAllWriters();
 
   useEffect(() => {
     if (data) {

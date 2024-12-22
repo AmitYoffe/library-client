@@ -26,8 +26,8 @@ export const StyledInfoIconBox = styled(Box)(() => ({
   bottom: -42,
 }));
 
-export const StyledDefaultPicBox = styled(Box)(() => ({
-  backgroundColor: "lightgray",
+export const StyledDefaultPicBox = styled(Box)(({ theme }) => ({
+  backgroundColor: theme.palette.secondary.main,
   maxWidth: "110px",
   width: "200px",
   height: "100%",
