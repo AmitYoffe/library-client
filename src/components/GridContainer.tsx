@@ -1,14 +1,14 @@
 import { Box, Grid2, Typography } from "@mui/material";
-import { BookItem } from "../books/components/BookItem";
-import { Book } from "../books/dtos/book";
-import { WriterItem } from "../writers/components/WriterItem";
-import { Writer } from "../writers/dtos/writer";
-import { StyledGridContainer } from "./styled";
+import { BookItem } from "../app/(main)/books/components/BookItem";
+import { Book } from "../app/(main)/books/dtos/book";
+import { WriterItem } from "../app/(main)/writers/components/WriterItem";
+import { Writer } from "../app/(main)/writers/dtos/writer";
+import { StyledGridContainer } from "../app/(main)/components/styled";
 
-interface GridContainerProps {
+type GridContainerProps = {
   data: Writer[] | Book[];
   title: "סופרים" | "ספרים";
-}
+};
 
 function isWriter(dataItem: Writer | Book): boolean {
   return (dataItem as Writer).firstName !== undefined;

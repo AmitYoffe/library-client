@@ -1,7 +1,7 @@
 "use client";
 import { getAllBooks } from "@/app/api/books/bookMethods";
 import { useEffect, useState } from "react";
-import { GridContainer } from "../components/GridContainer";
+import { GridContainer } from "../../../components/GridContainer";
 import { Book } from "./dtos/book";
 
 const BooksHomePage = () => {

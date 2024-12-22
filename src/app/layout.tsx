@@ -1,4 +1,6 @@
 import { AuthProvider } from "@/contexts/AuthContext";
+import { theme } from "@/theme/theme";
+import { ThemeProvider } from "@mui/material";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -13,9 +15,11 @@ export default function RootLayout({
 }>) {
   return (
     <AuthProvider>
-      <html dir="rtl">
-        <body style={{ margin: 0 }}>{children}</body>
-      </html>
+      <ThemeProvider theme={theme}>
+        <html dir="rtl">
+          <body style={{ margin: 0 }}>{children}</body>
+        </html>
+      </ThemeProvider>
     </AuthProvider>
   );
 }

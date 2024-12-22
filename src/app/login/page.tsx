@@ -6,6 +6,7 @@ import Button from "@mui/material/Button";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import TextField from "@mui/material/TextField";
+import { decode, JwtPayload } from "jsonwebtoken";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { setAuthToken } from "../api/httpClient";
@@ -30,9 +31,15 @@ const LogInPage = () => {
     try {
       const response = await asyncLogUser(data);
       const token = response?.data.access_token;
+      const loggedUser = decode(token) as JwtPayload;
+
       if (token) {
         setAuthToken(token);
-        router.push("/books");
+        if (loggedUser?.isAdmin) {
+          router.push("/books");
+        } else {
+          router.push("/");
+        }
       }
     } catch (error) {
       console.error("Error logging in: ", error);

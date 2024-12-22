@@ -32,16 +32,16 @@ const Server_API = process.env.NEXT_PUBLIC_API_URL;
 // };
 
 // export const getAll = () => useWriters("GET");
+// export const getOne = (id: number) => useWriters("GET", id);
+// export const create = () => useWriters("POST");
+// export const update = (id: number) => useWriters("PATCH", id);
+// export const removeOne = (id: number) => useWriters("DELETE", id);
+
 export const getAllWriters = () =>
   useQuery({
     queryKey: ["writers"],
     queryFn: () => httpClient.get(`${Server_API}/writers`),
   });
-
-// export const getOne = (id: number) => useWriters("GET", id);
-// export const create = () => useWriters("POST");
-// export const update = (id: number) => useWriters("PATCH", id);
-// export const removeOne = (id: number) => useWriters("DELETE", id);
 
 export const useAddWriter = () => {
   return useMutation({

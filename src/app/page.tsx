@@ -1,16 +1,40 @@
+"use client";
+import { StyledRoutePageContainer, StyledTitle } from "@/components/styled";
+import { Grid2, Typography } from "@mui/material";
 import Image from "next/image";
+import { BookItem } from "./(main)/books/components/BookItem";
+import { Book } from "./(main)/books/dtos/book";
+import { StyledGridContainer } from "./(main)/components/styled";
 
 export default function Home() {
+  const userBorrows: Book[] = [
+    {
+      id: 1,
+      title: "Dark Romance With The Kaban",
+      count: 20,
+    },
+  ];
+
   return (
-    <>
-      <Image
-        src="/next.svg"
-        alt="Next.js logo"
-        width={180}
-        height={38}
-        priority
-      />
-      <p> Useless main page </p>
-    </>
+    <StyledRoutePageContainer>
+      <StyledTitle>
+        <Typography fontSize={40}>כל הספרים שאתה שואל כרגע:</Typography>
+        <Image
+          src={"/sad-emoji.gif"}
+          alt={"really sad emoji"}
+          // width={30}
+          // height={30}
+          width={1}
+          height={1}
+        />
+      </StyledTitle>
+      <StyledGridContainer container spacing={2}>
+        {userBorrows.map((book, index) => (
+          <Grid2 key={index}>
+            <BookItem book={book} />
+          </Grid2>
+        ))}
+      </StyledGridContainer>
+    </StyledRoutePageContainer>
   );
 }

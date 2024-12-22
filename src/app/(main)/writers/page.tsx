@@ -1,7 +1,7 @@
 "use client";
 import { getAllWriters } from "@/app/api/writers/writerMethods";
 import { useEffect, useState } from "react";
-import { GridContainer } from "../components/GridContainer";
+import { GridContainer } from "../../../components/GridContainer";
 import { Writer } from "./dtos/writer";
 
 const WritersPage = () => {
