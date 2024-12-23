@@ -1,21 +1,24 @@
 import { Typography } from "@mui/material";
 import Image from "next/image";
+import { ItemMenu } from "../../components/dialogs/itemMenu/ItemMenu";
 import { Book } from "../dtos/book";
 import DefaultPic from "./DefaultPic";
 import {
+  StyledBookCardActionArea,
   StyledBookInfoBox,
-  StyledBookItemContainer,
   StyledInfoIconBox,
 } from "./styled";
 
 type BookItemType = {
   book: Book;
+  toggleDrawer: (newOpen: boolean) => void;
+  open: boolean;
 };
 
-export const BookItem = ({ book }: BookItemType) => {
+export const BookItem = ({ book, toggleDrawer, open }: BookItemType) => {
   return (
     <>
-      <StyledBookItemContainer>
+      <StyledBookCardActionArea onClick={() => toggleDrawer(true)}>
         <DefaultPic />
         <StyledBookInfoBox>
           <Typography fontSize={18}>{book.title}</Typography>
@@ -33,7 +36,8 @@ export const BookItem = ({ book }: BookItemType) => {
             height={25}
           />
         </StyledInfoIconBox>
-      </StyledBookItemContainer>
+      </StyledBookCardActionArea>
+      <ItemMenu dataItem={book} open={open} toggleDrawer={toggleDrawer} />
     </>
   );
 };

@@ -1,7 +1,7 @@
 "use client";
 import { getAllBooks } from "@/app/api/books/bookMethods";
 import { useEffect, useState } from "react";
-import { GridContainer } from "../../../components/GridContainer";
+import { BooksGrid } from "./components/BooksGrid";
 import { Book } from "./dtos/book";
 
 const BooksHomePage = () => {
@@ -15,9 +15,9 @@ const BooksHomePage = () => {
   }, [data]);
 
   if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error fetching writers</div>;
+  if (error) return <div>Error fetching books</div>;
 
-  return <GridContainer data={books} title={"ספרים"} />;
+  return <BooksGrid books={books} title={"ספרים"} />;
 };
 
 export default BooksHomePage;

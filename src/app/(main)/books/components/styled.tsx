@@ -1,6 +1,6 @@
-import { Box, styled } from "@mui/material";
+import { Box, CardActionArea, styled } from "@mui/material";
 
-export const StyledBookItemContainer = styled(Box)(({ theme }) => ({
+export const StyledBookCardActionArea = styled(CardActionArea)(({ theme }) => ({
   display: "flex",
   backgroundColor: theme.palette.primary.light,
   alignItems: "center",
@@ -36,4 +36,11 @@ export const StyledDefaultPicBox = styled(Box)(({ theme }) => ({
   alignItems: "center",
   borderTopRightRadius: "8px",
   borderBottomRightRadius: "8px",
+}));
+
+export const StyledBookBorrowerRowBox = styled(Box)(() => ({
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center",
+  width: "100%",
 }));

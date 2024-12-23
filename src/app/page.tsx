@@ -22,16 +22,14 @@ export default function Home() {
         <Image
           src={"/sad-emoji.gif"}
           alt={"really sad emoji"}
-          // width={30}
-          // height={30}
-          width={1}
-          height={1}
+          width={30}
+          height={30}
         />
       </StyledTitle>
       <StyledGridContainer container spacing={2}>
         {userBorrows.map((book, index) => (
           <Grid2 key={index}>
-            <BookItem book={book} />
+            <BookItem book={book} toggleDrawer={() => {}} open={false} />
           </Grid2>
         ))}
       </StyledGridContainer>

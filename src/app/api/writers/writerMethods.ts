@@ -53,3 +53,9 @@ export const useAddWriter = () => {
     },
   });
 };
+
+export const getBooksByWriter = (writerId: number) =>
+  useQuery({
+    queryKey: ["writersOfBook"],
+    queryFn: () => httpClient.get(`${Server_API}/books/writer/${writerId}`),
+  });

@@ -1,19 +1,26 @@
 general todos:
 
-1) 
+1) make sure that the file locations and structure in general is correct 
 
 2) arrow funcs!
 
-3) make sure that the file locations and structure in general is correct 
+3) 
 
-4) Backend change:
-    Change the books count to not be a dynamic numebr that changes with every borrow or return, 
-    make it a static number. When i will need to check the amount of books in stock, then i will calculate it rhough the borrows. 
+4) 
 
 5) 
 
-6) 
+6) Backend change:
+    Change the books count to not be a dynamic numebr that changes with every borrow or return, 
+    make it a static number. When i will need to check the amount of books in stock, then i will calculate it rhough the borrows. 
 
 7) 
 
 -- Finish with popups
+
+
+
+
+Bugs to fix:
+1) Fix the drawer's data item bug where it doesnt chage on every new click of the gridItems on the page
+2) Fix initial error: GET http://localhost:3000/books 401 (Unauthorized), even though the logged user has all the necessary data   

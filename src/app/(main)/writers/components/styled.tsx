@@ -1,13 +1,22 @@
-import { Box, styled } from "@mui/material";
+import { Box, CardActionArea, styled } from "@mui/material";
 
-export const StyledWriterItemContainer = styled(Box)(({ theme }) => ({
+export const StyledWriterCardActionArea = styled(CardActionArea)(
+  ({ theme }) => ({
+    display: "flex",
+    backgroundColor: theme.palette.primary.light,
+    alignItems: "center",
+    justifyContent: "space-between",
+    padding: 15,
+    margin: 18,
+    height: 85,
+    width: 310,
+    borderRadius: "8px",
+  })
+);
+
+export const StyledBooksByWriterRowBox = styled(Box)(() => ({
   display: "flex",
-  backgroundColor: theme.palette.primary.light,
-  alignItems: "center",
   justifyContent: "space-between",
-  padding: 15,
-  margin: 18,
-  height: 60,
-  width: 285,
-  borderRadius: "8px",
+  alignItems: "center",
+  width: "100%",
 }));
