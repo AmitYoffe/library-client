@@ -22,5 +22,4 @@ general todos:
 
 
 Bugs to fix:
-1) Fix the drawer's data item bug where it doesnt chage on every new click of the gridItems on the page
-2) Fix initial error: GET http://localhost:3000/books 401 (Unauthorized), even though the logged user has all the necessary data   
+1) Fix initial error: GET http://localhost:3000/books 401 (Unauthorized), even though the logged user has all the necessary data   

@@ -1,5 +1,6 @@
 import { Box, Grid2, Typography } from "@mui/material";
 import { useState } from "react";
+import { ItemMenu } from "../../components/dialogs/itemMenu/ItemMenu";
 import { StyledGridContainer } from "../../components/styled";
 import { Book } from "../dtos/book";
 import { BookItem } from "./BookItem";
@@ -11,8 +12,13 @@ type BooksGridProps = {
 
 export function BooksGrid({ books, title }: BooksGridProps) {
   const [open, setOpen] = useState(false);
-  const toggleDrawer = (newOpen: boolean) => {
+  const [selectedBook, setSelectedBook] = useState<Book | null>(null);
+
+  const toggleDrawer = (newOpen: boolean, book?: Book) => {
     setOpen(newOpen);
+    if (book) {
+      setSelectedBook(book);
+    }
   };
 
   return (
@@ -21,10 +27,17 @@ export function BooksGrid({ books, title }: BooksGridProps) {
       <StyledGridContainer container spacing={2}>
         {books.map((book, index) => (
           <Grid2 key={index}>
-            <BookItem book={book} toggleDrawer={toggleDrawer} open={open} />
+            <BookItem book={book} toggleDrawer={toggleDrawer} />
           </Grid2>
         ))}
       </StyledGridContainer>
+      {selectedBook && (
+        <ItemMenu
+          dataItem={selectedBook}
+          open={open}
+          toggleDrawer={(newOpen) => toggleDrawer(newOpen)}
+        />
+      )}
     </Box>
   );
 }
