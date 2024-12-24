@@ -8,18 +8,27 @@ general todos:
 
 4) 
 
-5) 
+5) Terminate borrow popup
 
 6) Backend change:
     Change the books count to not be a dynamic numebr that changes with every borrow or return, 
     make it a static number. When i will need to check the amount of books in stock, then i will calculate it rhough the borrows. 
 
-7) 
-
--- Finish with popups
+7) add all the animation provided in the figma page ( נשמר בהצלחה + מוחק)
 
 
 
 
-Bugs to fix:
+12/24 missions:
 1) Fix initial error: GET http://localhost:3000/books 401 (Unauthorized), even though the logged user has all the necessary data   
+2) Delete item popup (1 for books and 1 for writers) 
+    a) make reactQuery function for it 
+    b) make the popup
+
+3) EditItem Popup (1 for books and 1 for writers)
+    a) make reactQuery function for it 
+    b) make the popup
+
+4) make 3 dots open menu with selection for 2 actions; deleteItem + editItem
+
+5) 

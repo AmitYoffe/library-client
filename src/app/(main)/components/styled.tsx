@@ -1,13 +1,14 @@
 import { Fab, styled } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 
+// make sure no more than 3 columns can be applied
 export const StyledGridContainer = styled(Grid)(() => ({
-  justifyContent: "space-around",
+  justifyContent: "flex-start",
   alignContent: "flex-start",
-  overflowY: "scroll",
+  padding: 8,
+  overflowY: "auto",
   height: "80vh",
   maxWidth: "1400px",
-  margin: "0 auto",
 }));
 
 export const StyledFab = styled(Fab)(({ theme }) => ({

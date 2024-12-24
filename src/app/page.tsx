@@ -26,10 +26,10 @@ export default function Home() {
           height={30}
         />
       </StyledTitle>
-      <StyledGridContainer container spacing={2}>
+      <StyledGridContainer container>
         {userBorrows.map((book, index) => (
           <Grid2 key={index}>
-            <BookItem book={book} toggleDrawer={() => {}} open={false} />
+            <BookItem book={book} toggleDrawer={() => {}} />
           </Grid2>
         ))}
       </StyledGridContainer>

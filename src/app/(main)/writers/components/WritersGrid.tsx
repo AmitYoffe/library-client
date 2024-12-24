@@ -1,4 +1,4 @@
-import { Box, Grid2, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { useState } from "react";
 import { ItemMenu } from "../../components/dialogs/itemMenu/ItemMenu";
 import { StyledGridContainer } from "../../components/styled";
@@ -24,11 +24,9 @@ export function WritersGrid({ writers, title }: WritersGridProps) {
   return (
     <Box paddingX={"130px"} paddingTop={"80px"}>
       <Typography fontSize={50}>{title}</Typography>
-      <StyledGridContainer container spacing={2}>
+      <StyledGridContainer container>
         {writers.map((writer, index) => (
-          <Grid2 key={index}>
-            <WriterItem writer={writer} toggleDrawer={toggleDrawer} />
-          </Grid2>
+          <WriterItem writer={writer} toggleDrawer={toggleDrawer} key={index} />
         ))}
       </StyledGridContainer>
       {selectedWriter && (
