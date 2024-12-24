@@ -15,7 +15,7 @@ export const setAuthToken = (token: string | null) => {
     httpClient.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
     Cookies.set("jwtToken", token, {
-      expires: 7,
+      expires: 1,
     });
   } else {
     const cookieToken = Cookies.get("jwtToken");

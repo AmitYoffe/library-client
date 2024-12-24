@@ -7,14 +7,14 @@ import { Book } from "./dtos/book";
 const BooksHomePage = () => {
   const [books, setBooks] = useState<Book[]>([]);
   const { data, isLoading, error } = getAllBooks();
-
+  
   useEffect(() => {
     if (data) {
       setBooks(data.data);
     }
   }, [data]);
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <div>Loading...</div>; // make use of Box not div, and apply it in a prettier way
   if (error) return <div>Error fetching books</div>;
 
   return <BooksGrid books={books} title={"ספרים"} />;

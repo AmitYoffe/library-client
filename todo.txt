@@ -4,7 +4,7 @@ general todos:
 
 2) arrow funcs!
 
-3) 
+3) check again all index.ts files
 
 4) 
 
@@ -20,7 +20,7 @@ general todos:
 
 
 12/24 missions:
-1) Fix initial error: GET http://localhost:3000/books 401 (Unauthorized), even though the logged user has all the necessary data   
+1) 
 2) Delete item popup (1 for books and 1 for writers) 
     a) make reactQuery function for it 
     b) make the popup

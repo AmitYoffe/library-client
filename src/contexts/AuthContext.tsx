@@ -3,7 +3,7 @@ import { setAuthToken } from "@/app/api/httpClient";
 import Cookies from "js-cookie";
 import { decode, JwtPayload } from "jsonwebtoken";
 import { usePathname, useRouter } from "next/navigation";
-import { createContext, ReactNode, useEffect, useState } from "react";
+import { createContext, ReactNode, useLayoutEffect, useState } from "react";
 
 type AuthContextType = {
   storedToken: string | undefined;
@@ -17,7 +17,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [storedToken, setStoredToken] = useState<string | undefined>(
     Cookies.get("jwtToken")
   );
-  const [loggedUser, setLoggedUser] = useState<JwtPayload | null>(null);
 
   const pathname = usePathname();
 
@@ -27,23 +26,18 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     router.push("/login");
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (storedToken) {
-      try {
-        const user = decode(storedToken) as JwtPayload;
-        setLoggedUser(user);
-        setAuthToken(storedToken);
+      const user = decode(storedToken) as JwtPayload;
+      setAuthToken(storedToken);
 
-        if (!user?.isAdmin && pathname !== "/login") {
-          router.push("/");
-        }
-      } catch (error) {
-        logout();
+      if (!user?.isAdmin && pathname !== "/login") {
+        router.push("/");
       }
     } else {
       logout();
     }
-  }, [storedToken, router]);
+  }, [storedToken]);
 
   return (
     <AuthContext.Provider value={{ storedToken, logout }}>
