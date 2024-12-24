@@ -1,13 +1,13 @@
 "use client";
-import { getAllBooks } from "@/app/api/books/bookMethods";
+import { useGetAllBooks } from "@/app/api/books/bookMethods";
 import { useEffect, useState } from "react";
 import { BooksGrid } from "./components/BooksGrid";
 import { Book } from "./dtos/book";
 
 const BooksHomePage = () => {
   const [books, setBooks] = useState<Book[]>([]);
-  const { data, isLoading, error } = getAllBooks();
-  
+  const { data, isLoading, error } = useGetAllBooks();
+
   useEffect(() => {
     if (data) {
       setBooks(data.data);

@@ -1,31 +1,31 @@
 import { Box, Typography } from "@mui/material";
 import Image from "next/image";
+import { Writer } from "../../dtos/writer";
 import { MoreActions } from "./MoreActions";
 import { StyledBox, StyledDefaultPicBox } from "./styled";
 
-type MenuHeaderProps = {
-  title: string;
-  writer?: string;
-  count?: string;
+type WriterMenuHeaderProps = {
+  writer: Writer;
 };
 
-export function MenuHeader({ title, writer, count }: MenuHeaderProps) {
+export function WriterMenuHeader({ writer }: WriterMenuHeaderProps) {
   return (
     <StyledBox>
       <StyledDefaultPicBox>
         <Image
-          src={writer ? "/questionMark.svg" : "/defaultProfilePic.svg"}
+          src={"/defaultProfilePic.svg"}
           alt="Default Icon"
           width={85}
           height={85}
         />
       </StyledDefaultPicBox>
       <Box>
-        <Typography fontSize={24}>{title}</Typography>
-        <Typography>{writer}</Typography>
-        <Typography>מס' עותקים: {count}</Typography>
+        <Typography
+          fontSize={24}
+        >{`${writer.firstName} ${writer.lastName}`}</Typography>
+        <Typography>מס' עותקים: {9}</Typography>
       </Box>
-      <MoreActions />
+      <MoreActions dataItem={writer} />
     </StyledBox>
   );
 }

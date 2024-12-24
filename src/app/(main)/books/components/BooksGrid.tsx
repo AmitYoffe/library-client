@@ -1,9 +1,9 @@
 import { Box, Typography } from "@mui/material";
 import { useState } from "react";
-import { ItemMenu } from "../../components/dialogs/itemMenu/ItemMenu";
 import { StyledGridContainer } from "../../components/styled";
 import { Book } from "../dtos/book";
 import { BookItem } from "./BookItem";
+import { BookDrawer } from "./drawer/BookDrawer";
 
 type BooksGridProps = {
   books: Book[];
@@ -14,11 +14,21 @@ export function BooksGrid({ books, title }: BooksGridProps) {
   const [open, setOpen] = useState(false);
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
 
-  const toggleDrawer = (newOpen: boolean, book?: Book) => {
-    setOpen(newOpen);
-    if (book) {
-      setSelectedBook(book);
-    }
+  // const toggleDrawer = (newOpen: boolean, book?: Book) => {
+  //   if (newOpen && book) {
+  //     setSelectedBook(book);
+  //   }
+  //   setOpen(newOpen);
+  // };
+
+  const handleOpenDrawer = (book: Book) => {
+    setSelectedBook(book);
+    setOpen(true);
+  };
+
+  const handleCloseDrawer = () => {
+    setOpen(false);
+    setSelectedBook(null);
   };
 
   return (
@@ -26,16 +36,18 @@ export function BooksGrid({ books, title }: BooksGridProps) {
       <Typography fontSize={50}>{title}</Typography>
       <StyledGridContainer container>
         {books.map((book, index) => (
-          <BookItem book={book} toggleDrawer={toggleDrawer} key={index} />
+          <BookItem
+            book={book}
+            toggleDrawer={() => handleOpenDrawer(book)}
+            key={index}
+          />
         ))}
       </StyledGridContainer>
-      {selectedBook && (
-        <ItemMenu
-          dataItem={selectedBook}
-          open={open}
-          toggleDrawer={(newOpen) => toggleDrawer(newOpen)}
-        />
-      )}
+      <BookDrawer
+        book={selectedBook}
+        open={open}
+        toggleDrawer={handleCloseDrawer}
+      />
     </Box>
   );
 }

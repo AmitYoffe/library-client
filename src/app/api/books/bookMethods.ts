@@ -5,13 +5,13 @@ import { httpClient } from "../httpClient";
 
 const Server_API = process.env.NEXT_PUBLIC_API_URL;
 
-export const getAllBooks = () =>
+export const useGetAllBooks = () =>
   useQuery({
     queryKey: ["books"],
     queryFn: () => httpClient.get(`${Server_API}/books`),
   });
 
-export const getBorrowers = (bookId: number) =>
+export const useGetBorrowers = (bookId: number) =>
   useQuery({
     queryKey: ["borrowers"],
     queryFn: () => httpClient.get(`${Server_API}/books/borrow/${bookId}`),
@@ -20,6 +20,16 @@ export const getBorrowers = (bookId: number) =>
 export const useAddBook = () => {
   return useMutation({
     mutationFn: (book: Book) => httpClient.post(`${Server_API}/books`, book),
+
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["books"] });
+    },
+  });
+};
+
+export const useDeleteBook = (bookId: number) => {
+  return useMutation({
+    mutationFn: () => httpClient.delete(`${Server_API}/books/${bookId}`),
 
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["books"] });

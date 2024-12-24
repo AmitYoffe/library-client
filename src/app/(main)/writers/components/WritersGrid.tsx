@@ -1,9 +1,9 @@
 import { Box, Typography } from "@mui/material";
 import { useState } from "react";
-import { ItemMenu } from "../../components/dialogs/itemMenu/ItemMenu";
 import { StyledGridContainer } from "../../components/styled";
 import { Writer } from "../dtos/writer";
 import { WriterItem } from "./WriterItem";
+import { WriterDrawer } from "./drawer/WriterDrawer";
 
 type WritersGridProps = {
   writers: Writer[];
@@ -15,10 +15,10 @@ export function WritersGrid({ writers, title }: WritersGridProps) {
   const [selectedWriter, setSelectedWriter] = useState<Writer | null>(null);
 
   const toggleDrawer = (newOpen: boolean, writer?: Writer) => {
-    setOpen(newOpen);
-    if (writer) {
+    if (newOpen && writer) {
       setSelectedWriter(writer);
     }
+    setOpen(newOpen);
   };
 
   return (
@@ -30,8 +30,8 @@ export function WritersGrid({ writers, title }: WritersGridProps) {
         ))}
       </StyledGridContainer>
       {selectedWriter && (
-        <ItemMenu
-          dataItem={selectedWriter}
+        <WriterDrawer
+          writer={selectedWriter}
           open={open}
           toggleDrawer={(newOpen) => toggleDrawer(newOpen)}
         />

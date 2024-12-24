@@ -1,4 +1,4 @@
-import { Box, CardActionArea, styled } from "@mui/material";
+import { Box, Card, CardActionArea, Dialog, styled } from "@mui/material";
 
 export const StyledBookCardActionArea = styled(CardActionArea)(({ theme }) => ({
   display: "flex",
@@ -43,4 +43,14 @@ export const StyledBookBorrowerRowBox = styled(Box)(() => ({
   justifyContent: "space-between",
   alignItems: "center",
   width: "100%",
+}));
+
+export const StyledDeleteDialogCard = styled(Card)(({ theme }) => ({
+  backgroundColor: theme.palette.primary.light,
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  gap: 40,
+  width: "430px",
+  padding: 26,
 }));

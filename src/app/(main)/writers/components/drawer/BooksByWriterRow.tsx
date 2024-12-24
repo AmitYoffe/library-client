@@ -1,6 +1,6 @@
+import { Book } from "@/app/(main)/books/dtos/book";
 import { Typography } from "@mui/material";
-import { Book } from "../../books/dtos/book";
-import { StyledBooksByWriterRowBox } from "./styled";
+import { StyledBooksByWriterRowBox } from "../styled";
 
 type BooksByWriterRowProps = {
   book: Book;

@@ -37,7 +37,7 @@ const Server_API = process.env.NEXT_PUBLIC_API_URL;
 // export const update = (id: number) => useWriters("PATCH", id);
 // export const removeOne = (id: number) => useWriters("DELETE", id);
 
-export const getAllWriters = () =>
+export const useGetAllWriters = () =>
   useQuery({
     queryKey: ["writers"],
     queryFn: () => httpClient.get(`${Server_API}/writers`),
@@ -54,7 +54,7 @@ export const useAddWriter = () => {
   });
 };
 
-export const getBooksByWriter = (writerId: number) =>
+export const useGetBooksByWriter = (writerId: number) =>
   useQuery({
     queryKey: ["writersOfBook"],
     queryFn: () => httpClient.get(`${Server_API}/books/writer/${writerId}`),

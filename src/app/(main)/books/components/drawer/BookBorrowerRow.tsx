@@ -2,7 +2,7 @@ import { User } from "@/app/api/users/dto/user";
 import { theme } from "@/theme/theme";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import { IconButton } from "@mui/material";
-import { StyledBookBorrowerRowBox } from "./styled";
+import { StyledBookBorrowerRowBox } from "../styled";
 
 type BookBorrowerRowProps = {
   user: User;

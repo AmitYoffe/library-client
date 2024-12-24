@@ -1,21 +1,18 @@
-import { getBorrowers } from "@/app/api";
 import { User } from "@/app/api/users/dto/user";
 import { Box, Divider, List, ListItem, Typography } from "@mui/material";
-import { useEffect, useState } from "react";
 import { BookBorrowerRow } from "./BookBorrowerRow";
 
 type BookBorrowersListProps = {
-  bookId: number;
+  borrowers: User[];
+  isLoading: boolean;
+  error: Error | null;
 };
 
-export function BookBorrowersList({ bookId }: BookBorrowersListProps) {
-  const [borrowers, setBorrowers] = useState<User[]>([]);
-  const { data, isLoading, error } = getBorrowers(bookId);
-
-  useEffect(() => {
-    setBorrowers(data?.data);
-  }, []);
-
+export function BookBorrowersList({
+  borrowers,
+  isLoading,
+  error,
+}: BookBorrowersListProps) {
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error fetching borrowers</div>;
 

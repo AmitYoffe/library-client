@@ -1,23 +1,21 @@
-import { getBooksByWriter } from "@/app/api";
+import { Book } from "@/app/(main)/books/dtos/book";
 import { Box, Divider, List, ListItem, Typography } from "@mui/material";
-import { useEffect, useState } from "react";
-import { Book } from "../../books/dtos/book";
 import { BooksByWriterRow } from "./BooksByWriterRow";
 
 type WriterBookListListProps = {
-  writerId: number;
+  books: Book[];
+  isLoading: boolean;
+  error: Error | null;
 };
 
-export function WriterBookList({ writerId }: WriterBookListListProps) {
-  const [books, setBooks] = useState<Book[]>([]);
-  const { data, isLoading, error } = getBooksByWriter(writerId);
+export function WriterBookList({
+  books,
+  isLoading,
+  error,
+}: WriterBookListListProps) {
 
-  useEffect(() => {
-    setBooks(data?.data);
-  }, []);
-
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error fetching books</div>;
+  if (isLoading) return <Box>Loading...</Box>;
+  if (error) return <Box>Error fetching books</Box>;
 
   return (
     <List>

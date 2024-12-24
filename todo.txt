@@ -20,13 +20,16 @@ general todos:
 
 
 12/24 missions:
-1) 
-2) Delete item popup (1 for books and 1 for writers) 
+1) if i still have issues with my drawer, turn it into a context
+
+2) Make sure deletion still works.
+
+3) Delete borrower popup
     a) make reactQuery function for it 
     b) make the popup
 
-3) EditItem Popup (1 for books and 1 for writers)
+4) EditItem Popup (1 for books and 1 for writers)
     a) make reactQuery function for it 
     b) make the popup
 
-4) 
+5) 

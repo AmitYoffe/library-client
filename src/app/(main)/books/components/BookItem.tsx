@@ -19,10 +19,8 @@ export const BookItem = ({ book, toggleDrawer }: BookItemType) => {
       <DefaultPic />
       <StyledBookInfoBox>
         <Typography fontSize={18}>{book.title}</Typography>
-        <Typography fontSize={12}>{"book.writer "}</Typography>
-        <Typography
-          fontSize={12}
-        >{`עותקים זמינים: ${book.count}`}</Typography>
+        <Typography fontSize={12}>{book.writerId}</Typography>
+        <Typography fontSize={12}>{`עותקים זמינים: ${book.count}`}</Typography>
       </StyledBookInfoBox>
       <StyledInfoIconBox>
         <Image
