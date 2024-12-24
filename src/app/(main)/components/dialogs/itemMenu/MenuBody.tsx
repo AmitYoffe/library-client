@@ -23,3 +23,5 @@ export function MenuBody({ dataItem }: MenuBodyProps) {
     </Box>
   );
 }
+
+// this is not really generic

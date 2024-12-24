@@ -1,6 +1,6 @@
-import MoreVertIcon from "@mui/icons-material/MoreVert";
-import { Box, IconButton, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import Image from "next/image";
+import { MoreActions } from "./MoreActions";
 import { StyledBox, StyledDefaultPicBox } from "./styled";
 
 type MenuHeaderProps = {
@@ -25,9 +25,7 @@ export function MenuHeader({ title, writer, count }: MenuHeaderProps) {
         <Typography>{writer}</Typography>
         <Typography>מס' עותקים: {count}</Typography>
       </Box>
-      <IconButton sx={{ height: "40px" }}>
-        <MoreVertIcon />
-      </IconButton>
+      <MoreActions />
     </StyledBox>
   );
 }

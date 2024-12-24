@@ -29,6 +29,4 @@ general todos:
     a) make reactQuery function for it 
     b) make the popup
 
-4) make 3 dots open menu with selection for 2 actions; deleteItem + editItem
-
-5) 
+4) 

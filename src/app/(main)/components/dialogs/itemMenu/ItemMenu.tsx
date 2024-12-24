@@ -3,9 +3,6 @@ import Divider from "@mui/material/Divider";
 import { MenuBody } from "./MenuBody";
 import { MenuHeader } from "./MenuHeader";
 
-// dataItem should change according to new selections,
-// currently it gets stuck on first value given to it
-
 type ItemMenuProps = {
   dataItem: Record<string, any>;
   toggleDrawer: (newOpen: boolean) => void;
@@ -15,11 +12,7 @@ type ItemMenuProps = {
 export function ItemMenu({ dataItem, toggleDrawer, open }: ItemMenuProps) {
   return (
     <Drawer open={open} onClose={() => toggleDrawer(false)}>
-      <Box
-        sx={{ width: 480 }}
-        role="presentation"
-        onClick={() => toggleDrawer(false)}
-      >
+      <Box sx={{ width: 480 }} role="presentation">
         <MenuHeader
           title={
             dataItem.title || `${dataItem.firstName}  ${dataItem.lastName}`

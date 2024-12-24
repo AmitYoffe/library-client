@@ -1,4 +1,4 @@
-import { Box, styled } from "@mui/material";
+import { Box, MenuItem, styled } from "@mui/material";
 
 export const StyledDefaultPicBox = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.secondary.main,
@@ -20,4 +20,14 @@ export const StyledMenuBox = styled(Box)(() => ({
   gap: 4,
   justifyContent: "center",
   alignItems: "center",
+}));
+
+export const StyledMenuItem = styled(MenuItem)(({ theme }) => ({
+  display: "flex",
+  backgroundColor: theme.palette.primary.light,
+  ":hover": {
+    backgroundColor: theme.palette.primary.main,
+  },
+  gap: 8,
+  justifyContent: "space-between",
 }));
