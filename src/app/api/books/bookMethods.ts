@@ -36,3 +36,14 @@ export const useDeleteBook = (bookId: number) => {
     },
   });
 };
+
+export const useEditBook = () => {
+  return useMutation({
+    mutationFn: (book: Book) =>
+      httpClient.patch(`${Server_API}/books/${book.id}`, book),
+
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["books"] });
+    },
+  });
+};

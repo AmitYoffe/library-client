@@ -69,5 +69,3 @@ export const useDeleteWriter = (writerId: number) => {
     },
   });
 };
-
-// logic in books works fine, writers not

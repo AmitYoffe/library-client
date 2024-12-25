@@ -7,7 +7,6 @@ export const StyledDefaultPicBox = styled(Box)(({ theme }) => ({
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  // marginLeft: 2,
 }));
 
 export const StyledBox = styled(Box)(() => ({

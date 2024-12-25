@@ -1,23 +1,23 @@
-import { useDeleteBook } from "@/app/api";
+import { StyledDeleteDialogCard } from "@/app/(main)/books/components/styled";
+import { useDeleteWriter } from "@/app/api";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import { Box, Button, Dialog, Typography } from "@mui/material";
 import { useState } from "react";
-import { StyledMenuItem } from "../../../components/dialogs/itemMenu/styled";
-import { Book } from "../../dtos/book";
-import { StyledDeleteDialogCard } from "../styled";
+import { StyledMenuItem } from "../../../../components/dialogs/itemMenu/styled";
+import { Writer } from "../../../dtos/writer";
 
-type DeleteBookProps = {
-  book: Book;
+type DeleteWriterProps = {
+  writer: Writer;
 };
 
-export function DeleteBookDialog({ book }: DeleteBookProps) {
+export function DeleteWriterDialog({ writer }: DeleteWriterProps) {
   const [open, setOpen] = useState(false);
 
   const handleClickCancel = () => {
     setOpen(false);
   };
 
-  const deleteMutation = useDeleteBook(book.id);
+  const deleteMutation = useDeleteWriter(writer.id);
 
   const handleClickAccept = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
@@ -40,7 +40,7 @@ export function DeleteBookDialog({ book }: DeleteBookProps) {
           <Typography fontSize={24}>
             האם אתה בטוח שברצונך למחוק את
             <br />
-            {book.title} ?
+            {writer.firstName} ?
           </Typography>
           <Box display={"flex"} gap={8}>
             <Button onClick={handleClickCancel} variant="contained">

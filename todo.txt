@@ -23,15 +23,15 @@ general todos:
 
 
 # # # # # # # # # # # # 
-Today (12/25) missions:
+Today (12/26) missions:
 # # # # # # # # # # # # 
 
-1)  EditItem Popup (1 for books and 1 for writers)
+1) EditWriter Popup
     a) make reactQuery function for it 
     b) make the popup
 
+2) fix onChange reload of UI when adding / editing item
 
-2) fix onChange reload of UI when adding item
 3) 
 
 4) 
