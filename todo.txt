@@ -26,13 +26,13 @@ general todos:
 Today (12/25) missions:
 # # # # # # # # # # # # 
 
-1) Make sure deletion still works.
-
-2) EditItem Popup (1 for books and 1 for writers)
+1)  EditItem Popup (1 for books and 1 for writers)
     a) make reactQuery function for it 
     b) make the popup
 
-3) fix onChange reload of UI when adding item
+
+2) fix onChange reload of UI when adding item
+3) 
 
 4) 
 

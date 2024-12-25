@@ -1,8 +1,8 @@
 import { Box, Typography } from "@mui/material";
 import Image from "next/image";
 import { Writer } from "../../dtos/writer";
-import { MoreActions } from "./MoreActions";
 import { StyledBox, StyledDefaultPicBox } from "./styled";
+import { MoreWriterActions } from "./MoreWriterActions";
 
 type WriterMenuHeaderProps = {
   writer: Writer;
@@ -25,7 +25,7 @@ export function WriterMenuHeader({ writer }: WriterMenuHeaderProps) {
         >{`${writer.firstName} ${writer.lastName}`}</Typography>
         <Typography>מס' עותקים: {9}</Typography>
       </Box>
-      <MoreActions dataItem={writer} />
+      <MoreWriterActions writer={writer} />
     </StyledBox>
   );
 }

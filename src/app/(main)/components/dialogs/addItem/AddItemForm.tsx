@@ -38,6 +38,8 @@ export function AddItemFormDialog({
     currentMutation.mutate(formJson, {
       onSuccess: () => {
         handleClose();
+        // call getAll func again on succes, to make UI rerender
+        // onAddItem(response.data);
       },
     });
   };

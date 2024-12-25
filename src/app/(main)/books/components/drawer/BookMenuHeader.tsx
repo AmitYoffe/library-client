@@ -1,12 +1,12 @@
+import { MoreBookActions } from "@/app/(main)/books/components/drawer/MoreBookActions";
 import { StyledBox } from "@/app/(main)/components/dialogs/itemMenu/styled";
-import { MoreActions } from "@/app/(main)/writers/components/drawer/MoreActions";
 import { StyledDefaultPicBox } from "@/app/(main)/writers/components/drawer/styled";
 import { Box, Typography } from "@mui/material";
 import Image from "next/image";
 import { Book } from "../../dtos/book";
 
 type BookMenuHeaderProps = {
-  book: Book | null;
+  book: Book;
 };
 
 export function BookMenuHeader({ book }: BookMenuHeaderProps) {
@@ -21,11 +21,11 @@ export function BookMenuHeader({ book }: BookMenuHeaderProps) {
         />
       </StyledDefaultPicBox>
       <Box>
-        <Typography fontSize={24}>{book?.title}</Typography>
+        <Typography fontSize={24}>{book.title}</Typography>
         {/* <Typography>{writer}</Typography> */}
-        <Typography>מס' עותקים: {book?.count}</Typography>
+        <Typography>מס' עותקים: {book.count}</Typography>
       </Box>
-      <MoreActions dataItem={book} />
+      <MoreBookActions book={book} />
     </StyledBox>
   );
 }

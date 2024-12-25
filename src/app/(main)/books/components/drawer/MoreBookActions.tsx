@@ -3,13 +3,14 @@ import ModeEditIcon from "@mui/icons-material/ModeEdit";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { Divider, IconButton, Menu } from "@mui/material";
 import { MouseEvent, useState } from "react";
-import { StyledMenuItem } from "./styled";
+import { StyledMenuItem } from "../../../writers/components/drawer/styled";
+import { Book } from "../../dtos/book";
 
 type MoreActionsProps = {
-  dataItem: Record<string, any> | null;
+  book: Book;
 };
 
-export function MoreActions({ dataItem }: MoreActionsProps) {
+export function MoreBookActions({ book }: MoreActionsProps) {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
@@ -32,7 +33,7 @@ export function MoreActions({ dataItem }: MoreActionsProps) {
           Edit
         </StyledMenuItem>
         <Divider />
-        <DeleteBookDialog book={dataItem} />
+        <DeleteBookDialog book={book} />
       </Menu>
     </>
   );

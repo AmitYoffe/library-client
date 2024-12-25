@@ -59,3 +59,15 @@ export const useGetBooksByWriter = (writerId: number) =>
     queryKey: ["writersOfBook"],
     queryFn: () => httpClient.get(`${Server_API}/books/writer/${writerId}`),
   });
+
+export const useDeleteWriter = (writerId: number) => {
+  return useMutation({
+    mutationFn: () => httpClient.delete(`${Server_API}/writers/${writerId}`),
+
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["writers"] });
+    },
+  });
+};
+
+// logic in books works fine, writers not

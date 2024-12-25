@@ -1,5 +1,6 @@
 "use client";
 import { useGetAllBooks } from "@/app/api/books/bookMethods";
+import { Box } from "@mui/material";
 import { useEffect, useState } from "react";
 import { BooksGrid } from "./components/BooksGrid";
 import { Book } from "./dtos/book";
@@ -14,8 +15,8 @@ const BooksHomePage = () => {
     }
   }, [data]);
 
-  if (isLoading) return <div>Loading...</div>; // make use of Box not div, and apply it in a prettier way
-  if (error) return <div>Error fetching books</div>;
+  if (isLoading) return <Box>Loading...</Box>; // make use of Box not div, and apply it in a prettier way
+  if (error) return <Box>Error fetching books</Box>;
 
   return <BooksGrid books={books} title={"ספרים"} />;
 };
