@@ -6,30 +6,36 @@ general todos:
 
 3) check again all index.ts files
 
-4) 
+4) Backend change:
+    Change the books count to not be a dynamic numebr that changes with every borrow or return, 
+    make it a static number. When i will need to check the amount of books in stock, then i will calculate it rhough the borrows. 
+ 
+    Delete borrower popup
+        a) make reactQuery function for it 
+        b) make the popup
 
 5) Terminate borrow popup
 
-6) Backend change:
-    Change the books count to not be a dynamic numebr that changes with every borrow or return, 
-    make it a static number. When i will need to check the amount of books in stock, then i will calculate it rhough the borrows. 
+6) add all the animation provided in the figma page ( נשמר בהצלחה + מוחק)
 
-7) add all the animation provided in the figma page ( נשמר בהצלחה + מוחק)
+7) 
 
 
 
+# # # # # # # # # # # # 
+Today (12/25) missions:
+# # # # # # # # # # # # 
 
-12/24 missions:
-1) if i still have issues with my drawer, turn it into a context
+1) Make sure deletion still works.
 
-2) Make sure deletion still works.
-
-3) Delete borrower popup
+2) EditItem Popup (1 for books and 1 for writers)
     a) make reactQuery function for it 
     b) make the popup
 
-4) EditItem Popup (1 for books and 1 for writers)
-    a) make reactQuery function for it 
-    b) make the popup
+3) fix onChange reload of UI when adding item
+
+4) 
 
 5) 
+
+6) 

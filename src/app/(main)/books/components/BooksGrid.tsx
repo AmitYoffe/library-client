@@ -14,13 +14,6 @@ export function BooksGrid({ books, title }: BooksGridProps) {
   const [open, setOpen] = useState(false);
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
 
-  // const toggleDrawer = (newOpen: boolean, book?: Book) => {
-  //   if (newOpen && book) {
-  //     setSelectedBook(book);
-  //   }
-  //   setOpen(newOpen);
-  // };
-
   const handleOpenDrawer = (book: Book) => {
     setSelectedBook(book);
     setOpen(true);
@@ -43,11 +36,13 @@ export function BooksGrid({ books, title }: BooksGridProps) {
           />
         ))}
       </StyledGridContainer>
-      <BookDrawer
-        book={selectedBook}
-        open={open}
-        toggleDrawer={handleCloseDrawer}
-      />
+      {selectedBook && (
+        <BookDrawer
+          book={selectedBook}
+          open={open}
+          toggleDrawer={handleCloseDrawer}
+        />
+      )}
     </Box>
   );
 }

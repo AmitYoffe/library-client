@@ -10,11 +10,11 @@ type WriterDrawerProps = {
   open: boolean;
 };
 
-export function WriterDrawer({
+export const WriterDrawer = ({
   writer,
   toggleDrawer,
   open,
-}: WriterDrawerProps) {
+}: WriterDrawerProps) => {
   return (
     <Drawer open={open} onClose={() => toggleDrawer(false)}>
       <Box sx={{ width: 480 }} role="presentation">
@@ -24,4 +24,4 @@ export function WriterDrawer({
       </Box>
     </Drawer>
   );
-}
+};

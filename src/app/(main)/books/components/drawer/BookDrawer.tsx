@@ -5,12 +5,12 @@ import { BookMenuBody } from "./BookMenuBody";
 import { BookMenuHeader } from "./BookMenuHeader";
 
 type BookDrawerProps = {
-  book: Book | null;
+  book: Book;
   toggleDrawer: (newOpen: boolean) => void;
   open: boolean;
 };
 
-export function BookDrawer({ book, toggleDrawer, open }: BookDrawerProps) {
+export const BookDrawer = ({ book, toggleDrawer, open }: BookDrawerProps) => {
   return (
     <Drawer open={open} onClose={() => toggleDrawer(false)}>
       <Box sx={{ width: 480 }} role="presentation">
@@ -20,5 +20,4 @@ export function BookDrawer({ book, toggleDrawer, open }: BookDrawerProps) {
       </Box>
     </Drawer>
   );
-}
-//  id: 2 = Gilboa "Rochelle
+};

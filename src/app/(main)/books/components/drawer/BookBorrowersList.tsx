@@ -8,11 +8,11 @@ type BookBorrowersListProps = {
   error: Error | null;
 };
 
-export function BookBorrowersList({
+export const BookBorrowersList = ({
   borrowers,
   isLoading,
   error,
-}: BookBorrowersListProps) {
+}: BookBorrowersListProps) => {
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error fetching borrowers</div>;
 
@@ -32,4 +32,4 @@ export function BookBorrowersList({
       )}
     </List>
   );
-}
+};

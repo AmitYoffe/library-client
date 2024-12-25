@@ -14,11 +14,14 @@ export function WritersGrid({ writers, title }: WritersGridProps) {
   const [open, setOpen] = useState(false);
   const [selectedWriter, setSelectedWriter] = useState<Writer | null>(null);
 
-  const toggleDrawer = (newOpen: boolean, writer?: Writer) => {
-    if (newOpen && writer) {
-      setSelectedWriter(writer);
-    }
-    setOpen(newOpen);
+  const handleOpenDrawer = (writer: Writer) => {
+    setSelectedWriter(writer);
+    setOpen(true);
+  };
+
+  const handleCloseDrawer = () => {
+    setOpen(false);
+    setSelectedWriter(null);
   };
 
   return (
@@ -26,14 +29,18 @@ export function WritersGrid({ writers, title }: WritersGridProps) {
       <Typography fontSize={50}>{title}</Typography>
       <StyledGridContainer container>
         {writers.map((writer, index) => (
-          <WriterItem writer={writer} toggleDrawer={toggleDrawer} key={index} />
+          <WriterItem
+            writer={writer}
+            toggleDrawer={() => handleOpenDrawer(writer)}
+            key={index}
+          />
         ))}
       </StyledGridContainer>
       {selectedWriter && (
         <WriterDrawer
           writer={selectedWriter}
           open={open}
-          toggleDrawer={(newOpen) => toggleDrawer(newOpen)}
+          toggleDrawer={handleCloseDrawer}
         />
       )}
     </Box>
