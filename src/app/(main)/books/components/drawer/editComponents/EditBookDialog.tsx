@@ -1,10 +1,10 @@
-import { StyledSubmitBtn } from "@/app/(main)/components/dialogs/addItem/styled";
-import { StyledMenuItem } from "@/app/(main)/components/dialogs/itemMenu/styled";
+import { StyledSubmitBtn } from "@/app/(main)/common/components/dialogs/addItem/styled";
+import { StyledMenuItem } from "@/app/(main)/common/components/styled";
 import { useEditBook } from "@/app/api";
 import ModeEditIcon from "@mui/icons-material/ModeEdit";
 import { Box, Button, Dialog, Typography } from "@mui/material";
 import { useState } from "react";
-import { Book } from "../../../dtos/book";
+import { Book } from "../../../../common/dto/book";
 import { StyledDeleteDialogCard } from "../../styled";
 import { EditBookFields } from "./EditBookFields";
 

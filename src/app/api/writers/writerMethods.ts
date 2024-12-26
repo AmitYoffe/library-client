@@ -1,6 +1,6 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { httpClient } from "../httpClient";
-import { Writer } from "@/app/(main)/writers/dtos/writer";
+import { Writer } from "@/app/(main)/common/dto/writer";
 import { queryClient } from "@/components/layout/CustomQueryClientProvider";
 
 const Server_API = process.env.NEXT_PUBLIC_API_URL;

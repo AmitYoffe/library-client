@@ -1,5 +1,5 @@
 import { StyledIdTypography } from "@/app/(main)/books/components/styled";
-import { Book } from "@/app/(main)/books/dtos/book";
+import { Book } from "@/app/(main)/common/dto/book";
 import { theme } from "@/theme/theme";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import { IconButton, Typography } from "@mui/material";

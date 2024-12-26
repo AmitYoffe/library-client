@@ -1,9 +1,9 @@
 import { BookBorrowersList } from "@/app/(main)/books/components/drawer/BookBorrowersList";
-import { StyledMenuBox } from "@/app/(main)/components/dialogs/itemMenu/styled";
+import { StyledMenuBox } from "@/app/(main)/common/components/styled";
 import { useGetBorrowers } from "@/app/api";
 import { User } from "@/app/api/users/dto/user";
 import { Box, Button, Typography } from "@mui/material";
-import { Book } from "../../dtos/book";
+import { Book } from "../../../common/dto/book";
 
 type BookMenuBodyProps = {
   book: Book;

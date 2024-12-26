@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import Image from "next/image";
-import { Writer } from "../dtos/writer";
+import { Writer } from "../../common/dto/writer";
 import { StyledWriterCardActionArea } from "./styled";
 
 type WriterItemType = {

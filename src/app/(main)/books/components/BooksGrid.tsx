@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import { useState } from "react";
-import { StyledGridContainer } from "../../components/styled";
-import { Book } from "../dtos/book";
+import { StyledGridContainer } from "../../common/components/styled";
+import { Book } from "../../common/dto/book";
 import { BookItem } from "./BookItem";
 import { BookDrawer } from "./drawer/BookDrawer";
 

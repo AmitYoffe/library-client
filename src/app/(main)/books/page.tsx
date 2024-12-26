@@ -3,7 +3,7 @@ import { useGetAllBooks } from "@/app/api/books/bookMethods";
 import { Box } from "@mui/material";
 import { useEffect, useState } from "react";
 import { BooksGrid } from "./components/BooksGrid";
-import { Book } from "./dtos/book";
+import { Book } from "../common/dto/book";
 
 const BooksHomePage = () => {
   const [books, setBooks] = useState<Book[]>([]);
@@ -15,7 +15,7 @@ const BooksHomePage = () => {
     }
   }, [data]);
 
-  if (isLoading) return <Box>Loading...</Box>; // make use of Box not div, and apply it in a prettier way
+  if (isLoading) return <Box>Loading...</Box>;
   if (error) return <Box>Error fetching books</Box>;
 
   return <BooksGrid books={books} title={"ספרים"} />;

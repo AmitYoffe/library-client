@@ -1,11 +1,11 @@
 import { MoreBookActions } from "@/app/(main)/books/components/drawer/MoreBookActions";
-import { StyledBox } from "@/app/(main)/components/dialogs/itemMenu/styled";
+import { StyledBox } from "@/app/(main)/common/components/styled";
+import { Writer } from "@/app/(main)/common/dto/writer";
 import { StyledDefaultPicBox } from "@/app/(main)/writers/components/drawer/styled";
-import { Writer } from "@/app/(main)/writers/dtos/writer";
 import { useGetWriterByBook } from "@/app/api";
 import { Box, Typography } from "@mui/material";
 import Image from "next/image";
-import { Book } from "../../dtos/book";
+import { Book } from "../../../common/dto/book";
 
 type BookMenuHeaderProps = {
   book: Book;

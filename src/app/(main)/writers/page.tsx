@@ -3,7 +3,7 @@ import { useGetAllWriters } from "@/app/api/writers/writerMethods";
 import { Box } from "@mui/material";
 import { useEffect, useState } from "react";
 import { WritersGrid } from "./components/WritersGrid";
-import { Writer } from "./dtos/writer";
+import { Writer } from "../common/dto/writer";
 
 const WritersPage = () => {
   const [writers, setWriters] = useState<Writer[]>([]);

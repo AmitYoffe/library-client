@@ -1,5 +1,5 @@
 import { useGetAllWriters } from "@/app/api";
-import { Book } from "../../../dtos/book";
+import { Book } from "../../../../common/dto/book";
 import { StyledTextField } from "./styled";
 import {
   Select,
@@ -9,7 +9,7 @@ import {
   SelectChangeEvent,
 } from "@mui/material";
 import { useState } from "react";
-import { Writer } from "@/app/(main)/writers/dtos/writer";
+import { Writer } from "@/app/(main)/common/dto/writer";
 
 type EditBookFieldsProps = {
   book: Book;

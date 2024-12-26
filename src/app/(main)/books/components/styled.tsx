@@ -1,11 +1,4 @@
-import {
-  Box,
-  Card,
-  CardActionArea,
-  Dialog,
-  styled,
-  Typography,
-} from "@mui/material";
+import { Box, Card, CardActionArea, styled, Typography } from "@mui/material";
 
 export const StyledBookCardActionArea = styled(CardActionArea)(({ theme }) => ({
   display: "flex",

@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material";
 import Image from "next/image";
-import { Book } from "../dtos/book";
+import { Book } from "../../common/dto/book";
 import { DefaultPic } from "./DefaultPic";
 import {
   StyledBookCardActionArea,

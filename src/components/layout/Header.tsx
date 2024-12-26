@@ -1,4 +1,4 @@
-"use client"; // move this higher up in the future
+"use client";
 import { Typography } from "@mui/material";
 import Image from "next/image";
 import { StyledHeaderBox } from "./styled/StyledHeaderBox";

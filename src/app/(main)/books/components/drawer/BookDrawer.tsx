@@ -1,6 +1,6 @@
 import { Box, Drawer } from "@mui/material";
 import Divider from "@mui/material/Divider";
-import { Book } from "../../dtos/book";
+import { Book } from "../../../common/dto/book";
 import { BookMenuBody } from "./BookMenuBody";
 import { BookMenuHeader } from "./BookMenuHeader";
 

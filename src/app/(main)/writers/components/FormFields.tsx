@@ -1,4 +1,4 @@
-import { StyledTextField } from "../../components/dialogs/addItem/styled";
+import { StyledTextField } from "../../common/components/dialogs/addItem/styled";
 
 export const FormFields = () => {
   return (

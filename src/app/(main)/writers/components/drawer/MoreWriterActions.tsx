@@ -1,7 +1,7 @@
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { Divider, IconButton, Menu } from "@mui/material";
 import { MouseEvent, useState } from "react";
-import { Writer } from "../../dtos/writer";
+import { Writer } from "../../../common/dto/writer";
 import { DeleteWriterDialog } from "./deleteComponents/DeleteWriterDialog";
 import { EditWriterDialog } from "./editComponents/EditWriterDialog";
 

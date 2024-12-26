@@ -1,10 +1,10 @@
-import { StyledSubmitBtn } from "@/app/(main)/components/dialogs/addItem/styled";
+import { StyledSubmitBtn } from "@/app/(main)/common/components/dialogs/addItem/styled";
+import { StyledMenuItem } from "@/app/(main)/common/components/styled";
 import { useEditWriter } from "@/app/api";
 import ModeEditIcon from "@mui/icons-material/ModeEdit";
 import { Box, Button, Dialog } from "@mui/material";
 import { useState } from "react";
-import { Writer } from "../../../dtos/writer";
-import { StyledMenuItem } from "../styled";
+import { Writer } from "../../../../common/dto/writer";
 import { EditWriterFields } from "./EditWriterFields";
 
 type EditWriterDialogProps = {

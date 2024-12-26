@@ -1,4 +1,4 @@
-import { Book } from "@/app/(main)/books/dtos/book";
+import { Book } from "@/app/(main)/common/dto/book";
 import { Box, Divider, List, ListItem, Typography } from "@mui/material";
 import { BooksByWriterRow } from "./BooksByWriterRow";
 

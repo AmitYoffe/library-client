@@ -1,10 +1,10 @@
 import { StyledDeleteDialogCard } from "@/app/(main)/books/components/styled";
+import { StyledMenuItem } from "@/app/(main)/components/styled";
 import { useDeleteWriter } from "@/app/api";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import { Box, Button, Dialog, Typography } from "@mui/material";
 import { useState } from "react";
-import { StyledMenuItem } from "../../../../components/dialogs/itemMenu/styled";
-import { Writer } from "../../../dtos/writer";
+import { Writer } from "../../../../common/dto/writer";
 
 type DeleteWriterProps = {
   writer: Writer;

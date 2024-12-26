@@ -18,7 +18,7 @@ general todos:
 
 6) add all the animation provided in the figma page ( נשמר בהצלחה + מוחק)
 
-7) apply react-hook-form & zod for the rest of my forms 
+7) 
 
 
 
@@ -30,7 +30,7 @@ Today (12/26) missions:
 
 2) resort style and index files
 
-3) 
+3) apply react-hook-form & zod for the rest of my forms 
 
 4) 
 

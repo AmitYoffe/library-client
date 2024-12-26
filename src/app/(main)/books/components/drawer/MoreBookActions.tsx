@@ -2,7 +2,7 @@ import { DeleteBookDialog } from "@/app/(main)/books/components/drawer/deleteCom
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { Divider, IconButton, Menu } from "@mui/material";
 import { MouseEvent, useState } from "react";
-import { Book } from "../../dtos/book";
+import { Book } from "../../../common/dto/book";
 import { EditBookDialog } from "./editComponents/EditBookDialog";
 
 type MoreActionsProps = {

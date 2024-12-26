@@ -1,4 +1,4 @@
-import { Book } from "@/app/(main)/books/dtos/book";
+import { Book } from "@/app/(main)/common/dto/book";
 import { queryClient } from "@/components/layout/CustomQueryClientProvider";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { httpClient } from "../httpClient";

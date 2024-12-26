@@ -15,7 +15,7 @@ export const AddItemFab = () => {
 
   const addWriterMutation = useAddWriter();
   const addBookMutation = useAddBook();
-
+  // this isn't really generic
   const currentMutation = isWritersPage ? addWriterMutation : addBookMutation;
   const formFields = isWritersPage ? <WriterFormFields /> : <BookFormFields />;
   const title = isWritersPage ? "סופר" : "ספר";

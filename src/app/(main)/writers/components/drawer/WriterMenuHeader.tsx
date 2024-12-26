@@ -1,8 +1,9 @@
 import { Box, Typography } from "@mui/material";
 import Image from "next/image";
-import { Writer } from "../../dtos/writer";
-import { StyledBox, StyledDefaultPicBox } from "./styled";
+import { Writer } from "../../../common/dto/writer";
 import { MoreWriterActions } from "./MoreWriterActions";
+import { StyledBox } from "@/app/(main)/components/styled";
+import { StyledDefaultPicBox } from "./styled";
 
 type WriterMenuHeaderProps = {
   writer: Writer;

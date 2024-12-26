@@ -1,9 +1,9 @@
+import { StyledMenuItem } from "@/app/(main)/common/components/styled";
 import { useDeleteBook } from "@/app/api";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import { Box, Button, Dialog, Typography } from "@mui/material";
 import { useState } from "react";
-import { StyledMenuItem } from "../../../../components/dialogs/itemMenu/styled";
-import { Book } from "../../../dtos/book";
+import { Book } from "../../../../common/dto/book";
 import { StyledDeleteDialogCard } from "../../styled";
 
 type DeleteBookProps = {

@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import { useState } from "react";
 import { StyledGridContainer } from "../../components/styled";
-import { Writer } from "../dtos/writer";
+import { Writer } from "../../common/dto/writer";
 import { WriterItem } from "./WriterItem";
 import { WriterDrawer } from "./drawer/WriterDrawer";
 

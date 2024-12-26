@@ -3,7 +3,7 @@ import { StyledRoutePageContainer, StyledTitle } from "@/components/styled";
 import { Grid2, Typography } from "@mui/material";
 import Image from "next/image";
 import { BookItem } from "./(main)/books/components/BookItem";
-import { Book } from "./(main)/books/dtos/book";
+import { Book } from "./(main)/common/dto/book";
 import { StyledGridContainer } from "./(main)/components/styled";
 
 export default function Home() {

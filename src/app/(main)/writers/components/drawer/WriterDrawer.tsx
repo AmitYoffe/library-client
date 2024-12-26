@@ -1,6 +1,6 @@
 import { Box, Drawer } from "@mui/material";
 import Divider from "@mui/material/Divider";
-import { Writer } from "../../dtos/writer";
+import { Writer } from "../../../common/dto/writer";
 import { WriterMenuBody } from "./WriterMenuBody";
 import { WriterMenuHeader } from "./WriterMenuHeader";
 

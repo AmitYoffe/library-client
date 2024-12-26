@@ -1,5 +1,5 @@
 import { TextField } from "@mui/material";
-import { Writer } from "../../../dtos/writer";
+import { Writer } from "../../../../common/dto/writer";
 
 type EditWriterFieldsProps = {
   writer: Writer;
