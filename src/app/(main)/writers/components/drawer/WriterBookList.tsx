@@ -8,12 +8,11 @@ type WriterBookListListProps = {
   error: Error | null;
 };
 
-export function WriterBookList({
+export const WriterBookList = ({
   books,
   isLoading,
   error,
-}: WriterBookListListProps) {
-
+}: WriterBookListListProps) => {
   if (isLoading) return <Box>Loading...</Box>;
   if (error) return <Box>Error fetching books</Box>;
 
@@ -33,4 +32,4 @@ export function WriterBookList({
       )}
     </List>
   );
-}
+};

@@ -10,7 +10,7 @@ type DeleteBookProps = {
   book: Book;
 };
 
-export function DeleteBookDialog({ book }: DeleteBookProps) {
+export const DeleteBookDialog = ({ book }: DeleteBookProps) => {
   const [open, setOpen] = useState(false);
 
   const handleClickCancel = () => {
@@ -54,4 +54,4 @@ export function DeleteBookDialog({ book }: DeleteBookProps) {
       </Dialog>
     </>
   );
-}
+};

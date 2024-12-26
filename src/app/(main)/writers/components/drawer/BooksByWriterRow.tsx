@@ -9,7 +9,7 @@ type BooksByWriterRowProps = {
   book: Book;
 };
 
-export function BooksByWriterRow({ book }: BooksByWriterRowProps) {
+export const BooksByWriterRow = ({ book }: BooksByWriterRowProps) => {
   return (
     <>
       <StyledBooksByWriterRowBox>
@@ -26,4 +26,4 @@ export function BooksByWriterRow({ book }: BooksByWriterRowProps) {
       </IconButton>
     </>
   );
-}
+};

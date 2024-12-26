@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { StyledDefaultPicBox } from "./styled";
 
-export default function DefaultPic() {
+export const DefaultPic = () => {
   return (
     <StyledDefaultPicBox>
       <Image
@@ -12,4 +12,4 @@ export default function DefaultPic() {
       />
     </StyledDefaultPicBox>
   );
-}
+};

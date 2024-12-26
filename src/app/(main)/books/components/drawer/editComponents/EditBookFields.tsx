@@ -15,7 +15,7 @@ type EditBookFieldsProps = {
   book: Book;
 };
 
-export function EditBookFields({ book }: EditBookFieldsProps) {
+export const EditBookFields = ({ book }: EditBookFieldsProps) => {
   const { data } = useGetAllWriters();
   const writers = data?.data;
 
@@ -56,6 +56,6 @@ export function EditBookFields({ book }: EditBookFieldsProps) {
       />
     </>
   );
-}
+};
 
 // add zod errors here

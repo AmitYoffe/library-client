@@ -1,6 +1,6 @@
 import { StyledTextField } from "../../components/dialogs/addItem/styled";
 
-export function FormFields() {
+export const FormFields = () => {
   return (
     <>
       <StyledTextField
@@ -24,4 +24,4 @@ export function FormFields() {
       />
     </>
   );
-}
+};

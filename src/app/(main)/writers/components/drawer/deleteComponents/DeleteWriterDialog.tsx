@@ -10,7 +10,7 @@ type DeleteWriterProps = {
   writer: Writer;
 };
 
-export function DeleteWriterDialog({ writer }: DeleteWriterProps) {
+export const DeleteWriterDialog = ({ writer }: DeleteWriterProps) => {
   const [open, setOpen] = useState(false);
 
   const handleClickCancel = () => {
@@ -54,4 +54,4 @@ export function DeleteWriterDialog({ writer }: DeleteWriterProps) {
       </Dialog>
     </>
   );
-}
+};

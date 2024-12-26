@@ -9,7 +9,7 @@ type BookMenuBodyProps = {
   book: Book;
 };
 
-export function BookMenuBody({ book }: BookMenuBodyProps) {
+export const BookMenuBody = ({ book }: BookMenuBodyProps) => {
   const { data, isLoading, error } = useGetBorrowers(book.id);
   const borrowers: User[] = data?.data || [];
 
@@ -26,4 +26,4 @@ export function BookMenuBody({ book }: BookMenuBodyProps) {
       />
     </Box>
   );
-}
+};

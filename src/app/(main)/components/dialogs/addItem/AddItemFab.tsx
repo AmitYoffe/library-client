@@ -8,7 +8,7 @@ import { AddItemFormDialog } from "./AddItemForm";
 import { FormFields as BookFormFields } from "@/app/(main)/books/components/FormFields";
 import { FormFields as WriterFormFields } from "@/app/(main)/writers/components/FormFields";
 
-export function AddItemFab() {
+export const AddItemFab = () => {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const isWritersPage = pathname === "/writers";
@@ -42,4 +42,4 @@ export function AddItemFab() {
       />
     </>
   );
-}
+};

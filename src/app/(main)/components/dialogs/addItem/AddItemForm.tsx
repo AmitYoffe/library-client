@@ -23,13 +23,13 @@ type AddItemFormDialogProps = {
   title: string;
 };
 
-export function AddItemFormDialog({
+export const AddItemFormDialog = ({
   open,
   handleClose,
   currentMutation,
   fields,
   title,
-}: AddItemFormDialogProps) {
+}: AddItemFormDialogProps) => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
@@ -70,4 +70,4 @@ export function AddItemFormDialog({
       </StyledFormDialog>
     </Dialog>
   );
-}
+};

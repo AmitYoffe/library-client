@@ -3,7 +3,7 @@ import React from "react";
 import Image from "next/image";
 import { StyledHeaderContainer } from "./styled";
 
-export default function LoginHeader() {
+export const LoginHeader = () => {
   return (
     <StyledHeaderContainer>
       <Typography variant="h4">התחברות</Typography>
@@ -15,4 +15,4 @@ export default function LoginHeader() {
       />
     </StyledHeaderContainer>
   );
-}
+};

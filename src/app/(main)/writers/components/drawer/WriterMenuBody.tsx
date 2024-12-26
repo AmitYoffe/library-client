@@ -9,7 +9,7 @@ type WriterMenuBodyProps = {
   writer: Writer;
 };
 
-export function WriterMenuBody({ writer }: WriterMenuBodyProps) {
+export const WriterMenuBody = ({ writer }: WriterMenuBodyProps) => {
   const { data, isLoading, error } = useGetBooksByWriter(writer.id);
   const books: Book[] = data?.data || [];
 
@@ -22,4 +22,4 @@ export function WriterMenuBody({ writer }: WriterMenuBodyProps) {
       <WriterBookList books={books} isLoading={isLoading} error={error} />
     </Box>
   );
-}
+};

@@ -9,7 +9,7 @@ type MoreActionsProps = {
   book: Book;
 };
 
-export function MoreBookActions({ book }: MoreActionsProps) {
+export const MoreBookActions = ({ book }: MoreActionsProps) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
@@ -27,10 +27,10 @@ export function MoreBookActions({ book }: MoreActionsProps) {
         <MoreVertIcon />
       </IconButton>
       <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
-        <EditBookDialog book={book}/>
+        <EditBookDialog book={book} />
         <Divider />
         <DeleteBookDialog book={book} />
       </Menu>
     </>
   );
-}
+};

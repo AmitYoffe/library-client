@@ -1,12 +1,12 @@
 import { Typography } from "@mui/material";
 import Image from "next/image";
-import DefaultPic from "./DefaultPic";
+import { Book } from "../dtos/book";
+import { DefaultPic } from "./DefaultPic";
 import {
   StyledBookCardActionArea,
   StyledBookInfoBox,
   StyledInfoIconBox,
 } from "./styled";
-import { Book } from "../dtos/book";
 
 type BookItemType = {
   book: Book;

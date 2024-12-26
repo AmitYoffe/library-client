@@ -10,7 +10,7 @@ type WritersGridProps = {
   title: string;
 };
 
-export function WritersGrid({ writers, title }: WritersGridProps) {
+export const WritersGrid = ({ writers, title }: WritersGridProps) => {
   const [open, setOpen] = useState(false);
   const [selectedWriter, setSelectedWriter] = useState<Writer | null>(null);
 
@@ -45,4 +45,4 @@ export function WritersGrid({ writers, title }: WritersGridProps) {
       )}
     </Box>
   );
-}
+};

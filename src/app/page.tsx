@@ -12,6 +12,7 @@ export default function Home() {
       id: 1,
       title: "Dark Romance With The Kaban",
       count: 20,
+      writerId: "2",
     },
   ];
 

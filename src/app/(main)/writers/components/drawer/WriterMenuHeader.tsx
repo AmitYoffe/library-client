@@ -8,7 +8,7 @@ type WriterMenuHeaderProps = {
   writer: Writer;
 };
 
-export function WriterMenuHeader({ writer }: WriterMenuHeaderProps) {
+export const WriterMenuHeader = ({ writer }: WriterMenuHeaderProps) => {
   return (
     <StyledBox>
       <StyledDefaultPicBox>
@@ -28,4 +28,4 @@ export function WriterMenuHeader({ writer }: WriterMenuHeaderProps) {
       <MoreWriterActions writer={writer} />
     </StyledBox>
   );
-}
+};

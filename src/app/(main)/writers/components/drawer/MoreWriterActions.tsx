@@ -10,7 +10,7 @@ type MoreActionsProps = {
   writer: Writer;
 };
 
-export function MoreWriterActions({ writer }: MoreActionsProps) {
+export const MoreWriterActions = ({ writer }: MoreActionsProps) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
@@ -37,4 +37,4 @@ export function MoreWriterActions({ writer }: MoreActionsProps) {
       </Menu>
     </>
   );
-}
+};

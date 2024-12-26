@@ -10,7 +10,7 @@ type BooksGridProps = {
   title: string;
 };
 
-export function BooksGrid({ books, title }: BooksGridProps) {
+export const BooksGrid = ({ books, title }: BooksGridProps) => {
   const [open, setOpen] = useState(false);
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
 
@@ -45,4 +45,4 @@ export function BooksGrid({ books, title }: BooksGridProps) {
       )}
     </Box>
   );
-}
+};
