@@ -1,12 +1,13 @@
-"use client";
+import { headers } from "next/headers";
 import Image from "next/image";
 import Link from "next/link";
 import { StyledSideBarBox } from "./styled/StyledSideBarBox";
-import { usePathname } from "next/navigation";
 
-export const SideBar = () => {
-  const pathname = usePathname();
-  const isBtnActive = (href: string) => pathname === href;
+export const SideBar = async () => {
+  const headersList = headers();
+  const fullUrl = (await headersList).get("referer") || "";
+
+  const isBtnActive = (href: string) => fullUrl.includes(href);
 
   return (
     <StyledSideBarBox>

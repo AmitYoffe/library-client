@@ -1,12 +1,15 @@
 import { StyledSubmitBtn } from "@/app/(main)/common/components/dialogs/addItem/styled";
 import { StyledMenuItem } from "@/app/(main)/common/components/styled";
 import { useEditWriter } from "@/app/api";
+import { zodResolver } from "@hookform/resolvers/zod";
 import ModeEditIcon from "@mui/icons-material/ModeEdit";
 import { Box, Button, Dialog, Typography } from "@mui/material";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 import { Writer } from "../../../../common/dto/writer";
 import { StyledEditDialogCard } from "../styled";
 import { EditWriterFields } from "./EditWriterFields";
+import { EditWriterFormFields, editWriterSchema } from "./schema";
 
 type EditWriterDialogProps = {
   writer: Writer;
@@ -18,23 +21,21 @@ export const EditWriterDialog = ({ writer }: EditWriterDialogProps) => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const editMutation = useEditWriter(); // add this func in the methods
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<EditWriterFormFields>({
+    resolver: zodResolver(editWriterSchema),
+  });
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const formData = new FormData(event.currentTarget);
-    const writerFormJson = Object.fromEntries(formData.entries());
+  const { mutate: editMutation } = useEditWriter();
 
-    const updatedWriter: Writer = {
-      id: writer.id,
-      firstName: writerFormJson.firstName as string,
-      lastName: writerFormJson.lastName as string,
-    };
+  const onSubmit = (data: EditWriterFormFields) => {
+    const updatedWriter = { ...writer, ...data };
 
-    editMutation.mutate(updatedWriter, {
-      onSuccess: () => {
-        handleClose();
-      },
+    editMutation(updatedWriter, {
+      onSuccess: () => handleClose(),
     });
   };
 
@@ -49,14 +50,16 @@ export const EditWriterDialog = ({ writer }: EditWriterDialogProps) => {
         onClose={handleClose}
         PaperProps={{
           component: "form",
-          onSubmit: (event: React.FormEvent<HTMLFormElement>) => {
-            handleSubmit(event);
-          },
+          onSubmit: handleSubmit(onSubmit),
         }}
       >
         <StyledEditDialogCard>
           <Typography fontSize={24}>ערוך סופר</Typography>
-          <EditWriterFields writer={writer} />
+          <EditWriterFields
+            writer={writer}
+            register={register}
+            errors={errors}
+          />
           <Box display="flex" gap={2}>
             <Button onClick={handleClose} variant="outlined">
               ביטול

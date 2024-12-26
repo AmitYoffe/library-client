@@ -1,12 +1,15 @@
 import { StyledSubmitBtn } from "@/app/(main)/common/components/dialogs/addItem/styled";
 import { StyledMenuItem } from "@/app/(main)/common/components/styled";
 import { useEditBook } from "@/app/api";
+import { zodResolver } from "@hookform/resolvers/zod";
 import ModeEditIcon from "@mui/icons-material/ModeEdit";
 import { Box, Button, Dialog, Typography } from "@mui/material";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 import { Book } from "../../../../common/dto/book";
 import { StyledDeleteDialogCard } from "../../styled";
 import { EditBookFields } from "./EditBookFields";
+import { EditBookFormFields, editBookSchema } from "./schema";
 
 type EditBookDialogProps = {
   book: Book;
@@ -18,24 +21,21 @@ export const EditBookDialog = ({ book }: EditBookDialogProps) => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const editMutation = useEditBook();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<EditBookFormFields>({
+    resolver: zodResolver(editBookSchema),
+  });
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const formData = new FormData(event.currentTarget);
-    const bookFormJson = Object.fromEntries(formData.entries());
+  const { mutate: editMutation} = useEditBook();
 
-    const updatedBook: Book = {
-      id: book.id,
-      title: bookFormJson.title as string,
-      count: parseInt(bookFormJson.count as string, 10),
-      writerId: bookFormJson.writerId as string,
-    };
+  const onSubmit = (data: EditBookFormFields) => {
+    const updatedBook = { ...book, ...data };
 
-    editMutation.mutate(updatedBook, {
-      onSuccess: () => {
-        handleClose();
-      },
+    editMutation(updatedBook, {
+      onSuccess: () => handleClose(),
     });
   };
 
@@ -50,14 +50,12 @@ export const EditBookDialog = ({ book }: EditBookDialogProps) => {
         onClose={handleClose}
         PaperProps={{
           component: "form",
-          onSubmit: (event: React.FormEvent<HTMLFormElement>) => {
-            handleSubmit(event);
-          },
+          onSubmit: handleSubmit(onSubmit),
         }}
       >
         <StyledDeleteDialogCard>
           <Typography fontSize={24}>ערוך ספר - {book.title}</Typography>
-          <EditBookFields book={book} />
+          <EditBookFields book={book} register={register} errors={errors} />
           <Box display="flex" gap={2}>
             <Button onClick={handleClose} variant="outlined">
               ביטול

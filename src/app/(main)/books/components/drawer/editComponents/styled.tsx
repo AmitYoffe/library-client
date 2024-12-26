@@ -12,4 +12,5 @@ export const StyledSelect = styled(TextField)(({ theme }) => ({
 export const StyledFieldsContainer = styled(Box)(() => ({
   display: "flex",
   gap: 20,
+  width: "100%",
 }));

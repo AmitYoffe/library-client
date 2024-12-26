@@ -1,3 +1,4 @@
+"use client"
 import { Box, styled } from "@mui/material";
 
 export const StyledSideBarBox = styled(Box)(({ theme }) => ({

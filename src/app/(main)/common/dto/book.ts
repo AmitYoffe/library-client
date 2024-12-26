@@ -2,5 +2,5 @@ export type Book = {
   id: number;
   title: string;
   count: number;
-  writerId: string;
+  writerId: number;
 };
