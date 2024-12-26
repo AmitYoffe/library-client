@@ -1,17 +1,20 @@
 import { User } from "@/app/api/users/dto/user";
 import { theme } from "@/theme/theme";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
-import { IconButton } from "@mui/material";
-import { StyledBookBorrowerRowBox } from "../styled";
+import { IconButton, Typography } from "@mui/material";
+import { StyledBookBorrowerRowBox, StyledIdTypography } from "../styled";
 
 type BookBorrowerRowProps = {
   user: User;
 };
 
-export function BookBorrowerRow({ user }: BookBorrowerRowProps) {
+export const BookBorrowerRow = ({ user }: BookBorrowerRowProps) => {
   return (
-    <StyledBookBorrowerRowBox>
-      {user.username}
+    <>
+      <StyledBookBorrowerRowBox>
+        <Typography>{user.username}</Typography>
+        <StyledIdTypography>{user.id}</StyledIdTypography>
+      </StyledBookBorrowerRowBox>
       <IconButton
         sx={{ color: `${theme.palette.primary.dark}` }}
         onClick={() =>
@@ -20,6 +23,6 @@ export function BookBorrowerRow({ user }: BookBorrowerRowProps) {
       >
         <DeleteOutlineIcon />
       </IconButton>
-    </StyledBookBorrowerRowBox>
+    </>
   );
-}
+};

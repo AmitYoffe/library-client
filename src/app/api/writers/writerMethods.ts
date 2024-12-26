@@ -43,6 +43,12 @@ export const useGetAllWriters = () =>
     queryFn: () => httpClient.get(`${Server_API}/writers`),
   });
 
+export const useGetWriterByBook = (bookId: number) =>
+  useQuery({
+    queryKey: ["writersOfBook"],
+    queryFn: () => httpClient.get(`${Server_API}/writers/book/${bookId}`),
+  });
+
 export const useAddWriter = () => {
   return useMutation({
     mutationFn: (writer: Writer) =>
@@ -53,12 +59,6 @@ export const useAddWriter = () => {
     },
   });
 };
-
-export const useGetBooksByWriter = (writerId: number) =>
-  useQuery({
-    queryKey: ["writersOfBook"],
-    queryFn: () => httpClient.get(`${Server_API}/books/writer/${writerId}`),
-  });
 
 export const useDeleteWriter = (writerId: number) => {
   return useMutation({

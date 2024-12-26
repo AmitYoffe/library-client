@@ -1,4 +1,11 @@
-import { Box, Card, CardActionArea, Dialog, styled } from "@mui/material";
+import {
+  Box,
+  Card,
+  CardActionArea,
+  Dialog,
+  styled,
+  Typography,
+} from "@mui/material";
 
 export const StyledBookCardActionArea = styled(CardActionArea)(({ theme }) => ({
   display: "flex",
@@ -53,4 +60,9 @@ export const StyledDeleteDialogCard = styled(Card)(({ theme }) => ({
   gap: 40,
   width: "430px",
   padding: 26,
+}));
+
+export const StyledIdTypography = styled(Typography)(({ theme }) => ({
+  color: theme.palette.secondary.main,
+  fontSize: 12,
 }));

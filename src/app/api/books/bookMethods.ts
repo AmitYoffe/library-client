@@ -11,6 +11,12 @@ export const useGetAllBooks = () =>
     queryFn: () => httpClient.get(`${Server_API}/books`),
   });
 
+export const useGetBooksByWriter = (writerId: number) =>
+  useQuery({
+    queryKey: ["writersOfBook"],
+    queryFn: () => httpClient.get(`${Server_API}/books/writer/${writerId}`),
+  });
+
 export const useGetBorrowers = (bookId: number) =>
   useQuery({
     queryKey: ["borrowers"],

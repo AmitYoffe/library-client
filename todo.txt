@@ -18,7 +18,7 @@ general todos:
 
 6) add all the animation provided in the figma page ( נשמר בהצלחה + מוחק)
 
-7) 
+7) apply react-hook-form & zod for the rest of my forms 
 
 
 
@@ -32,7 +32,7 @@ Today (12/26) missions:
 
 2) fix onChange reload of UI when adding / editing item
 
-3) 
+3) resort style and index files
 
 4) 
 

@@ -16,7 +16,7 @@ export function WriterMenuBody({ writer }: WriterMenuBodyProps) {
   return (
     <Box padding={2}>
       <StyledMenuBox>
-        <Typography fontSize={20}>רשימת קוראים ({books.length!})</Typography>
+        <Typography fontSize={20}>רשימת קוראים ({books.length})</Typography>
         <Button variant="contained">השאל</Button>
       </StyledMenuBox>
       <WriterBookList books={books} isLoading={isLoading} error={error} />
