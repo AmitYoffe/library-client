@@ -13,8 +13,8 @@ export const BookBorrowersList = ({
   isLoading,
   error,
 }: BookBorrowersListProps) => {
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error fetching borrowers</div>;
+  if (isLoading) return <Box>Loading...</Box>;
+  if (error) return <Box>Error fetching borrowers</Box>;
 
   return (
     <List>

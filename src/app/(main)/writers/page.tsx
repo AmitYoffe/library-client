@@ -1,5 +1,6 @@
 "use client";
 import { useGetAllWriters } from "@/app/api/writers/writerMethods";
+import { Box } from "@mui/material";
 import { useEffect, useState } from "react";
 import { WritersGrid } from "./components/WritersGrid";
 import { Writer } from "./dtos/writer";
@@ -14,8 +15,8 @@ const WritersPage = () => {
     }
   }, [data]);
 
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error fetching writers</div>;
+  if (isLoading) return <Box>Loading...</Box>;
+  if (error) return <Box>Error fetching writers</Box>;
 
   return <WritersGrid writers={writers} title={"סופרים"} />;
 };
