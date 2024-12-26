@@ -2,9 +2,10 @@ import { StyledSubmitBtn } from "@/app/(main)/common/components/dialogs/addItem/
 import { StyledMenuItem } from "@/app/(main)/common/components/styled";
 import { useEditWriter } from "@/app/api";
 import ModeEditIcon from "@mui/icons-material/ModeEdit";
-import { Box, Button, Dialog } from "@mui/material";
+import { Box, Button, Dialog, Typography } from "@mui/material";
 import { useState } from "react";
 import { Writer } from "../../../../common/dto/writer";
+import { StyledEditDialogCard } from "../styled";
 import { EditWriterFields } from "./EditWriterFields";
 
 type EditWriterDialogProps = {
@@ -53,8 +54,8 @@ export const EditWriterDialog = ({ writer }: EditWriterDialogProps) => {
           },
         }}
       >
-        <>
-          {/* add costum styled StyledEditDialogCard */}
+        <StyledEditDialogCard>
+          <Typography fontSize={24}>ערוך סופר</Typography>
           <EditWriterFields writer={writer} />
           <Box display="flex" gap={2}>
             <Button onClick={handleClose} variant="outlined">
@@ -64,7 +65,7 @@ export const EditWriterDialog = ({ writer }: EditWriterDialogProps) => {
               אישור
             </StyledSubmitBtn>
           </Box>
-        </>
+        </StyledEditDialogCard>
       </Dialog>
     </>
   );

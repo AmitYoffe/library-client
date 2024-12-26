@@ -28,9 +28,9 @@ Today (12/26) missions:
 
 1) fix onChange reload of UI when adding / editing item
 
-2) resort style and index files
+2) apply react-hook-form & zod for the rest of my forms 
 
-3) apply react-hook-form & zod for the rest of my forms 
+3) 
 
 4) 
 

@@ -2,8 +2,8 @@ import { Box, Typography } from "@mui/material";
 import Image from "next/image";
 import { Writer } from "../../../common/dto/writer";
 import { MoreWriterActions } from "./MoreWriterActions";
-import { StyledBox } from "@/app/(main)/components/styled";
 import { StyledDefaultPicBox } from "./styled";
+import { StyledBox } from "@/app/(main)/common/components/styled";
 
 type WriterMenuHeaderProps = {
   writer: Writer;

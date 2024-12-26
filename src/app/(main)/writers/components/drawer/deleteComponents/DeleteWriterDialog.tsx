@@ -1,5 +1,5 @@
 import { StyledDeleteDialogCard } from "@/app/(main)/books/components/styled";
-import { StyledMenuItem } from "@/app/(main)/components/styled";
+import { StyledMenuItem } from "@/app/(main)/common/components/styled";
 import { useDeleteWriter } from "@/app/api";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import { Box, Button, Dialog, Typography } from "@mui/material";

@@ -1,15 +1,14 @@
+import { Writer } from "@/app/(main)/common/dto/writer";
 import { useGetAllWriters } from "@/app/api";
-import { Book } from "../../../../common/dto/book";
-import { StyledTextField } from "./styled";
 import {
-  Select,
-  MenuItem,
   FormControl,
   InputLabel,
-  SelectChangeEvent,
+  MenuItem,
+  SelectChangeEvent
 } from "@mui/material";
 import { useState } from "react";
-import { Writer } from "@/app/(main)/common/dto/writer";
+import { Book } from "../../../../common/dto/book";
+import { StyledFieldsContainer, StyledSelect, StyledTextField } from "./styled";
 
 type EditBookFieldsProps = {
   book: Book;
@@ -28,21 +27,21 @@ export const EditBookFields = ({ book }: EditBookFieldsProps) => {
   };
 
   return (
-    <>
+    <StyledFieldsContainer>
       <FormControl fullWidth>
         <InputLabel>סופר</InputLabel>
-        <Select
+        <StyledSelect
           id="writerId"
           name="writerId"
           value={selectedWriter}
-          onChange={handleWriterChange}
+          onChange={() => handleWriterChange}
         >
           {writers?.map((writer: Writer) => (
             <MenuItem key={writer.id} value={writer.id}>
               {`${writer.firstName} ${writer.firstName}`}
             </MenuItem>
           ))}
-        </Select>
+        </StyledSelect>
       </FormControl>
       <StyledTextField
         required
@@ -54,7 +53,7 @@ export const EditBookFields = ({ book }: EditBookFieldsProps) => {
         placeholder="000"
         defaultValue={book.count}
       />
-    </>
+    </StyledFieldsContainer>
   );
 };
 

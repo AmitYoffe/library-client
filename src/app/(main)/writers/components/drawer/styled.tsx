@@ -1,4 +1,4 @@
-import { Box, styled } from "@mui/material";
+import { Box, Card, styled } from "@mui/material";
 
 export const StyledDefaultPicBox = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.secondary.main,
@@ -7,4 +7,14 @@ export const StyledDefaultPicBox = styled(Box)(({ theme }) => ({
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
+}));
+
+export const StyledEditDialogCard = styled(Card)(({ theme }) => ({
+  backgroundColor: theme.palette.primary.light,
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  gap: 40,
+  width: "430px",
+  padding: 26,
 }));

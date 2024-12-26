@@ -1,9 +1,9 @@
+import { StyledMenuBox } from "@/app/(main)/common/components/styled";
+import { Book } from "@/app/(main)/common/dto/book";
 import { useGetBooksByWriter } from "@/app/api";
 import { Box, Button, Typography } from "@mui/material";
 import { Writer } from "../../../common/dto/writer";
 import { WriterBookList } from "./WriterBookList";
-import { Book } from "@/app/(main)/common/dto/book";
-import { StyledMenuBox } from "@/app/(main)/components/styled";
 
 type WriterMenuBodyProps = {
   writer: Writer;
