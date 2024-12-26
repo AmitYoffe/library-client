@@ -69,3 +69,14 @@ export const useDeleteWriter = (writerId: number) => {
     },
   });
 };
+
+export const useEditWriter = () => {
+  return useMutation({
+    mutationFn: (writer: Writer) =>
+      httpClient.patch(`${Server_API}/writers/${writer.id}`, writer),
+
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["writers"] });
+    },
+  });
+};

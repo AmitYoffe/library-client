@@ -1,10 +1,9 @@
-import ModeEditIcon from "@mui/icons-material/ModeEdit";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { Divider, IconButton, Menu } from "@mui/material";
 import { MouseEvent, useState } from "react";
 import { Writer } from "../../dtos/writer";
 import { DeleteWriterDialog } from "./deleteComponents/DeleteWriterDialog";
-import { StyledMenuItem } from "./styled";
+import { EditWriterDialog } from "./editComponents/EditWriterDialog";
 
 type MoreActionsProps = {
   writer: Writer;
@@ -28,10 +27,7 @@ export const MoreWriterActions = ({ writer }: MoreActionsProps) => {
         <MoreVertIcon />
       </IconButton>
       <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
-        <StyledMenuItem onClick={handleClose}>
-          <ModeEditIcon />
-          Edit
-        </StyledMenuItem>
+        <EditWriterDialog writer={writer} />
         <Divider />
         <DeleteWriterDialog writer={writer} />
       </Menu>

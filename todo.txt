@@ -26,13 +26,11 @@ general todos:
 Today (12/26) missions:
 # # # # # # # # # # # # 
 
-1) EditWriter Popup
-    a) make reactQuery function for it 
-    b) make the popup
+1) fix onChange reload of UI when adding / editing item
 
-2) fix onChange reload of UI when adding / editing item
+2) resort style and index files
 
-3) resort style and index files
+3) 
 
 4) 
 
