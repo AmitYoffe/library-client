@@ -17,7 +17,7 @@ export const WriterMenuBody = ({ writer }: WriterMenuBodyProps) => {
     <Box padding={2}>
       <StyledMenuBox>
         <Typography fontSize={20}>רשימת ספרים ({books.length})</Typography>
-        <Button variant="contained">הוסף ספר</Button>
+        {/* // <Button variant="contained">הוסף ספר</Button> */}
         {/*
           i am pretty sure this button is useless.
           If i want to add a book i will do it from the add book dialog, 

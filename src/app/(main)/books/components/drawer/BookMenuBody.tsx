@@ -1,8 +1,9 @@
 import { BookBorrowersList } from "@/app/(main)/books/components/drawer/BookBorrowersList";
+import { BorrowBookDialog } from "@/app/(main)/borrows/components/BorrowBookDialog";
 import { StyledMenuBox } from "@/app/(main)/common/components/styled";
 import { useGetBorrowers } from "@/app/api";
 import { User } from "@/app/api/users/dto/user";
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { Book } from "../../../common/dto/book";
 
 type BookMenuBodyProps = {
@@ -17,12 +18,13 @@ export const BookMenuBody = ({ book }: BookMenuBodyProps) => {
     <Box padding={2}>
       <StyledMenuBox>
         <Typography fontSize={20}>רשימת קוראים ({borrowers.length})</Typography>
-        <Button variant="contained">השאל</Button>
+        <BorrowBookDialog />
       </StyledMenuBox>
       <BookBorrowersList
         borrowers={borrowers}
         isLoading={isLoading}
         error={error}
+        book={book}
       />
     </Box>
   );

@@ -4,17 +4,11 @@ general todos:
 
 2) add all the animation provided in the figma page ( נשמר בהצלחה + מוחק)
 
-3) Backend change:
-    Change the books count to not be a dynamic numebr that changes with every borrow or return, 
-    make it a static number. When i will need to check the amount of books in stock, then i will calculate it through the borrows. 
- 
-    Delete borrower popup
-        a) make reactQuery function for it 
-        b) make the popup
+3) fix onChange reload of UI when adding / editing item
 
-4) Terminate borrow popup
+4) Finish implementation of Terminate borrow & borrow 
 
-5) 
+5) remove all instances of sx
 
 6) 
 
@@ -26,9 +20,15 @@ general todos:
 Today (12/29) missions:
 # # # # # # # # # # # # 
 
-1) fix onChange reload of UI when adding / editing item
+1) Backend change:
+    Change the books count to not be a dynamic number that changes with every borrow or return, 
+    make it a static number. When i will need to check the amount of books in stock, then i will calculate it through the borrows. 
+ 
+    Delete borrower popup
+        a) make reactQuery function for it 
+        b) make the popup
 
-2) Terminate borrow / borrow to a user popup ( just the UI for now )
+2)
 
 3) 
 

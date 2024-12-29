@@ -10,7 +10,7 @@ import { decode, JwtPayload } from "jsonwebtoken";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { setAuthToken } from "../api/httpClient";
-import { useLogUser } from "../api/users/useLogUser";
+import { useLogUser } from "../api/users/userMethods";
 import { LoginHeader } from "./components/LoginHeader";
 import { StyledCard, StyledLogInContainer } from "./components/styled";
 import { FormFields, loginSchema } from "./types/FormFields";

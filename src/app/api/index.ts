@@ -1,3 +1,3 @@
 export * from "./books/bookMethods";
 export * from "./writers/writerMethods";
-export * from "./users/useLogUser";
+export * from "./users/userMethods";

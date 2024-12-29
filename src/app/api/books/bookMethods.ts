@@ -17,12 +17,6 @@ export const useGetBooksByWriter = (writerId: number) =>
     queryFn: () => httpClient.get(`${Server_API}/books/writer/${writerId}`),
   });
 
-export const useGetBorrowers = (bookId: number) =>
-  useQuery({
-    queryKey: ["borrowers"],
-    queryFn: () => httpClient.get(`${Server_API}/books/borrow/${bookId}`),
-  });
-
 export const useAddBook = () => {
   return useMutation({
     mutationFn: (book: BookDto) => httpClient.post(`${Server_API}/books`, book),
@@ -51,5 +45,18 @@ export const useEditBook = () => {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["books"] });
     },
+  });
+};
+
+export const useGetBorrowers = (bookId: number) =>
+  useQuery({
+    queryKey: ["borrowers"],
+    queryFn: () => httpClient.get(`${Server_API}/books/borrow/${bookId}`),
+  });
+
+export const useBorrowBook = () => {
+  return useMutation({
+    mutationFn: (bookId: number) =>
+      httpClient.post(`${Server_API}/books/${bookId}/borrow`),
   });
 };

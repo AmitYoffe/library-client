@@ -1,28 +1,22 @@
+import { TerminateBorrowDialog } from "@/app/(main)/borrows/components/TerminateBorrowDialog";
 import { User } from "@/app/api/users/dto/user";
-import { theme } from "@/theme/theme";
-import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
-import { IconButton, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import { StyledBookBorrowerRowBox, StyledIdTypography } from "../styled";
+import { Book } from "@/app/(main)/common/dto/book";
 
 type BookBorrowerRowProps = {
   user: User;
+  book: Book;
 };
 
-export const BookBorrowerRow = ({ user }: BookBorrowerRowProps) => {
+export const BookBorrowerRow = ({ user, book }: BookBorrowerRowProps) => {
   return (
     <>
       <StyledBookBorrowerRowBox>
         <Typography>{user.username}</Typography>
         <StyledIdTypography>{user.id}</StyledIdTypography>
       </StyledBookBorrowerRowBox>
-      <IconButton
-        sx={{ color: `${theme.palette.primary.dark}` }}
-        onClick={() =>
-          console.log("This button will prompt a delete dialog for this borrow")
-        }
-      >
-        <DeleteOutlineIcon />
-      </IconButton>
+      <TerminateBorrowDialog user={user} book={book} />
     </>
   );
 };
