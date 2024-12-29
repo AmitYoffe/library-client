@@ -28,7 +28,7 @@ Today (12/29) missions:
 
 1) fix onChange reload of UI when adding / editing item
 
-2) 
+2) Terminate borrow / borrow to a user popup ( just the UI for now )
 
 3) 
 

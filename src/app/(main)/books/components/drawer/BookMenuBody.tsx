@@ -16,8 +16,8 @@ export const BookMenuBody = ({ book }: BookMenuBodyProps) => {
   return (
     <Box padding={2}>
       <StyledMenuBox>
-        <Typography fontSize={20}>רשימת ספרים ({borrowers.length})</Typography>
-        <Button variant="contained">הוסף ספר</Button>
+        <Typography fontSize={20}>רשימת קוראים ({borrowers.length})</Typography>
+        <Button variant="contained">השאל</Button>
       </StyledMenuBox>
       <BookBorrowersList
         borrowers={borrowers}
