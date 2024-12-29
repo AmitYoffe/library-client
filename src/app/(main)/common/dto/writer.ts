@@ -3,3 +3,8 @@ export type Writer = {
   firstName: string;
   lastName: string;
 };
+
+export type WriterDto = {
+  firstName: string;
+  lastName: string;
+};

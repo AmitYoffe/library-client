@@ -4,3 +4,9 @@ export type Book = {
   count: number;
   writerId: number;
 };
+
+export type BookDto = {
+  title?: string;
+  count: number;
+  writerId: number;
+};

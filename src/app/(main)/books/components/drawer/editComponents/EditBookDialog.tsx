@@ -9,7 +9,7 @@ import { useForm } from "react-hook-form";
 import { Book } from "../../../../common/dto/book";
 import { StyledDeleteDialogCard } from "../../styled";
 import { EditBookFields } from "./EditBookFields";
-import { EditBookFormFields, editBookSchema } from "./schema";
+import { BookFormFields, bookSchema } from "../../schema";
 
 type EditBookDialogProps = {
   book: Book;
@@ -25,14 +25,19 @@ export const EditBookDialog = ({ book }: EditBookDialogProps) => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<EditBookFormFields>({
-    resolver: zodResolver(editBookSchema),
+  } = useForm<BookFormFields>({
+    resolver: zodResolver(bookSchema),
   });
 
-  const { mutate: editMutation} = useEditBook();
+  const { mutate: editMutation } = useEditBook();
 
-  const onSubmit = (data: EditBookFormFields) => {
+  const onSubmit = (data: BookFormFields) => {
     const updatedBook = { ...book, ...data };
+
+    console.log(
+      "i hope it isnt missing the title field updatedBook :",
+      updatedBook
+    );
 
     editMutation(updatedBook, {
       onSuccess: () => handleClose(),

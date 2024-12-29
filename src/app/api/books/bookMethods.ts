@@ -1,4 +1,4 @@
-import { Book } from "@/app/(main)/common/dto/book";
+import { Book, BookDto } from "@/app/(main)/common/dto/book";
 import { queryClient } from "@/components/layout/CustomQueryClientProvider";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { httpClient } from "../httpClient";
@@ -25,7 +25,7 @@ export const useGetBorrowers = (bookId: number) =>
 
 export const useAddBook = () => {
   return useMutation({
-    mutationFn: (book: Book) => httpClient.post(`${Server_API}/books`, book),
+    mutationFn: (book: BookDto) => httpClient.post(`${Server_API}/books`, book),
 
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["books"] });

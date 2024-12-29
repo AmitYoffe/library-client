@@ -1,7 +1,7 @@
+import { Writer, WriterDto } from "@/app/(main)/common/dto/writer";
+import { queryClient } from "@/components/layout/CustomQueryClientProvider";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { httpClient } from "../httpClient";
-import { Writer } from "@/app/(main)/common/dto/writer";
-import { queryClient } from "@/components/layout/CustomQueryClientProvider";
 
 const Server_API = process.env.NEXT_PUBLIC_API_URL;
 
@@ -51,7 +51,7 @@ export const useGetWriterByBook = (bookId: number) =>
 
 export const useAddWriter = () => {
   return useMutation({
-    mutationFn: (writer: Writer) =>
+    mutationFn: (writer: WriterDto) =>
       httpClient.post(`${Server_API}/writers`, writer),
 
     onSuccess: () => {

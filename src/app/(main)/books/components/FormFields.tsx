@@ -1,9 +1,20 @@
+import { FieldErrors, UseFormRegister } from "react-hook-form";
 import { StyledTextField } from "./drawer/editComponents/styled";
+import { WriterSelectionDropdown } from "./WriterSelectionDropdown";
+import { BookFormFields } from "./schema";
 
-export const FormFields = () => {
+type FormFieldsProps = {
+  register: UseFormRegister<BookFormFields>;
+  errors: FieldErrors<BookFormFields>;
+};
+
+export const FormFields = ({ errors, register }: FormFieldsProps) => {
   return (
     <>
       <StyledTextField
+        {...register("title")}
+        error={!!errors.title}
+        helperText={errors.title?.message}
         autoFocus
         required
         margin="dense"
@@ -13,16 +24,11 @@ export const FormFields = () => {
         type="text"
         fullWidth
       />
+      <WriterSelectionDropdown register={register} errors={errors} />
       <StyledTextField
-        required
-        margin="dense"
-        id="writerId"
-        name="writerId"
-        label="שם הסופר"
-        type="text"
-        fullWidth
-      />
-      <StyledTextField
+        {...register("count")}
+        error={!!errors.count}
+        helperText={errors.count?.message}
         required
         margin="dense"
         id="count"

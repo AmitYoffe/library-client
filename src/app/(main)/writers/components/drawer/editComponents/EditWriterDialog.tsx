@@ -7,9 +7,9 @@ import { Box, Button, Dialog, Typography } from "@mui/material";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Writer } from "../../../../common/dto/writer";
+import { WriterFormFieldsType, writerSchema } from "../../schema";
 import { StyledEditDialogCard } from "../styled";
 import { EditWriterFields } from "./EditWriterFields";
-import { EditWriterFormFields, editWriterSchema } from "./schema";
 
 type EditWriterDialogProps = {
   writer: Writer;
@@ -25,13 +25,13 @@ export const EditWriterDialog = ({ writer }: EditWriterDialogProps) => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<EditWriterFormFields>({
-    resolver: zodResolver(editWriterSchema),
+  } = useForm<WriterFormFieldsType>({
+    resolver: zodResolver(writerSchema),
   });
 
   const { mutate: editMutation } = useEditWriter();
 
-  const onSubmit = (data: EditWriterFormFields) => {
+  const onSubmit = (data: WriterFormFieldsType) => {
     const updatedWriter = { ...writer, ...data };
 
     editMutation(updatedWriter, {

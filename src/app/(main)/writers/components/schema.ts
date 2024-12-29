@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const editWriterSchema = z.object({
+export const writerSchema = z.object({
   firstName: z
     .string()
     .trim()
@@ -13,4 +13,4 @@ export const editWriterSchema = z.object({
     .regex(/^[a-zA-Zא-ת\s]+$/, "שם משפחה חייב להכיל רק אותיות"),
 });
 
-export type EditWriterFormFields = z.infer<typeof editWriterSchema>;
+export type WriterFormFieldsType = z.infer<typeof writerSchema>;

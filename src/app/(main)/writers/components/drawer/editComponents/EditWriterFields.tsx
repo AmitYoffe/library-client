@@ -1,7 +1,7 @@
 import { TextField } from "@mui/material";
 import { FieldErrors, UseFormRegister } from "react-hook-form";
 import { Writer } from "../../../../common/dto/writer";
-import { EditWriterFormFields } from "./schema";
+import { EditWriterFormFields } from "../../schema";
 
 type EditWriterFieldsProps = {
   writer: Writer;

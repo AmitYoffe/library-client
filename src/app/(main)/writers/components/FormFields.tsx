@@ -1,11 +1,20 @@
+import { FieldErrors, UseFormRegister } from "react-hook-form";
 import { StyledTextField } from "../../common/components/dialogs/addItem/styled";
+import { AddWriterFormFields } from "./addComponents/addSchema";
 
-export const FormFields = () => {
+type FormFieldsProps = {
+  register: UseFormRegister<AddWriterFormFields>;
+  errors: FieldErrors<AddWriterFormFields>;
+};
+
+export const FormFields = ({ errors, register }: FormFieldsProps) => {
   return (
     <>
       <StyledTextField
+        {...register("firstName")}
+        error={!!errors.firstName}
+        helperText={errors.firstName?.message}
         autoFocus
-        required
         margin="dense"
         id="firstName"
         name="firstName"
@@ -14,7 +23,9 @@ export const FormFields = () => {
         fullWidth
       />
       <StyledTextField
-        required
+        {...register("lastName")}
+        error={!!errors.lastName}
+        helperText={errors.lastName?.message}
         margin="dense"
         id="lastName"
         name="lastName"
