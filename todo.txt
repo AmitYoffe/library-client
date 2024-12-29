@@ -23,7 +23,7 @@ general todos:
 
 
 # # # # # # # # # # # # 
-Today (12/26) missions:
+Today (12/29) missions:
 # # # # # # # # # # # # 
 
 1) fix onChange reload of UI when adding / editing item
