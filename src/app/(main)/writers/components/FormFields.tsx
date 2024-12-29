@@ -1,10 +1,10 @@
 import { FieldErrors, UseFormRegister } from "react-hook-form";
 import { StyledTextField } from "../../common/components/dialogs/addItem/styled";
-import { AddWriterFormFields } from "./addComponents/addSchema";
+import { WriterFormFieldsType } from "./schema";
 
 type FormFieldsProps = {
-  register: UseFormRegister<AddWriterFormFields>;
-  errors: FieldErrors<AddWriterFormFields>;
+  register: UseFormRegister<WriterFormFieldsType>;
+  errors: FieldErrors<WriterFormFieldsType>;
 };
 
 export const FormFields = ({ errors, register }: FormFieldsProps) => {
