@@ -22,6 +22,7 @@ export const StyledCard = styled(MuiCard)(({ theme }) => ({
 
 export const StyledLogInContainer = styled(Stack)(({ theme }) => ({
   height: "calc((1 - var(--template-frame-height, 0)) * 100dvh)",
+  // overflowY: "hidden",
   minHeight: "100%",
   padding: theme.spacing(2),
   [theme.breakpoints.up("sm")]: {

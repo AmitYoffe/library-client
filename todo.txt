@@ -1,39 +1,21 @@
 general todos:
 
-1) arrow funcs!
+1) Resort styles and common components
 
-2) add all the animation provided in the figma page ( נשמר בהצלחה + מוחק)
+2) 
 
-3) fix onChange reload of UI when adding / editing item
+3) 
 
-4) Finish implementation of Terminate borrow & borrow 
-
-5) 
-
-6) 
-
-7) 
-
-
+4)  
 
 # # # # # # # # # # # # 
-Today (12/30) missions:
+Today (12/31) missions:
 # # # # # # # # # # # # 
 
-1) Backend change:
-    Change the books count to not be a dynamic number that changes with every borrow or return, 
-    make it a static number. When i will need to check the amount of books in stock, then i will calculate it through the borrows. 
- 
-    Delete borrower popup
-        a) make reactQuery function for it 
-        b) make the popup
+1) add all the animation provided in the figma page ( נשמר בהצלחה + מוחק)
 
-2)
+2) fix onChange reload of UI when adding / editing item
 
 3) 
 
 4) 
-
-5) 
-
-6) 

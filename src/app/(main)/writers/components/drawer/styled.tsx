@@ -19,10 +19,6 @@ export const StyledEditDialogCard = styled(Card)(({ theme }) => ({
   padding: 26,
 }));
 
-export const StyledIconButton = styled(IconButton)(() => ({
-  height: "480px",
-}));
-
 export const StyledMoreIconButton = styled(IconButton)(() => ({
   height: "40px",
 }));

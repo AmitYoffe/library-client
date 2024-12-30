@@ -60,3 +60,10 @@ export const useBorrowBook = () => {
       httpClient.post(`${Server_API}/books/${bookId}/borrow`),
   });
 };
+
+export const useReturnBook = () => {
+  return useMutation({
+    mutationFn: (bookId: number) =>
+      httpClient.post(`${Server_API}/books/${bookId}/return`),
+  });
+};

@@ -24,6 +24,7 @@ export const WriterMenuHeader = ({ writer }: WriterMenuHeaderProps) => {
         <Typography
           fontSize={24}
         >{`${writer.firstName} ${writer.lastName}`}</Typography>
+        {/* // Todo: get the real bookAmountOfWriter*/}
         <Typography>מס' עותקים: {9}</Typography>
       </Box>
       <MoreWriterActions writer={writer} />

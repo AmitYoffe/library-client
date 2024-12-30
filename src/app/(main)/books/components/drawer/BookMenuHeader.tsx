@@ -30,6 +30,8 @@ export const BookMenuHeader = ({ book }: BookMenuHeaderProps) => {
         <Typography>
           {writer && `${writer.firstName} ${writer.lastName}`}
         </Typography>
+        {/* // Todo: substract user borrows count from book.count to display the books in stock and not original book count
+                    -- I can make a util for it  */}
         <Typography>מס' עותקים: {book.count}</Typography>
       </Box>
       <MoreBookActions book={book} />

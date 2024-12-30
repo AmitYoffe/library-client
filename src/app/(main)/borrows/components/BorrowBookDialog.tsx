@@ -17,7 +17,6 @@ export const BorrowBookDialog = () => {
   const addBorrowMutation = useBorrowBook();
 
   const onSubmit = (data: { bookId: number }) => {
-    console.log("data: ", data);
     addBorrowMutation.mutate(data.bookId, {
       onSuccess: () => {
         handleClose();

@@ -1,7 +1,9 @@
+import { useReturnBook } from "@/app/api";
 import { User } from "@/app/api/users/dto/user";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import { Box, Button, Dialog, Typography } from "@mui/material";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 import { StyledSubmitBtn } from "../../common/components/dialogs/addItem/styled";
 import { Book } from "../../common/dto/book";
 import {
@@ -24,24 +26,17 @@ export const TerminateBorrowDialog = ({
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  // Todo: finish implementation of creating a borrow instance!
+  const { handleSubmit } = useForm<{ bookId: number }>();
 
-  //   const {
-  //     handleSubmit,
-  //     formState: { errors },
-  //   } = useForm<BorrowFormFields>({
-  //     resolver: zodResolver(borrowSchema),
-  //   });
+  const updateBorrowMutation = useReturnBook();
 
-  //   const addBorrowMutation = useAddBorrow();
-
-  //   const onSubmit = (data: BorrowFormFields) => {
-  //     addBorrowMutation.mutate(data, {
-  //       onSuccess: () => {
-  //         handleClose();
-  //       },
-  //     });
-  //   };
+  const onSubmit = () => {
+    updateBorrowMutation.mutate(book.id, {
+      onSuccess: () => {
+        handleClose();
+      },
+    });
+  };
 
   return (
     <>
@@ -53,8 +48,7 @@ export const TerminateBorrowDialog = ({
         onClose={handleClose}
         PaperProps={{
           component: "form",
-          //   onSubmit: handleSubmit(onSubmit),
-          onSubmit: () => console.log("nigger nigger 2"),
+          onSubmit: handleSubmit(onSubmit),
         }}
       >
         <StyledBorrowDialogCard>

@@ -1,10 +1,10 @@
 import { DeleteBookDialog } from "@/app/(main)/books/components/drawer/deleteComponents/DeleteBookDialog";
+import { StyledMoreIconButton } from "@/app/(main)/writers/components/drawer/styled";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import { Divider, IconButton, Menu } from "@mui/material";
+import { Divider, Menu } from "@mui/material";
 import { MouseEvent, useState } from "react";
 import { Book } from "../../../common/dto/book";
 import { EditBookDialog } from "./editComponents/EditBookDialog";
-import { StyledIconButton } from "@/app/(main)/writers/components/drawer/styled";
 
 type MoreActionsProps = {
   book: Book;
@@ -24,9 +24,9 @@ export const MoreBookActions = ({ book }: MoreActionsProps) => {
 
   return (
     <>
-      <StyledIconButton onClick={handleClick}>
+      <StyledMoreIconButton onClick={handleClick}>
         <MoreVertIcon />
-      </StyledIconButton>
+      </StyledMoreIconButton>
       <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
         <EditBookDialog book={book} />
         <Divider />
