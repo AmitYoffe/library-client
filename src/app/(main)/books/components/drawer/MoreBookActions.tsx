@@ -4,6 +4,7 @@ import { Divider, IconButton, Menu } from "@mui/material";
 import { MouseEvent, useState } from "react";
 import { Book } from "../../../common/dto/book";
 import { EditBookDialog } from "./editComponents/EditBookDialog";
+import { StyledIconButton } from "@/app/(main)/writers/components/drawer/styled";
 
 type MoreActionsProps = {
   book: Book;
@@ -23,9 +24,9 @@ export const MoreBookActions = ({ book }: MoreActionsProps) => {
 
   return (
     <>
-      <IconButton sx={{ height: "40px" }} onClick={handleClick}>
+      <StyledIconButton onClick={handleClick}>
         <MoreVertIcon />
-      </IconButton>
+      </StyledIconButton>
       <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
         <EditBookDialog book={book} />
         <Divider />

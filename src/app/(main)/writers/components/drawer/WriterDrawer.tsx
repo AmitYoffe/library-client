@@ -17,7 +17,7 @@ export const WriterDrawer = ({
 }: WriterDrawerProps) => {
   return (
     <Drawer open={open} onClose={() => toggleDrawer(false)}>
-      <Box sx={{ width: 480 }} role="presentation">
+      <Box width={480} role="presentation">
         <WriterMenuHeader writer={writer} />
         <Divider />
         <WriterMenuBody writer={writer} />

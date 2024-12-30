@@ -13,7 +13,7 @@ type BookDrawerProps = {
 export const BookDrawer = ({ book, toggleDrawer, open }: BookDrawerProps) => {
   return (
     <Drawer open={open} onClose={() => toggleDrawer(false)}>
-      <Box sx={{ width: 480 }} role="presentation">
+      <Box width={400} role="presentation">
         <BookMenuHeader book={book} />
         <Divider />
         <BookMenuBody book={book} />

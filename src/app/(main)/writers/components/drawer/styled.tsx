@@ -1,4 +1,4 @@
-import { Box, Card, styled } from "@mui/material";
+import { Box, Card, IconButton, styled } from "@mui/material";
 
 export const StyledDefaultPicBox = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.secondary.main,
@@ -17,4 +17,12 @@ export const StyledEditDialogCard = styled(Card)(({ theme }) => ({
   gap: 40,
   width: "430px",
   padding: 26,
+}));
+
+export const StyledIconButton = styled(IconButton)(() => ({
+  height: "480px",
+}));
+
+export const StyledMoreIconButton = styled(IconButton)(() => ({
+  height: "40px",
 }));

@@ -1,11 +1,14 @@
 import { User } from "@/app/api/users/dto/user";
-import { theme } from "@/theme/theme";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
-import { Box, Button, Dialog, IconButton, Typography } from "@mui/material";
+import { Box, Button, Dialog, Typography } from "@mui/material";
 import { useState } from "react";
 import { StyledSubmitBtn } from "../../common/components/dialogs/addItem/styled";
 import { Book } from "../../common/dto/book";
-import { StyledBorrowDialogCard, StyledTypography } from "./styled";
+import {
+  StyledBorrowDialogCard,
+  StyledDeleteIconButton,
+  StyledTypography,
+} from "./styled";
 
 type TerminateBorrowDialogProps = {
   user: User;
@@ -42,12 +45,9 @@ export const TerminateBorrowDialog = ({
 
   return (
     <>
-      <IconButton
-        sx={{ color: `${theme.palette.primary.dark}` }}
-        onClick={handleOpen}
-      >
+      <StyledDeleteIconButton onClick={handleOpen}>
         <DeleteOutlineIcon />
-      </IconButton>
+      </StyledDeleteIconButton>
       <Dialog
         open={open}
         onClose={handleClose}

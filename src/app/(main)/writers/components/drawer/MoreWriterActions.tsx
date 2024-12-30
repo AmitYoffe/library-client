@@ -1,9 +1,10 @@
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import { Divider, IconButton, Menu } from "@mui/material";
+import { Divider, Menu } from "@mui/material";
 import { MouseEvent, useState } from "react";
 import { Writer } from "../../../common/dto/writer";
 import { DeleteWriterDialog } from "./deleteComponents/DeleteWriterDialog";
 import { EditWriterDialog } from "./editComponents/EditWriterDialog";
+import { StyledMoreIconButton } from "./styled";
 
 type MoreActionsProps = {
   writer: Writer;
@@ -23,9 +24,9 @@ export const MoreWriterActions = ({ writer }: MoreActionsProps) => {
 
   return (
     <>
-      <IconButton sx={{ height: "40px" }} onClick={handleClick}>
+      <StyledMoreIconButton onClick={handleClick}>
         <MoreVertIcon />
-      </IconButton>
+      </StyledMoreIconButton>
       <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
         <EditWriterDialog writer={writer} />
         <Divider />
