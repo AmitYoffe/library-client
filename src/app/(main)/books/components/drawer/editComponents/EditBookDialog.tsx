@@ -1,15 +1,15 @@
-import { StyledSubmitBtn } from "@/app/(main)/common/components/dialogs/addItem/styled";
+import { FormButtons } from "@/app/(main)/common/components/FormButtons";
 import { StyledMenuItem } from "@/app/(main)/common/components/styled";
 import { useEditBook } from "@/app/api";
 import { zodResolver } from "@hookform/resolvers/zod";
 import ModeEditIcon from "@mui/icons-material/ModeEdit";
-import { Box, Button, Dialog, Typography } from "@mui/material";
+import { Dialog, Typography } from "@mui/material";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Book } from "../../../../common/dto/book";
+import { BookFormFields, bookSchema } from "../../schema";
 import { StyledDeleteDialogCard } from "../../styled";
 import { EditBookFields } from "./EditBookFields";
-import { BookFormFields, bookSchema } from "../../schema";
 
 type EditBookDialogProps = {
   book: Book;
@@ -34,11 +34,6 @@ export const EditBookDialog = ({ book }: EditBookDialogProps) => {
   const onSubmit = (data: BookFormFields) => {
     const updatedBook = { ...book, ...data };
 
-    console.log(
-      "i hope it isnt missing the title field updatedBook :",
-      updatedBook
-    );
-
     editMutation(updatedBook, {
       onSuccess: () => handleClose(),
     });
@@ -61,14 +56,7 @@ export const EditBookDialog = ({ book }: EditBookDialogProps) => {
         <StyledDeleteDialogCard>
           <Typography fontSize={24}>ערוך ספר - {book.title}</Typography>
           <EditBookFields book={book} register={register} errors={errors} />
-          <Box display="flex" gap={2}>
-            <Button onClick={handleClose} variant="outlined">
-              ביטול
-            </Button>
-            <StyledSubmitBtn variant="contained" color="primary" type="submit">
-              אישור
-            </StyledSubmitBtn>
-          </Box>
+          <FormButtons handleClose={handleClose} />
         </StyledDeleteDialogCard>
       </Dialog>
     </>

@@ -1,9 +1,8 @@
 import {
-  StyledCancelBtn,
   StyledDialogActions,
   StyledFormDialog,
-  StyledSubmitBtn,
 } from "@/app/(main)/common/components/dialogs/addItem/styled";
+import { FormButtons } from "@/app/(main)/common/components/FormButtons";
 import { useAddBook } from "@/app/api";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Dialog from "@mui/material/Dialog";
@@ -52,12 +51,7 @@ export const AddBookFormDialog = ({
         <DialogTitle>הוספת ספר חדש</DialogTitle>
         <FormFields register={register} errors={errors} />
         <StyledDialogActions>
-          <StyledCancelBtn onClick={handleClose} variant="contained">
-            ביטול
-          </StyledCancelBtn>
-          <StyledSubmitBtn type="submit" variant="contained">
-            שמירה
-          </StyledSubmitBtn>
+          <FormButtons handleClose={handleClose} />
         </StyledDialogActions>
       </StyledFormDialog>
     </Dialog>

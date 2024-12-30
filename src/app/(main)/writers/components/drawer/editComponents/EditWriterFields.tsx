@@ -1,12 +1,12 @@
 import { TextField } from "@mui/material";
 import { FieldErrors, UseFormRegister } from "react-hook-form";
 import { Writer } from "../../../../common/dto/writer";
-import { EditWriterFormFields } from "../../schema";
+import { WriterFormFieldsType } from "../../schema";
 
 type EditWriterFieldsProps = {
   writer: Writer;
-  register: UseFormRegister<EditWriterFormFields>;
-  errors: FieldErrors<EditWriterFormFields>;
+  register: UseFormRegister<WriterFormFieldsType>;
+  errors: FieldErrors<WriterFormFieldsType>;
 };
 
 export const EditWriterFields = ({
@@ -14,8 +14,6 @@ export const EditWriterFields = ({
   register,
   errors,
 }: EditWriterFieldsProps) => {
-  console.log("errors: ", errors);
-
   return (
     <>
       <TextField

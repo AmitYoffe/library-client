@@ -1,9 +1,9 @@
-import { StyledSubmitBtn } from "@/app/(main)/common/components/dialogs/addItem/styled";
+import { FormButtons } from "@/app/(main)/common/components/FormButtons";
 import { StyledMenuItem } from "@/app/(main)/common/components/styled";
 import { useEditWriter } from "@/app/api";
 import { zodResolver } from "@hookform/resolvers/zod";
 import ModeEditIcon from "@mui/icons-material/ModeEdit";
-import { Box, Button, Dialog, Typography } from "@mui/material";
+import { Dialog, Typography } from "@mui/material";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Writer } from "../../../../common/dto/writer";
@@ -60,14 +60,7 @@ export const EditWriterDialog = ({ writer }: EditWriterDialogProps) => {
             register={register}
             errors={errors}
           />
-          <Box display="flex" gap={2}>
-            <Button onClick={handleClose} variant="outlined">
-              ביטול
-            </Button>
-            <StyledSubmitBtn variant="contained" color="primary" type="submit">
-              אישור
-            </StyledSubmitBtn>
-          </Box>
+          <FormButtons handleClose={handleClose} />
         </StyledEditDialogCard>
       </Dialog>
     </>

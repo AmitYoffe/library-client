@@ -1,9 +1,9 @@
 import { useBorrowBook } from "@/app/api";
-import { Box, Button, Dialog } from "@mui/material";
+import { Button, Dialog } from "@mui/material";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { StyledDeleteDialogCard } from "../../books/components/styled";
-import { StyledSubmitBtn } from "../../common/components/dialogs/addItem/styled";
+import { FormButtons } from "../../common/components/FormButtons";
 import { UserDropDown } from "./UserDropDown";
 
 export const BorrowBookDialog = () => {
@@ -39,14 +39,7 @@ export const BorrowBookDialog = () => {
       >
         <StyledDeleteDialogCard>
           <UserDropDown register={register} />
-          <Box display="flex" gap={2}>
-            <Button onClick={handleClose} variant="outlined">
-              ביטול
-            </Button>
-            <StyledSubmitBtn variant="contained" color="primary" type="submit">
-              אישור
-            </StyledSubmitBtn>
-          </Box>
+          <FormButtons handleClose={handleClose} />
         </StyledDeleteDialogCard>
       </Dialog>
     </>

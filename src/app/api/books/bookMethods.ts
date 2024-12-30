@@ -48,6 +48,7 @@ export const useEditBook = () => {
   });
 };
 
+// Maybe separate borrow methods from book methods
 export const useGetBorrowers = (bookId: number) =>
   useQuery({
     queryKey: ["borrowers"],

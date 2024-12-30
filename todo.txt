@@ -16,6 +16,6 @@ Today (12/31) missions:
 
 2) fix onChange reload of UI when adding / editing item
 
-3) 
+3) Finish non-admin page logic
 
 4) 

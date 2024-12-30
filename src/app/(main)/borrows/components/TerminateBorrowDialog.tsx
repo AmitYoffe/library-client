@@ -1,10 +1,10 @@
 import { useReturnBook } from "@/app/api";
 import { User } from "@/app/api/users/dto/user";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
-import { Box, Button, Dialog, Typography } from "@mui/material";
+import { Box, Dialog, Typography } from "@mui/material";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { StyledSubmitBtn } from "../../common/components/dialogs/addItem/styled";
+import { FormButtons } from "../../common/components/FormButtons";
 import { Book } from "../../common/dto/book";
 import {
   StyledBorrowDialogCard,
@@ -60,29 +60,9 @@ export const TerminateBorrowDialog = ({
             <Typography> עבור המשתמש: </Typography>
             <StyledTypography>{user.username}</StyledTypography>
           </Box>
-          <Box display="flex" gap={2}>
-            <Button onClick={handleClose} variant="outlined">
-              ביטול
-            </Button>
-            <StyledSubmitBtn variant="contained" color="primary" type="submit">
-              אישור
-            </StyledSubmitBtn>
-          </Box>
+          <FormButtons handleClose={handleClose} />
         </StyledBorrowDialogCard>
       </Dialog>
     </>
   );
 };
-
-// Todo: i can turn this:
-//
-// <Box display="flex" gap={2}>
-// <Button onClick={handleClose} variant="outlined">
-//   ביטול
-// </Button>
-// <StyledSubmitBtn variant="contained" color="primary" type="submit">
-//   אישור
-// </StyledSubmitBtn>
-// </Box>
-//
-// into a shared component. its used the same way inside 4 different other components

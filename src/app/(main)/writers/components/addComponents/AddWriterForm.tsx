@@ -1,9 +1,8 @@
 import {
-  StyledCancelBtn,
   StyledDialogActions,
   StyledFormDialog,
-  StyledSubmitBtn,
 } from "@/app/(main)/common/components/dialogs/addItem/styled";
+import { FormButtons } from "@/app/(main)/common/components/FormButtons";
 import { FormFields as WriterFormFields } from "@/app/(main)/writers/components/FormFields";
 import { useAddWriter } from "@/app/api";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -52,12 +51,7 @@ export const AddWriterFormDialog = ({
         <DialogTitle>הוספת סופר חדש</DialogTitle>
         <WriterFormFields register={register} errors={errors} />
         <StyledDialogActions>
-          <StyledCancelBtn onClick={handleClose} variant="contained">
-            ביטול
-          </StyledCancelBtn>
-          <StyledSubmitBtn type="submit" variant="contained">
-            שמירה
-          </StyledSubmitBtn>
+          <FormButtons handleClose={handleClose} />
         </StyledDialogActions>
       </StyledFormDialog>
     </Dialog>

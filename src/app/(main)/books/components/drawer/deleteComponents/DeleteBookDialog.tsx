@@ -5,6 +5,7 @@ import { Box, Button, Dialog, Typography } from "@mui/material";
 import { useState } from "react";
 import { Book } from "../../../../common/dto/book";
 import { StyledDeleteDialogCard } from "../../styled";
+import { FormButtons } from "@/app/(main)/common/components/FormButtons";
 
 type DeleteBookProps = {
   book: Book;
@@ -13,7 +14,7 @@ type DeleteBookProps = {
 export const DeleteBookDialog = ({ book }: DeleteBookProps) => {
   const [open, setOpen] = useState(false);
 
-  const handleClickCancel = () => {
+  const handleClose = () => {
     setOpen(false);
   };
 
@@ -42,14 +43,7 @@ export const DeleteBookDialog = ({ book }: DeleteBookProps) => {
             <br />
             {book.title} ?
           </Typography>
-          <Box display={"flex"} gap={8}>
-            <Button onClick={handleClickCancel} variant="contained">
-              ביטול
-            </Button>
-            <Button onClick={handleClickAccept} variant="contained">
-              אישור
-            </Button>
-          </Box>
+          <FormButtons handleClose={handleClose} />
         </StyledDeleteDialogCard>
       </Dialog>
     </>

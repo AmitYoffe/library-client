@@ -1,4 +1,4 @@
-import { Box, Fab, MenuItem, styled } from "@mui/material";
+import { Box, Button, Fab, MenuItem, styled } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 
 // make sure no more than 3 columns can be applied
@@ -41,4 +41,13 @@ export const StyledMenuItem = styled(MenuItem)(({ theme }) => ({
   },
   gap: 8,
   justifyContent: "space-between",
+}));
+
+export const StyledSubmitBtn = styled(Button)(({ theme }) => ({
+  backgroundColor: theme.palette.primary.dark,
+  width: "100px",
+}));
+
+export const StyledCancelBtn = styled(Button)(({ theme }) => ({
+  backgroundColor: theme.palette.secondary.light,
 }));
