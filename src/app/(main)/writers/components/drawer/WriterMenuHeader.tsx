@@ -7,9 +7,13 @@ import { StyledBox } from "@/app/(main)/common/components/styled";
 
 type WriterMenuHeaderProps = {
   writer: Writer;
+  bookStock: number;
 };
 
-export const WriterMenuHeader = ({ writer }: WriterMenuHeaderProps) => {
+export const WriterMenuHeader = ({
+  writer,
+  bookStock,
+}: WriterMenuHeaderProps) => {
   return (
     <StyledBox>
       <StyledDefaultPicBox>
@@ -24,8 +28,7 @@ export const WriterMenuHeader = ({ writer }: WriterMenuHeaderProps) => {
         <Typography
           fontSize={24}
         >{`${writer.firstName} ${writer.lastName}`}</Typography>
-        {/* // Todo: get the real bookAmountOfWriter*/}
-        <Typography>מס' עותקים: {9}</Typography>
+        <Typography>מס' עותקים: {bookStock}</Typography>
       </Box>
       <MoreWriterActions writer={writer} />
     </StyledBox>

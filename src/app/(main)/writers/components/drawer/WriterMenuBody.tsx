@@ -1,24 +1,31 @@
 import { StyledMenuBox } from "@/app/(main)/common/components/styled";
 import { Book } from "@/app/(main)/common/dto/book";
-import { useGetBooksByWriter } from "@/app/api";
 import { Box, Typography } from "@mui/material";
-import { Writer } from "../../../common/dto/writer";
 import { WriterBookList } from "./WriterBookList";
 
 type WriterMenuBodyProps = {
-  writer: Writer;
+  booksOfWriter: Book[];
+  error: Error | null;
+  isLoading: boolean;
 };
 
-export const WriterMenuBody = ({ writer }: WriterMenuBodyProps) => {
-  const { data, isLoading, error } = useGetBooksByWriter(writer.id);
-  const books: Book[] = data?.data || [];
+export const WriterMenuBody = ({
+  booksOfWriter,
+  error,
+  isLoading,
+}: WriterMenuBodyProps) => {
+  
+  if (isLoading) return <Box>Loading...</Box>;
+  if (error) return <Box>Error fetching books</Box>;
 
   return (
     <Box padding={2}>
       <StyledMenuBox>
-        <Typography fontSize={20}>רשימת ספרים ({books.length})</Typography>
+        <Typography fontSize={20}>
+          רשימת ספרים ({booksOfWriter.length})
+        </Typography>
       </StyledMenuBox>
-      <WriterBookList books={books} isLoading={isLoading} error={error} />
+      <WriterBookList books={booksOfWriter} />
     </Box>
   );
 };

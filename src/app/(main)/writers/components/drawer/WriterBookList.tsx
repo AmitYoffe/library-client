@@ -4,18 +4,9 @@ import { BooksByWriterRow } from "./BooksByWriterRow";
 
 type WriterBookListListProps = {
   books: Book[];
-  isLoading: boolean;
-  error: Error | null;
 };
 
-export const WriterBookList = ({
-  books,
-  isLoading,
-  error,
-}: WriterBookListListProps) => {
-  if (isLoading) return <Box>Loading...</Box>;
-  if (error) return <Box>Error fetching books</Box>;
-
+export const WriterBookList = ({ books }: WriterBookListListProps) => {
   return (
     <List>
       {books && books.length > 0 ? (

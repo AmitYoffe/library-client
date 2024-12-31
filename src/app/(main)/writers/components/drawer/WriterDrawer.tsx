@@ -1,3 +1,5 @@
+import { Book } from "@/app/(main)/common/dto/book";
+import { useGetBooksByWriter } from "@/app/api";
 import { Box, Drawer } from "@mui/material";
 import Divider from "@mui/material/Divider";
 import { Writer } from "../../../common/dto/writer";
@@ -15,12 +17,19 @@ export const WriterDrawer = ({
   toggleDrawer,
   open,
 }: WriterDrawerProps) => {
+  const { data, isLoading, error } = useGetBooksByWriter(writer.id);
+  const books: Book[] = data?.data || [];
+
   return (
     <Drawer open={open} onClose={() => toggleDrawer(false)}>
       <Box width={480} role="presentation">
-        <WriterMenuHeader writer={writer} />
+        <WriterMenuHeader writer={writer} bookStock={books.length} />
         <Divider />
-        <WriterMenuBody writer={writer} />
+        <WriterMenuBody
+          booksOfWriter={books}
+          isLoading={isLoading}
+          error={error}
+        />
       </Box>
     </Drawer>
   );
