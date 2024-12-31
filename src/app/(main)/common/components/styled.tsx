@@ -45,9 +45,15 @@ export const StyledMenuItem = styled(MenuItem)(({ theme }) => ({
 
 export const StyledSubmitBtn = styled(Button)(({ theme }) => ({
   backgroundColor: theme.palette.primary.dark,
-  width: "100px",
+  width: "110px",
+  fontSize: 16,
+  fontWeight: 500,
 }));
 
 export const StyledCancelBtn = styled(Button)(({ theme }) => ({
-  backgroundColor: theme.palette.secondary.light,
+  backgroundColor: theme.palette.secondary.main,
+  color: theme.palette.secondary.contrastText,
+  width: "110px",
+  fontSize: 16,
+  fontWeight: 500,
 }));
