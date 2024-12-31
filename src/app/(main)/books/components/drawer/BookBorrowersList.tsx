@@ -25,13 +25,15 @@ export const BookBorrowersList = ({
         borrowers.map((borrower: User) => (
           <Box key={borrower.id}>
             <ListItem>
-              <BookBorrowerRow user={borrower} book={book} />
+              <BookBorrowerRow borrower={borrower} book={book} />
             </ListItem>
             <Divider />
           </Box>
         ))
       ) : (
-        <Typography>There are no books published by this author</Typography>
+        <Typography>
+          There are no users currently borrowing this book
+        </Typography>
       )}
     </List>
   );

@@ -57,14 +57,14 @@ export const useGetBorrowers = (bookId: number) =>
 
 export const useBorrowBook = () => {
   return useMutation({
-    mutationFn: (bookId: number) =>
-      httpClient.post(`${Server_API}/books/${bookId}/borrow`),
+    mutationFn: ({ bookId, userId }: { bookId: number; userId: number }) =>
+      httpClient.post(`${Server_API}/books/${bookId}/borrow/${userId}`),
   });
 };
 
 export const useReturnBook = () => {
   return useMutation({
-    mutationFn: (bookId: number) =>
-      httpClient.post(`${Server_API}/books/${bookId}/return`),
+    mutationFn: ({ bookId, userId }: { bookId: number; userId: number }) =>
+      httpClient.post(`${Server_API}/books/${bookId}/return/${userId}`),
   });
 };

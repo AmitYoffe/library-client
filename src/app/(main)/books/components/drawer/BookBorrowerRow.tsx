@@ -5,18 +5,18 @@ import { StyledBookBorrowerRowBox, StyledIdTypography } from "../styled";
 import { Book } from "@/app/(main)/common/dto/book";
 
 type BookBorrowerRowProps = {
-  user: User;
+  borrower: User;
   book: Book;
 };
 
-export const BookBorrowerRow = ({ user, book }: BookBorrowerRowProps) => {
+export const BookBorrowerRow = ({ borrower, book }: BookBorrowerRowProps) => {
   return (
     <>
       <StyledBookBorrowerRowBox>
-        <Typography>{user.username}</Typography>
-        <StyledIdTypography>{user.id}</StyledIdTypography>
+        <Typography>{borrower.username}</Typography>
+        <StyledIdTypography>{borrower.id}</StyledIdTypography>
       </StyledBookBorrowerRowBox>
-      <TerminateBorrowDialog user={user} book={book} />
+      <TerminateBorrowDialog borrower={borrower} book={book} />
     </>
   );
 };

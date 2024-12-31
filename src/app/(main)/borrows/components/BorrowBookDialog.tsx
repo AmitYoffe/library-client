@@ -6,22 +6,29 @@ import { StyledDeleteDialogCard } from "../../books/components/styled";
 import { FormButtons } from "../../common/components/FormButtons";
 import { UserDropDown } from "./UserDropDown";
 
-export const BorrowBookDialog = () => {
+type BorrowBookDialogProps = {
+  bookId: number;
+};
+
+export const BorrowBookDialog = ({ bookId }: BorrowBookDialogProps) => {
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const { handleSubmit, register } = useForm<{ bookId: number }>();
+  const { handleSubmit, register } = useForm<{ userId: number }>();
 
   const addBorrowMutation = useBorrowBook();
 
-  const onSubmit = (data: { bookId: number }) => {
-    addBorrowMutation.mutate(data.bookId, {
-      onSuccess: () => {
-        handleClose();
-      },
-    });
+  const onSubmit = (data: { userId: number }) => {
+    addBorrowMutation.mutate(
+      { userId: data.userId, bookId },
+      {
+        onSuccess: () => {
+          handleClose();
+        },
+      }
+    );
   };
 
   return (

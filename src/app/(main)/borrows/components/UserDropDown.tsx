@@ -6,7 +6,7 @@ import { StyledSelect } from "../../books/components/drawer/editComponents/style
 import { UseFormRegister } from "react-hook-form";
 
 type UserDropDownProps = {
-  register: UseFormRegister<{ bookId: number }>;
+  register: UseFormRegister<{ userId: number }>;
 };
 
 export const UserDropDown = ({ register }: UserDropDownProps) => {
@@ -32,11 +32,11 @@ export const UserDropDown = ({ register }: UserDropDownProps) => {
   return (
     <FormControl fullWidth>
       <StyledSelect
-        {...register("bookId", { required: true })}
+        {...register("userId", { required: true })}
         select
         fullWidth
-        id="bookId"
-        name="bookId"
+        id="userId"
+        name="userId"
         value={selectedUserId}
         onChange={handleWriterChange}
         placeholder="שם סופר"

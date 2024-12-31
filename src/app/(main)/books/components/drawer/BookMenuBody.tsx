@@ -18,7 +18,7 @@ export const BookMenuBody = ({ book }: BookMenuBodyProps) => {
     <Box padding={2}>
       <StyledMenuBox>
         <Typography fontSize={20}>רשימת קוראים ({borrowers.length})</Typography>
-        <BorrowBookDialog />
+        <BorrowBookDialog bookId={book.id} />
       </StyledMenuBox>
       <BookBorrowersList
         borrowers={borrowers}

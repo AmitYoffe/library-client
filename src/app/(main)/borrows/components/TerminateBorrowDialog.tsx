@@ -13,13 +13,13 @@ import {
 } from "./styled";
 
 type TerminateBorrowDialogProps = {
-  user: User;
+  borrower: User;
   book: Book;
 };
 
 export const TerminateBorrowDialog = ({
   book,
-  user,
+  borrower,
 }: TerminateBorrowDialogProps) => {
   const [open, setOpen] = useState(false);
 
@@ -31,11 +31,14 @@ export const TerminateBorrowDialog = ({
   const updateBorrowMutation = useReturnBook();
 
   const onSubmit = () => {
-    updateBorrowMutation.mutate(book.id, {
-      onSuccess: () => {
-        handleClose();
-      },
-    });
+    updateBorrowMutation.mutate(
+      { bookId: book.id, userId: borrower.id },
+      {
+        onSuccess: () => {
+          handleClose();
+        },
+      }
+    );
   };
 
   return (
@@ -58,7 +61,7 @@ export const TerminateBorrowDialog = ({
             <StyledTypography>"{book.title}"</StyledTypography>
             <br />
             <Typography> עבור המשתמש: </Typography>
-            <StyledTypography>{user.username}</StyledTypography>
+            <StyledTypography>{borrower.username}</StyledTypography>
           </Box>
           <FormButtons handleClose={handleClose} />
         </StyledBorrowDialogCard>
