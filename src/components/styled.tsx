@@ -5,14 +5,12 @@ export const StyledRoutePageContainer = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.primary.light,
   justifyContent: "center",
   height: "100vh",
-  padding: 45,
+  padding: 70,
 }));
 
 export const StyledTitle = styled(Box)(() => ({
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    gap: 4,
-  }));
-  
-  
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  gap: 4,
+}));

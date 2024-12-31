@@ -47,24 +47,3 @@ export const useEditBook = () => {
     },
   });
 };
-
-// Maybe separate borrow methods from book methods
-export const useGetBorrowers = (bookId: number) =>
-  useQuery({
-    queryKey: ["borrowers"],
-    queryFn: () => httpClient.get(`${Server_API}/books/borrow/${bookId}`),
-  });
-
-export const useBorrowBook = () => {
-  return useMutation({
-    mutationFn: ({ bookId, userId }: { bookId: number; userId: number }) =>
-      httpClient.post(`${Server_API}/books/${bookId}/borrow/${userId}`),
-  });
-};
-
-export const useReturnBook = () => {
-  return useMutation({
-    mutationFn: ({ bookId, userId }: { bookId: number; userId: number }) =>
-      httpClient.post(`${Server_API}/books/${bookId}/return/${userId}`),
-  });
-};

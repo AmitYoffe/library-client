@@ -2,20 +2,17 @@ general todos:
 
 1) Resort styles and common components
 
-2) 
+2) add all the animation provided in the figma page ( נשמר בהצלחה + מוחק)
 
 3) 
 
-4)  
-
 # # # # # # # # # # # # 
-Today (12/31) missions:
+Today (1/1) missions:
 # # # # # # # # # # # # 
 
-1) add all the animation provided in the figma page ( נשמר בהצלחה + מוחק)
+1) fix onChange reload of UI when adding / editing item
 
-2) fix onChange reload of UI when adding / editing item
+2) Fix writer / book menu headers
 
-3) Finish non-admin page logic
+3)
 
-4) 

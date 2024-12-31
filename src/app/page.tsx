@@ -1,27 +1,32 @@
 "use client";
 import { StyledRoutePageContainer, StyledTitle } from "@/components/styled";
-import { Grid2, Typography } from "@mui/material";
+import { Box, Grid2, Typography } from "@mui/material";
 import Image from "next/image";
 import { BookItem } from "./(main)/books/components/BookItem";
 import { StyledGridContainer } from "./(main)/common/components/styled";
 import { Book } from "./(main)/common/dto/book";
+import { useGetUserBorrowedBooks, useGetUserInfoFromJwt } from "./api";
 
-// todo: finish this pages logic
+export default function HomePage() {
+  const { data: jwtUserInfo } = useGetUserInfoFromJwt();
+  const user = jwtUserInfo?.data;
 
-export default function Home() {
-  const userBorrows: Book[] = [
-    {
-      id: 1,
-      title: "Dark Romance With The Kaban",
-      count: 20,
-      writerId: 2,
-    },
-  ];
+  const { data: books, isLoading, error } = useGetUserBorrowedBooks(user?.sub);
+
+  const borrowedBooks: Book[] = books?.data;
+
+  if (isLoading) return <Box>Loading...</Box>;
+  if (error) return <Box>Error fetching your borrowed books</Box>;
 
   return (
     <StyledRoutePageContainer>
       <StyledTitle>
-        <Typography fontSize={40}>כל הספרים שאתה שואל כרגע:</Typography>
+        <Typography fontSize={40}>
+          אהלן וסאהלן
+          <br />
+          {user?.username}
+        </Typography>
+        <Typography fontSize={32}>כל הספרים שאתה שואל כרגע:</Typography>
         <Image
           src={"/sad-emoji.gif"}
           alt={"really sad emoji"}
@@ -30,11 +35,15 @@ export default function Home() {
         />
       </StyledTitle>
       <StyledGridContainer container>
-        {userBorrows.map((book, index) => (
-          <Grid2 key={index}>
-            <BookItem book={book} toggleDrawer={() => {}} />
-          </Grid2>
-        ))}
+        {borrowedBooks.length > 0 ? (
+          borrowedBooks.map((book: Book, index: number) => (
+            <Grid2 key={index}>
+              <BookItem book={book} toggleDrawer={() => {}} />
+            </Grid2>
+          ))
+        ) : (
+          <Box>אינך ספרים בבית יחנון</Box>
+        )}
       </StyledGridContainer>
     </StyledRoutePageContainer>
   );
