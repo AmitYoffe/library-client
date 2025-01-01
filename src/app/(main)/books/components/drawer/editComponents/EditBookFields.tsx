@@ -1,5 +1,5 @@
+import { Book } from "@/app/(main)/common/dto/book";
 import { FieldErrors, UseFormRegister } from "react-hook-form";
-import { Book } from "../../../../common/dto/book";
 import { BookFormFields } from "../../schema";
 import { WriterSelectionDropdown } from "../../WriterSelectionDropdown";
 import { StyledFieldsContainer, StyledTextField } from "./styled";
@@ -17,7 +17,11 @@ export const EditBookFields = ({
 }: EditBookFieldsProps) => {
   return (
     <StyledFieldsContainer>
-      <WriterSelectionDropdown register={register} errors={errors} />
+      <WriterSelectionDropdown
+        register={register}
+        errors={errors}
+        initialWriterId={book.writerId}
+      />
       <StyledTextField
         {...register("count")}
         error={!!errors.count}

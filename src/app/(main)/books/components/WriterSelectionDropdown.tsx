@@ -9,16 +9,18 @@ import { StyledSelect } from "./drawer/editComponents/styled";
 type WriterSelectionDropdownProps = {
   register: UseFormRegister<BookFormFields>;
   errors: FieldErrors<BookFormFields>;
+  initialWriterId: number;
 };
 
 export const WriterSelectionDropdown = ({
   register,
   errors,
+  initialWriterId,
 }: WriterSelectionDropdownProps) => {
   const { data } = useGetAllWriters();
   const writers: Writer[] = data?.data;
 
-  const [selectedWriter, setSelectedWriter] = useState<number>(0);
+  const [selectedWriter, setSelectedWriter] = useState<number>(initialWriterId);
 
   const handleWriterChange = (
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
