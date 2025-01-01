@@ -13,7 +13,7 @@ export const useGetAllBooks = () =>
 
 export const useGetBooksByWriter = (writerId: number) =>
   useQuery({
-    queryKey: ["writersOfBook"],
+    queryKey: ["writersOfBook", writerId],
     queryFn: () => httpClient.get(`${Server_Book_API}/writer/${writerId}`),
   });
 
@@ -47,3 +47,9 @@ export const useEditBook = () => {
     },
   });
 };
+
+export const useGetActiveReaders = (writerId: number) =>
+  useQuery({
+    queryKey: ["activeReaders", writerId],
+    queryFn: () => httpClient.get(`${Server_Book_API}/reader/${writerId}`),
+  });

@@ -12,7 +12,6 @@ Today (1/1) missions:
 
 1) fix onChange reload of UI when adding / editing item
 
-2) Fix book menu header
+2)
 
-3) Fix גלבוע רושל bug in BookItem
 

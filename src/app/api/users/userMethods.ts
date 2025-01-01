@@ -15,7 +15,7 @@ export const useLogUser = () => {
 
 export const useGetAllUsers = () =>
   useQuery({
-    queryKey: ["users"], // check if i need to change these per hook
+    queryKey: ["users"],
     queryFn: () => httpClient.get(`${Server_User_API}/user`),
   });
 

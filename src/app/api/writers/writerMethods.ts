@@ -45,13 +45,13 @@ export const useGetAllWriters = () =>
 
 export const useGetWriterById = (writerId: number) =>
   useQuery({
-    queryKey: ["writerById"],
+    queryKey: ["writerById", writerId],
     queryFn: () => httpClient.get(`${Server_Writer_API}/${writerId}`),
   });
 
 export const useGetWriterByBook = (bookId: number) =>
   useQuery({
-    queryKey: ["writerByBookId"],
+    queryKey: ["writerByBookId", bookId],
     queryFn: () => httpClient.get(`${Server_Writer_API}/book/${bookId}`),
   });
 
