@@ -43,7 +43,7 @@ export const DeleteBookDialog = ({ book }: DeleteBookProps) => {
             <br />
             {book.title} ?
           </Typography>
-          <FormButtons handleClose={handleClose} />
+          <FormButtons handleClose={handleClose} onSubmit={handleClickAccept} />
         </StyledDeleteDialogCard>
       </Dialog>
     </>

@@ -9,6 +9,7 @@ export const useGetAllBooks = () =>
   useQuery({
     queryKey: ["books"],
     queryFn: () => httpClient.get(Server_Book_API),
+    enabled: true,
   });
 
 export const useGetBooksByWriter = (writerId: number) =>
@@ -22,7 +23,9 @@ export const useAddBook = () => {
     mutationFn: (book: BookDto) => httpClient.post(Server_Book_API, book),
 
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["books"] });
+      queryClient.invalidateQueries({
+        queryKey: ["books", "writersOfBook", "activeReaders"],
+      });
     },
   });
 };
@@ -32,7 +35,9 @@ export const useDeleteBook = (bookId: number) => {
     mutationFn: () => httpClient.delete(`${Server_Book_API}/${bookId}`),
 
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["books"] });
+      queryClient.invalidateQueries({
+        queryKey: ["books", "writersOfBook", "activeReaders"],
+      });
     },
   });
 };
@@ -43,7 +48,9 @@ export const useEditBook = () => {
       httpClient.patch(`${Server_Book_API}/${book.id}`, book),
 
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["books"] });
+      queryClient.invalidateQueries({
+        queryKey: ["books", "writersOfBook", "activeReaders"],
+      });
     },
   });
 };

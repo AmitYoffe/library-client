@@ -1,8 +1,9 @@
 import { StyledDeleteDialogCard } from "@/app/(main)/books/components/styled";
+import { FormButtons } from "@/app/(main)/common/components/FormButtons";
 import { StyledMenuItem } from "@/app/(main)/common/components/styled";
 import { useDeleteWriter } from "@/app/api";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
-import { Box, Button, Dialog, Typography } from "@mui/material";
+import { Dialog, Typography } from "@mui/material";
 import { useState } from "react";
 import { Writer } from "../../../../common/dto/writer";
 
@@ -13,7 +14,7 @@ type DeleteWriterProps = {
 export const DeleteWriterDialog = ({ writer }: DeleteWriterProps) => {
   const [open, setOpen] = useState(false);
 
-  const handleClickCancel = () => {
+  const handleClose = () => {
     setOpen(false);
   };
 
@@ -42,14 +43,7 @@ export const DeleteWriterDialog = ({ writer }: DeleteWriterProps) => {
             <br />
             {writer.firstName} ?
           </Typography>
-          <Box display={"flex"} gap={8}>
-            <Button onClick={handleClickCancel} variant="contained">
-              ביטול
-            </Button>
-            <Button onClick={handleClickAccept} variant="contained">
-              אישור
-            </Button>
-          </Box>
+          <FormButtons handleClose={handleClose} onSubmit={handleClickAccept} />
         </StyledDeleteDialogCard>
       </Dialog>
     </>
