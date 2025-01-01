@@ -3,7 +3,7 @@ import { queryClient } from "@/components/layout/CustomQueryClientProvider";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { httpClient } from "../httpClient";
 
-const Server_API = process.env.NEXT_PUBLIC_API_URL;
+const Server_Writer_API = `${process.env.NEXT_PUBLIC_API_URL}/writers`;
 
 // export const useWriters = (
 //   method: "GET" | "POST" | "PATCH" | "DELETE",
@@ -40,19 +40,25 @@ const Server_API = process.env.NEXT_PUBLIC_API_URL;
 export const useGetAllWriters = () =>
   useQuery({
     queryKey: ["writers"],
-    queryFn: () => httpClient.get(`${Server_API}/writers`),
+    queryFn: () => httpClient.get(Server_Writer_API),
+  });
+
+export const useGetWriterById = (writerId: number) =>
+  useQuery({
+    queryKey: ["writerById"],
+    queryFn: () => httpClient.get(`${Server_Writer_API}/${writerId}`),
   });
 
 export const useGetWriterByBook = (bookId: number) =>
   useQuery({
-    queryKey: ["writersOfBook"],
-    queryFn: () => httpClient.get(`${Server_API}/writers/book/${bookId}`),
+    queryKey: ["writerByBookId"],
+    queryFn: () => httpClient.get(`${Server_Writer_API}/book/${bookId}`),
   });
 
 export const useAddWriter = () => {
   return useMutation({
     mutationFn: (writer: WriterDto) =>
-      httpClient.post(`${Server_API}/writers`, writer),
+      httpClient.post(Server_Writer_API, writer),
 
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["writers"] });
@@ -62,7 +68,7 @@ export const useAddWriter = () => {
 
 export const useDeleteWriter = (writerId: number) => {
   return useMutation({
-    mutationFn: () => httpClient.delete(`${Server_API}/writers/${writerId}`),
+    mutationFn: () => httpClient.delete(`${Server_Writer_API}/${writerId}`),
 
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["writers"] });
@@ -73,7 +79,7 @@ export const useDeleteWriter = (writerId: number) => {
 export const useEditWriter = () => {
   return useMutation({
     mutationFn: (writer: Writer) =>
-      httpClient.patch(`${Server_API}/writers/${writer.id}`, writer),
+      httpClient.patch(`${Server_Writer_API}/${writer.id}`, writer),
 
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["writers"] });

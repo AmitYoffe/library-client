@@ -3,10 +3,10 @@ import axios from "axios";
 import { FormFields } from "../../login/types/FormFields";
 import { httpClient } from "../httpClient";
 
-const Server_API = process.env.NEXT_PUBLIC_API_URL;
+const Server_User_API = `${process.env.NEXT_PUBLIC_API_URL}/user`;
 
 export const useLogUser = () => {
-  const loginRoute = `${Server_API}/user/login`;
+  const loginRoute = `${Server_User_API}/user/login`;
 
   return useMutation({
     mutationFn: (formData: FormFields) => axios.post(loginRoute, formData),
@@ -16,11 +16,11 @@ export const useLogUser = () => {
 export const useGetAllUsers = () =>
   useQuery({
     queryKey: ["users"], // check if i need to change these per hook
-    queryFn: () => httpClient.get(`${Server_API}/user`),
+    queryFn: () => httpClient.get(`${Server_User_API}/user`),
   });
 
 export const useGetUserInfoFromJwt = () =>
   useQuery({
     queryKey: ["users"],
-    queryFn: () => httpClient.get(`${Server_API}/user/jwt`),
+    queryFn: () => httpClient.get(`${Server_User_API}/user/jwt`),
   });

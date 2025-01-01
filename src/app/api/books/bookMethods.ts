@@ -3,23 +3,23 @@ import { queryClient } from "@/components/layout/CustomQueryClientProvider";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { httpClient } from "../httpClient";
 
-const Server_API = process.env.NEXT_PUBLIC_API_URL;
+const Server_Book_API = `${process.env.NEXT_PUBLIC_API_URL}/books`;
 
 export const useGetAllBooks = () =>
   useQuery({
     queryKey: ["books"],
-    queryFn: () => httpClient.get(`${Server_API}/books`),
+    queryFn: () => httpClient.get(Server_Book_API),
   });
 
 export const useGetBooksByWriter = (writerId: number) =>
   useQuery({
     queryKey: ["writersOfBook"],
-    queryFn: () => httpClient.get(`${Server_API}/books/writer/${writerId}`),
+    queryFn: () => httpClient.get(`${Server_Book_API}/writer/${writerId}`),
   });
 
 export const useAddBook = () => {
   return useMutation({
-    mutationFn: (book: BookDto) => httpClient.post(`${Server_API}/books`, book),
+    mutationFn: (book: BookDto) => httpClient.post(Server_Book_API, book),
 
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["books"] });
@@ -29,7 +29,7 @@ export const useAddBook = () => {
 
 export const useDeleteBook = (bookId: number) => {
   return useMutation({
-    mutationFn: () => httpClient.delete(`${Server_API}/books/${bookId}`),
+    mutationFn: () => httpClient.delete(`${Server_Book_API}/${bookId}`),
 
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["books"] });
@@ -40,7 +40,7 @@ export const useDeleteBook = (bookId: number) => {
 export const useEditBook = () => {
   return useMutation({
     mutationFn: (book: Book) =>
-      httpClient.patch(`${Server_API}/books/${book.id}`, book),
+      httpClient.patch(`${Server_Book_API}/${book.id}`, book),
 
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["books"] });
