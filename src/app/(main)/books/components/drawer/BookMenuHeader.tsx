@@ -2,7 +2,7 @@ import { MoreBookActions } from "@/app/(main)/books/components/drawer/MoreBookAc
 import { StyledBox } from "@/app/(main)/common/components/styled";
 import { Writer } from "@/app/(main)/common/dto/writer";
 import { StyledDefaultPicBox } from "@/app/(main)/writers/components/drawer/styled";
-import { useGetWriterByBook } from "@/app/api";
+import { useGetBorrowsCount, useGetWriterByBook } from "@/app/api";
 import { Box, Typography } from "@mui/material";
 import Image from "next/image";
 import { Book } from "../../../common/dto/book";
@@ -14,6 +14,11 @@ type BookMenuHeaderProps = {
 export const BookMenuHeader = ({ book }: BookMenuHeaderProps) => {
   const { data } = useGetWriterByBook(book.id);
   const writer: Writer = data?.data;
+
+  const { data: bookBorrowsCountData } = useGetBorrowsCount(book.id);
+  const bookBorrowsCount: number = bookBorrowsCountData?.data;
+
+  const bookStock = book.count - bookBorrowsCount;
 
   return (
     <StyledBox>
@@ -30,9 +35,7 @@ export const BookMenuHeader = ({ book }: BookMenuHeaderProps) => {
         <Typography>
           {writer && `${writer.firstName} ${writer.lastName}`}
         </Typography>
-        {/* // Todo: substract user borrows count from book.count to display the books in stock and not original book count
-                    -- I can make a util for it  */}
-        <Typography>מס' עותקים: {book.count}</Typography>
+        <Typography>מס' עותקים: {bookStock}</Typography>
       </Box>
       <MoreBookActions book={book} />
     </StyledBox>
