@@ -1,7 +1,6 @@
 "use client";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CircularProgress } from "@mui/material";
-import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
@@ -12,7 +11,7 @@ import { useForm } from "react-hook-form";
 import { setAuthToken } from "../api/httpClient";
 import { useLogUser } from "../api/users/userMethods";
 import { LoginHeader } from "./components/LoginHeader";
-import { StyledCard, StyledLogInContainer } from "./components/styled";
+import { LoginBoxContainer, StyledCard, StyledLogInContainer } from "./styled";
 import { FormFields, loginSchema } from "./types/FormFields";
 
 const LogInPage = () => {
@@ -50,16 +49,9 @@ const LogInPage = () => {
     <StyledLogInContainer>
       <StyledCard>
         <LoginHeader />
-        <Box
-          component="form"
-          onSubmit={handleSubmit(onSubmit)}
-          noValidate
-          display={"flex"}
-          flexDirection={"column"}
-          gap={2}
-        >
+        <LoginBoxContainer component="form" onSubmit={handleSubmit(onSubmit)}>
           <FormControl>
-            <FormLabel htmlFor="username">שם משתמש</FormLabel>
+            <FormLabel>שם משתמש</FormLabel>
             <TextField
               {...register("username")}
               error={!!errors.username}
@@ -67,15 +59,10 @@ const LogInPage = () => {
               id="username"
               type="username"
               placeholder="השם המגניב והאישי שלי"
-              autoComplete="username"
-              autoFocus
               required
-              fullWidth
               variant="outlined"
             />
-          </FormControl>
-          <FormControl>
-            <FormLabel htmlFor="password">סיסמא</FormLabel>
+            <FormLabel>סיסמא</FormLabel>
             <TextField
               {...register("password")}
               error={!!errors.password}
@@ -83,16 +70,14 @@ const LogInPage = () => {
               id="password"
               type="password"
               placeholder="••••••"
-              autoComplete="current-password"
               required
-              fullWidth
               variant="outlined"
             />
           </FormControl>
           <Button type="submit" variant="contained" disabled={isSubmitting}>
             {isSubmitting ? <CircularProgress /> : "התחבר"}
           </Button>
-        </Box>
+        </LoginBoxContainer>
       </StyledCard>
     </StyledLogInContainer>
   );

@@ -48,6 +48,3 @@ export const useGetBorrowsCount = (bookId: number) =>
     queryFn: () => httpClient.get(`${Server_Book_API}/borrow/${bookId}/count`),
   });
 
-// For some reason, when i add things, the UI refreshes consistantly
-// When i edit sometimes it changes the UI immediately
-// And when i delete it doesn't update UI

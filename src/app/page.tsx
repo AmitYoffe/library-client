@@ -1,5 +1,5 @@
 "use client";
-import { StyledRoutePageContainer, StyledTitle } from "@/components/styled";
+import { StyledRootPageContainer, StyledTitle } from "@/components/styled";
 import { Box, Grid2, Typography } from "@mui/material";
 import Image from "next/image";
 import { BookItem } from "./(main)/books/components/BookItem";
@@ -19,13 +19,9 @@ export default function HomePage() {
   if (error) return <Box>Error fetching your borrowed books</Box>;
 
   return (
-    <StyledRoutePageContainer>
+    <StyledRootPageContainer>
       <StyledTitle>
-        <Typography fontSize={40}>
-          אהלן וסאהלן
-          <br />
-          {user?.username}
-        </Typography>
+        <Typography fontSize={40}>אהלן וסאהלן {user?.username}</Typography>
         <Typography fontSize={32}>כל הספרים שאתה שואל כרגע:</Typography>
         <Image
           src={"/sad-emoji.gif"}
@@ -45,6 +41,6 @@ export default function HomePage() {
           <Box>אינך ספרים בבית יחנון</Box>
         )}
       </StyledGridContainer>
-    </StyledRoutePageContainer>
+    </StyledRootPageContainer>
   );
 }

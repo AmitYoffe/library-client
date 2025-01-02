@@ -1,14 +1,13 @@
-import { Box, Button, Fab, MenuItem, styled } from "@mui/material";
+import { Box, Button, Fab, MenuItem, styled, TextField, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 
-// make sure no more than 3 columns can be applied
 export const StyledGridContainer = styled(Grid)(() => ({
   justifyContent: "flex-start",
   alignContent: "flex-start",
   padding: 8,
   overflowY: "auto",
   height: "80vh",
-  maxWidth: "1400px",
+  maxWidth: "85%",
 }));
 
 export const StyledFab = styled(Fab)(({ theme }) => ({
@@ -56,4 +55,24 @@ export const StyledCancelBtn = styled(Button)(({ theme }) => ({
   width: "110px",
   fontSize: 16,
   fontWeight: 500,
+}));
+
+export const StyledGridMain = styled(Box)(() => ({
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  paddingRight: "160px",
+  paddingLeft: "120px",
+  paddingTop: "80px",
+}));
+
+export const StyledPageTitle = styled(Typography)(() => ({
+  display: "flex",
+  fontSize: 50,
+  width: "100%",
+}));
+
+export const StyledTextField = styled(TextField)(({ theme }) => ({
+  backgroundColor: theme.palette.secondary.main,
+  dir: "rtl",
 }));

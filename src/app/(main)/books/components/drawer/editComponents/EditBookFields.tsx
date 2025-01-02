@@ -1,8 +1,9 @@
+import { StyledTextField } from "@/app/(main)/common/components/styled";
 import { Book } from "@/app/(main)/common/dto/book";
 import { FieldErrors, UseFormRegister } from "react-hook-form";
 import { BookFormFields } from "../../schema";
 import { WriterSelectionDropdown } from "../../WriterSelectionDropdown";
-import { StyledFieldsContainer, StyledTextField } from "./styled";
+import { StyledFieldsContainer } from "./styled";
 
 type EditBookFieldsProps = {
   book: Book;

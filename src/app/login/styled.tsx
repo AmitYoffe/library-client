@@ -1,5 +1,6 @@
 import { Box, Stack, styled } from "@mui/material";
 import MuiCard from "@mui/material/Card";
+import { ElementType } from "react";
 
 export const StyledCard = styled(MuiCard)(({ theme }) => ({
   display: "flex",
@@ -20,29 +21,10 @@ export const StyledCard = styled(MuiCard)(({ theme }) => ({
   }),
 }));
 
-export const StyledLogInContainer = styled(Stack)(({ theme }) => ({
-  height: "calc((1 - var(--template-frame-height, 0)) * 100dvh)",
-  // overflowY: "hidden",
-  minHeight: "100%",
-  padding: theme.spacing(2),
-  [theme.breakpoints.up("sm")]: {
-    padding: theme.spacing(4),
-  },
-  "&::before": {
-    content: '""',
-    display: "block",
-    position: "absolute",
-    zIndex: -1,
-    inset: 0,
-    backgroundImage:
-      "radial-gradient(ellipse at 50% 50%, hsl(210, 100%, 97%), hsl(0, 0%, 100%))",
-    backgroundRepeat: "no-repeat",
-    ...theme.applyStyles("dark", {
-      backgroundImage:
-        "radial-gradient(at 50% 50%, hsla(210, 100%, 16%, 0.5), hsl(220, 30%, 5%))",
-    }),
-    dir: "rtl",
-  },
+export const StyledLogInContainer = styled(Stack)(() => ({
+  height: "100vh",
+  backgroundImage:
+    "radial-gradient(at 50% 50%, hsla(310, 23.80%, 71.20%, 0.50), white)",
 }));
 
 export const StyledHeaderContainer = styled(Box)(({ theme }) => ({
@@ -52,3 +34,11 @@ export const StyledHeaderContainer = styled(Box)(({ theme }) => ({
   padding: 6,
   backgroundImage: `linear-gradient(to right, ${theme.palette.primary.dark} , white)`,
 }));
+
+export const LoginBoxContainer = styled(Box)<{ component?: ElementType }>(
+  () => ({
+    display: "flex",
+    flexDirection: "column",
+    gap: 12,
+  })
+);

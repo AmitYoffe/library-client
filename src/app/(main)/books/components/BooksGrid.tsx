@@ -1,6 +1,9 @@
-import { Box, Typography } from "@mui/material";
 import { useState } from "react";
-import { StyledGridContainer } from "../../common/components/styled";
+import {
+  StyledGridContainer,
+  StyledGridMain,
+  StyledPageTitle,
+} from "../../common/components/styled";
 import { Book } from "../../common/dto/book";
 import { BookItem } from "./BookItem";
 import { BookDrawer } from "./drawer/BookDrawer";
@@ -25,8 +28,8 @@ export const BooksGrid = ({ books, title }: BooksGridProps) => {
   };
 
   return (
-    <Box paddingX={"130px"} paddingTop={"80px"}>
-      <Typography fontSize={50}>{title}</Typography>
+    <StyledGridMain>
+      <StyledPageTitle>{title}</StyledPageTitle>
       <StyledGridContainer container>
         {books.map((book, index) => (
           <BookItem
@@ -43,6 +46,6 @@ export const BooksGrid = ({ books, title }: BooksGridProps) => {
           toggleDrawer={handleCloseDrawer}
         />
       )}
-    </Box>
+    </StyledGridMain>
   );
 };

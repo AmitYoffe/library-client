@@ -2,7 +2,7 @@ general todos:
 
 1) add all the animation provided in the figma page ( נשמר בהצלחה + מוחק) - Rony asked to ignore this for now
 
-2) Fix warnings in console
+2)
 
 3) 
 

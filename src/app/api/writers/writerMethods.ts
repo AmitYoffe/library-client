@@ -57,7 +57,6 @@ export const useEditWriter = () => {
       queryClient.invalidateQueries({
         queryKey: ["writers", "writerById", "writerByBookId"],
       });
-      // queryClient.setQueryData(['todo', { id: variables.id }], data)
     },
   });
 };

@@ -1,8 +1,12 @@
 import { useGetActiveReaders } from "@/app/api";
-import { Box, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import Image from "next/image";
 import { Writer } from "../../common/dto/writer";
-import { StyledWriterCardActionArea } from "./styled";
+import {
+  StyledWriterCardActionArea,
+  StyledWriterInfoBox,
+  StyledWriterItemBox,
+} from "./styled";
 
 type WriterItemType = {
   writer: Writer;
@@ -15,22 +19,22 @@ export const WriterItem = ({ writer, toggleDrawer }: WriterItemType) => {
 
   return (
     <StyledWriterCardActionArea onClick={() => toggleDrawer(true, writer)}>
-      <Box display={"flex"} alignItems={"center"}>
+      <StyledWriterItemBox>
         <Image
           src="/defaultProfilePic.svg"
           alt="Profile Picture"
           width={60}
           height={60}
         />
-        <Box display={"flex"} flexDirection={"column"} marginRight={2}>
+        <StyledWriterInfoBox>
           <Typography
             fontSize={20}
           >{`${writer.firstName} ${writer.lastName}`}</Typography>
           <Typography
             fontSize={11}
           >{`כמות הקוראים: ${activeReaderIds.length}`}</Typography>
-        </Box>
-      </Box>
+        </StyledWriterInfoBox>
+      </StyledWriterItemBox>
       <Image src="/infoIcon.svg" alt="Info Icon" width={30} height={30} />
     </StyledWriterCardActionArea>
   );

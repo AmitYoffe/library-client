@@ -20,3 +20,14 @@ export const StyledBooksByWriterRowBox = styled(Box)(() => ({
   alignItems: "center",
   width: "100%",
 }));
+
+export const StyledWriterItemBox = styled(Box)(() => ({
+  display: "flex",
+  alignItems: "center",
+}));
+
+export const StyledWriterInfoBox = styled(Box)(() => ({
+  display: "flex",
+  flexDirection: "column",
+  marginRight: 2,
+}));

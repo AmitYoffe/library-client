@@ -1,11 +1,11 @@
 import { Box, styled } from "@mui/material";
 
-export const StyledRoutePageContainer = styled(Box)(({ theme }) => ({
+export const StyledRootPageContainer = styled(Box)(({ theme }) => ({
   display: "flex",
-  backgroundColor: theme.palette.primary.light,
-  justifyContent: "center",
+  backgroundColor: theme.palette.primary.main,
+  justifyContent: "space-between",
   height: "100vh",
-  padding: 70,
+  padding: 120,
 }));
 
 export const StyledTitle = styled(Box)(() => ({

@@ -1,5 +1,5 @@
 import { FieldErrors, UseFormRegister } from "react-hook-form";
-import { StyledTextField } from "./drawer/editComponents/styled";
+import { StyledTextField } from "../../common/components/styled";
 import { WriterSelectionDropdown } from "./WriterSelectionDropdown";
 import { BookFormFields } from "./schema";
 

@@ -1,6 +1,9 @@
-import { Box, Typography } from "@mui/material";
 import { useState } from "react";
-import { StyledGridContainer } from "../../common/components/styled";
+import {
+  StyledGridContainer,
+  StyledGridMain,
+  StyledPageTitle,
+} from "../../common/components/styled";
 import { Writer } from "../../common/dto/writer";
 import { WriterItem } from "./WriterItem";
 import { WriterDrawer } from "./drawer/WriterDrawer";
@@ -25,8 +28,8 @@ export const WritersGrid = ({ writers, title }: WritersGridProps) => {
   };
 
   return (
-    <Box paddingX={"130px"} paddingTop={"80px"}>
-      <Typography fontSize={50}>{title}</Typography>
+    <StyledGridMain>
+      <StyledPageTitle>{title}</StyledPageTitle>
       <StyledGridContainer container>
         {writers.map((writer, index) => (
           <WriterItem
@@ -43,6 +46,6 @@ export const WritersGrid = ({ writers, title }: WritersGridProps) => {
           toggleDrawer={handleCloseDrawer}
         />
       )}
-    </Box>
+    </StyledGridMain>
   );
 };

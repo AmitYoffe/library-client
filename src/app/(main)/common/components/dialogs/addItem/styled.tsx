@@ -8,8 +8,3 @@ export const StyledDialogActions = styled(DialogActions)(() => ({
   display: "flex",
   justifyContent: "space-around",
 }));
-
-export const StyledTextField = styled(TextField)(({ theme }) => ({
-  backgroundColor: theme.palette.secondary.main,
-  // dir: "rtl",
-}));

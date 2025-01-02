@@ -1,5 +1,5 @@
 import { FieldErrors, UseFormRegister } from "react-hook-form";
-import { StyledTextField } from "../../common/components/dialogs/addItem/styled";
+import { StyledTextField } from "../../common/components/styled";
 import { WriterFormFieldsType } from "./schema";
 
 type FormFieldsProps = {

@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material";
 import Image from "next/image";
-import { StyledHeaderContainer } from "./styled";
+import { StyledHeaderContainer } from "../styled";
 
 export const LoginHeader = () => {
   return (
