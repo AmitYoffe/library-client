@@ -1,4 +1,4 @@
-import { TextField } from "@mui/material";
+import { StyledTextField } from "@/app/(main)/common/components/styled";
 import { FieldErrors, UseFormRegister } from "react-hook-form";
 import { Writer } from "../../../../common/dto/writer";
 import { WriterFormFieldsType } from "../../schema";
@@ -16,7 +16,7 @@ export const EditWriterFields = ({
 }: EditWriterFieldsProps) => {
   return (
     <>
-      <TextField
+      <StyledTextField
         {...register("firstName")}
         error={!!errors.firstName}
         helperText={errors.firstName?.message}
@@ -28,7 +28,7 @@ export const EditWriterFields = ({
         type="text"
         defaultValue={writer.firstName}
       />
-      <TextField
+      <StyledTextField
         {...register("lastName")}
         error={!!errors.lastName}
         helperText={errors.lastName?.message}

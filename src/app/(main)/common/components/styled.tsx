@@ -82,6 +82,13 @@ export const StyledPageTitle = styled(Typography)(() => ({
 export const StyledTextField = styled(TextField)(({ theme }) => ({
   backgroundColor: theme.palette.secondary.main,
   dir: "rtl",
+  "& label": {
+    transformOrigin: "right !important",
+    left: "inherit !important",
+    right: "1.75rem !important",
+    fontSize: "small",
+    backgroundColor: theme.palette.primary.light,
+  },
 }));
 
 export const StyledFormButtonBox = styled(Box)(() => ({
