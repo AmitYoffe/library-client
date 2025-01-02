@@ -1,4 +1,12 @@
-import { Box, Button, Fab, MenuItem, styled, TextField, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Fab,
+  MenuItem,
+  styled,
+  TextField,
+  Typography,
+} from "@mui/material";
 import Grid from "@mui/material/Grid2";
 
 export const StyledGridContainer = styled(Grid)(() => ({
@@ -42,8 +50,7 @@ export const StyledMenuItem = styled(MenuItem)(({ theme }) => ({
   justifyContent: "space-between",
 }));
 
-export const StyledSubmitBtn = styled(Button)(({ theme }) => ({
-  backgroundColor: theme.palette.primary.dark,
+export const StyledSubmitBtn = styled(Button)(() => ({
   width: "110px",
   fontSize: 16,
   fontWeight: 500,
@@ -75,4 +82,9 @@ export const StyledPageTitle = styled(Typography)(() => ({
 export const StyledTextField = styled(TextField)(({ theme }) => ({
   backgroundColor: theme.palette.secondary.main,
   dir: "rtl",
+}));
+
+export const StyledFormButtonBox = styled(Box)(() => ({
+  display: "flex",
+  gap: 16,
 }));

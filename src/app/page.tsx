@@ -21,7 +21,7 @@ export default function HomePage() {
   return (
     <StyledRootPageContainer>
       <StyledTitle>
-        <Typography fontSize={40}>אהלן וסאהלן {user?.username}</Typography>
+        <Typography fontSize={40}>אהלן וסהאלן {user?.username}</Typography>
         <Typography fontSize={32}>כל הספרים שאתה שואל כרגע:</Typography>
         <Image
           src={"/sad-emoji.gif"}

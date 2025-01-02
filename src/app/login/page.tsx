@@ -84,5 +84,3 @@ const LogInPage = () => {
 };
 
 export default LogInPage;
-
-// read more about form groups and form control

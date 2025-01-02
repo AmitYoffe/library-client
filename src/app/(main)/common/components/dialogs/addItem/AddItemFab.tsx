@@ -11,7 +11,7 @@ export const AddItemFab = () => {
 
   const pathname = usePathname();
   const isWritersPage = pathname === "/writers";
-  // make generic not binary, or just split the Fab
+  // make this more generic not binary, or just split the Fab
   const handleClickOpen = () => {
     setOpen(true);
   };

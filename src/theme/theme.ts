@@ -9,6 +9,7 @@ const secularOne = Secular_One({
 });
 
 export const theme = createTheme({
+  direction: "rtl",
   palette: {
     primary: {
       main: color.pink[500],
@@ -23,5 +24,15 @@ export const theme = createTheme({
   },
   typography: {
     fontFamily: secularOne.style.fontFamily,
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          backgroundColor: color.pink[700],
+          color: "white",
+        },
+      },
+    },
   },
 });

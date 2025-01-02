@@ -1,5 +1,8 @@
-import { Box } from "@mui/material";
-import { StyledCancelBtn, StyledSubmitBtn } from "./styled";
+import {
+  StyledCancelBtn,
+  StyledFormButtonBox,
+  StyledSubmitBtn,
+} from "./styled";
 
 type FormButtonsProps = {
   handleClose: () => void;
@@ -8,18 +11,13 @@ type FormButtonsProps = {
 
 export const FormButtons = ({ handleClose, onSubmit }: FormButtonsProps) => {
   return (
-    <Box display="flex" gap={2}>
+    <StyledFormButtonBox>
       <StyledCancelBtn onClick={handleClose} variant="contained">
         ביטול
       </StyledCancelBtn>
-      <StyledSubmitBtn
-        onClick={onSubmit}
-        variant="contained"
-        color="primary"
-        type="submit"
-      >
+      <StyledSubmitBtn onClick={onSubmit} variant="contained" type="submit">
         אישור
       </StyledSubmitBtn>
-    </Box>
+    </StyledFormButtonBox>
   );
 };
