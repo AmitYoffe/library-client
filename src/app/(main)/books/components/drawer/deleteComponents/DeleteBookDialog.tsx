@@ -1,11 +1,11 @@
+import { FormButtons } from "@/app/(main)/common/components/FormButtons";
 import { StyledMenuItem } from "@/app/(main)/common/components/styled";
 import { useDeleteBook } from "@/app/api";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
-import { Box, Button, Dialog, Typography } from "@mui/material";
+import { Dialog, Typography } from "@mui/material";
 import { useState } from "react";
 import { Book } from "../../../../common/dto/book";
 import { StyledDeleteDialogCard } from "../../styled";
-import { FormButtons } from "@/app/(main)/common/components/FormButtons";
 
 type DeleteBookProps = {
   book: Book;

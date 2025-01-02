@@ -9,7 +9,10 @@ export const useGetAllBooks = () =>
   useQuery({
     queryKey: ["books"],
     queryFn: () => httpClient.get(Server_Book_API),
-    enabled: true,
+    // enabled: true,
+    // refetchOnWindowFocus: true,
+    // refetchOnMount: "always",
+    // staleTime: 0,
   });
 
 export const useGetBooksByWriter = (writerId: number) =>
@@ -21,10 +24,12 @@ export const useGetBooksByWriter = (writerId: number) =>
 export const useAddBook = () => {
   return useMutation({
     mutationFn: (book: BookDto) => httpClient.post(Server_Book_API, book),
+    // queryKey: ["books"],
+    mutationKey: ["books"],
 
     onSuccess: () => {
       queryClient.invalidateQueries({
-        queryKey: ["books", "writersOfBook", "activeReaders"],
+        queryKey: ["books"],
       });
     },
   });
@@ -51,6 +56,9 @@ export const useEditBook = () => {
       queryClient.invalidateQueries({
         queryKey: ["books", "writersOfBook", "activeReaders"],
       });
+      // queryClient.invalidateQueries(["books"]);
+      // queryClient.invalidateQueries(["writersOfBook", book.writerId]);
+      // queryClient.invalidateQueries(["activeReaders", book.writerId]);
     },
   });
 };

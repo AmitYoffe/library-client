@@ -27,7 +27,7 @@ export const FormFields = ({ errors, register }: FormFieldsProps) => {
       <WriterSelectionDropdown
         register={register}
         errors={errors}
-        initialWriterId={0}
+        initialWriterId={"0"}
       />
       <StyledTextField
         {...register("count")}

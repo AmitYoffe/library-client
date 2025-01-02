@@ -18,10 +18,10 @@ export const BorrowBookDialog = ({ bookId }: BorrowBookDialogProps) => {
 
   const { handleSubmit, register } = useForm<{ userId: number }>();
 
-  const addBorrowMutation = useBorrowBook();
+  const { mutate } = useBorrowBook();
 
   const onSubmit = (data: { userId: number }) => {
-    addBorrowMutation.mutate(
+    mutate(
       { userId: data.userId, bookId },
       {
         onSuccess: () => {

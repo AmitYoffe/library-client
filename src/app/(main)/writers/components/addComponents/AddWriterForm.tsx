@@ -28,10 +28,10 @@ export const AddWriterFormDialog = ({
     resolver: zodResolver(writerSchema),
   });
 
-  const addWriterMutation = useAddWriter();
+  const { mutate } = useAddWriter();
 
   const onSubmit = (data: WriterFormFieldsType) => {
-    addWriterMutation.mutate(data, {
+    mutate(data, {
       onSuccess: () => {
         handleClose();
       },

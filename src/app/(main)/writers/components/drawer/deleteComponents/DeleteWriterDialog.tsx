@@ -18,12 +18,12 @@ export const DeleteWriterDialog = ({ writer }: DeleteWriterProps) => {
     setOpen(false);
   };
 
-  const deleteMutation = useDeleteWriter(writer.id);
+  const { mutate } = useDeleteWriter(writer.id);
 
   const handleClickAccept = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
 
-    deleteMutation.mutate(undefined, {
+    mutate(undefined, {
       onSuccess: () => {
         setOpen(false);
       },

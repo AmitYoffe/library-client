@@ -28,10 +28,10 @@ export const TerminateBorrowDialog = ({
 
   const { handleSubmit } = useForm<{ bookId: number }>();
 
-  const updateBorrowMutation = useReturnBook();
+  const { mutate } = useReturnBook();
 
   const onSubmit = () => {
-    updateBorrowMutation.mutate(
+    mutate(
       { bookId: book.id, userId: borrower.id },
       {
         onSuccess: () => {

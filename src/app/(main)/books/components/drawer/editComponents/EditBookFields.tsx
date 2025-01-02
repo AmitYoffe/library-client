@@ -20,7 +20,7 @@ export const EditBookFields = ({
       <WriterSelectionDropdown
         register={register}
         errors={errors}
-        initialWriterId={book.writerId}
+        initialWriterId={book.writerId.toString()}
       />
       <StyledTextField
         {...register("count")}

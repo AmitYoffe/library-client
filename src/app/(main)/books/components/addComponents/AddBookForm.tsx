@@ -28,10 +28,10 @@ export const AddBookFormDialog = ({
     resolver: zodResolver(bookSchema),
   });
 
-  const addBookMutation = useAddBook();
+  const { mutate } = useAddBook();
 
   const onSubmit = (data: BookFormFields) => {
-    addBookMutation.mutate(data, {
+    mutate(data, {
       onSuccess: () => {
         handleClose();
       },
