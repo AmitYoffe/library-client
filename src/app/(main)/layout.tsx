@@ -1,5 +1,4 @@
 import { SideBar } from "@/components/layout";
-import { AddItemFab } from "./common/components/dialogs/addItem/AddItemFab";
 
 export default function MainLayout({
   children,
@@ -9,7 +8,6 @@ export default function MainLayout({
   return (
     <>
       <SideBar />
-      <AddItemFab />
       {children}
     </>
   );

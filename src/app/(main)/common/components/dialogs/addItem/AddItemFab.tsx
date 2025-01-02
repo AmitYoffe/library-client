@@ -1,35 +1,22 @@
 "use client";
-import { AddBookFormDialog } from "@/app/(main)/books/components/addComponents/AddBookForm";
-import { AddWriterFormDialog } from "@/app/(main)/writers/components/addComponents/AddWriterForm";
 import AddIcon from "@mui/icons-material/Add";
-import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { JSX, SetStateAction, useState } from "react";
 import { StyledFab } from "../../styled";
 
-export const AddItemFab = () => {
-  const [open, setOpen] = useState(false);
+type AddItemFabProps = {
+  addDialog: JSX.Element;
+  handleOpen: (value: SetStateAction<boolean>) => void;
+};
 
-  const pathname = usePathname();
-  const isWritersPage = pathname === "/writers";
-  // make this more generic not binary, or just split the Fab
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
+export const AddItemFab = ({ addDialog, handleOpen }: AddItemFabProps) => {
 
-  const handleClose = () => {
-    setOpen(false);
-  };
-
+  // clicking the fab doesn open it... :(
   return (
     <>
-      <StyledFab onClick={handleClickOpen}>
+      <StyledFab onClick={() => handleOpen}>
         <AddIcon />
       </StyledFab>
-      {isWritersPage ? (
-        <AddWriterFormDialog handleClose={handleClose} open={open} />
-      ) : (
-        <AddBookFormDialog handleClose={handleClose} open={open} />
-      )}
+      {addDialog}
     </>
   );
 };
