@@ -7,7 +7,6 @@ export const StyledSelect = styled(TextField)(({ theme }) => ({
     left: "inherit !important",
     right: "1.75rem !important",
     fontSize: "small",
-    backgroundColor: theme.palette.primary.light,
   },
 }));
 

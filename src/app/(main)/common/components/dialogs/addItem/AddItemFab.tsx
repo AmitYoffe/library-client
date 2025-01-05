@@ -1,19 +1,17 @@
 "use client";
 import AddIcon from "@mui/icons-material/Add";
-import { JSX, SetStateAction, useState } from "react";
+import { JSX } from "react";
 import { StyledFab } from "../../styled";
 
 type AddItemFabProps = {
   addDialog: JSX.Element;
-  handleOpen: (value: SetStateAction<boolean>) => void;
+  handleOpen: () => void;
 };
 
 export const AddItemFab = ({ addDialog, handleOpen }: AddItemFabProps) => {
-
-  // clicking the fab doesn open it... :(
   return (
     <>
-      <StyledFab onClick={() => handleOpen}>
+      <StyledFab onClick={handleOpen}>
         <AddIcon />
       </StyledFab>
       {addDialog}
