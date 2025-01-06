@@ -20,12 +20,6 @@ export const WriterSelectionDropdown = ({
   const { data } = useGetAllWriters();
   const writers: Writer[] = data?.data || [];
 
-  // const isValidInitialWriterId =
-  //   writers?.length > 0 &&
-  //   writers.some((writer) => writer.id.toString() === initialWriterId);
-  // const defaultValue = isValidInitialWriterId ? initialWriterId : "";
-
-  // const [selectedWriter, setSelectedWriter] = useState(defaultValue);
   const [selectedWriter, setSelectedWriter] = useState(initialWriterId);
 
   const handleWriterChange = (

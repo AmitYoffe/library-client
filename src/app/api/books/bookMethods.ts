@@ -24,7 +24,6 @@ export const useGetBooksByWriter = (writerId: number) =>
 export const useAddBook = () => {
   return useMutation({
     mutationFn: (book: BookDto) => httpClient.post(Server_Book_API, book),
-    // queryKey: ["books"],
     mutationKey: ["books"],
 
     onSuccess: () => {

@@ -16,7 +16,6 @@ export const FormFields = ({ errors, register }: FormFieldsProps) => {
         error={!!errors.title}
         helperText={errors.title?.message}
         autoFocus
-        required
         margin="dense"
         id="title"
         name="title"
@@ -33,7 +32,6 @@ export const FormFields = ({ errors, register }: FormFieldsProps) => {
         {...register("count")}
         error={!!errors.count}
         helperText={errors.count?.message}
-        required
         margin="dense"
         id="count"
         name="count"

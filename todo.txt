@@ -29,3 +29,6 @@ Sometimes they do change the UI, most of the time they don't, the change is inco
 I also noticed that changing between tabs always refreshes the UI as i want it, is there a way to implement it in my app's logic?
 So in conclusion, the data is fetched successfuly in all the different fecthes i make, but the UI sometimes uses the cached data,
 and does not reupdate the UI even though a successful new stream of data came in.
+
+Fix Please fill out this field, make zod error instead
++ fix backgroudn spread error

@@ -88,6 +88,11 @@ export const StyledTextField = styled(TextField)(({ theme }) => ({
     right: "1.75rem !important",
     fontSize: "small",
   },
+  "& > p": {
+    backgroundColor: theme.palette.primary.light,
+    textAlign: "right",
+    margin: 0,
+  },
 }));
 
 export const StyledFormButtonBox = styled(Box)(() => ({
